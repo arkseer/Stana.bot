@@ -12,13 +12,12 @@ const functions = fs.readdirSync('./functions').filter(file => file.endsWith('.j
 const cmdFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
-(async () => {
-    //client.login(process.env.IMIHR_TOKEN);
-    
+(async () => {    
     for (const file of functions) {
         require(`./functions/${file}`)(client);
     }
     client.handleEvents(eventFiles, '../events');
     client.handleCommands(cmdFiles, '../commands');
-    client.login('NzE5MDg0MTYwOTIwMzIyMDU4.XtyRTw.VSDz7yKzxtqbgy571svz-SbAmVA');
 })();
+
+client.login(process.env.IMIHR_TOKEN);
