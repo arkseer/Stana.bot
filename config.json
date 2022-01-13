@@ -1,0 +1,122 @@
+{
+    "token": "NTc0NjU3ODE3MzcwMjk2MzMw.XM8lzA.ogH9quW5Us4JlSNsg9f8kpHVHrY",
+    "prefix": "!r",
+    
+    "status": [
+        "!imihr help",
+        "!imihr hotw",
+        "!imihr socials",
+        "!imihr partners"
+    ],
+
+    "commands": [
+        "!imihr hotw",
+        "!imihr socials",
+        "!imihr partners",
+        "!imihr about"
+    ],
+
+    "commands_description": [
+        "   — Sends a private message with details about 'highlight of the week'\n",
+        "   — Sends a private message with all social media handles\n",
+        "   — Sends a private message with details about partners\n",
+        "   — Sends a private message with details about Imihr\n"
+    ],
+
+    "platforms": {
+        "divider"   : "892119077181599796",
+
+        "steam"     : "819493840230023189",
+        "stadia"    : "819493892520542228",
+        "epic"      : "930018040161140736",
+        "psn"       : "819493938343575573",
+        "xbox"      : "819493982986960917"
+    },
+
+    "games": {
+        "divider"   : "892113569389375528",
+
+        "d2"        : "891861359288021062",
+        "r6"        : "891748607223529503",
+        "apex"      : "891748714874535996",
+        "rdr2"      : "891748880956403772",
+        "gta"       : "891748996345896961",
+        "cod"       : "891749101866201089",
+        "minecraft" : "891749209231999007",
+        "ff14"      : "891749295244582912",
+        "newworld"  : "891749404980150353",
+        "amongus"   : "891749499985342504",
+        "solo"      : "891801609011625994",
+        "outriders" : "930085522242687006"
+    },
+
+    "genders": {
+        "divider"   : "930198998281781359",
+        
+        "male"      : "930192485098074183",
+        "female"    : "930192630128722001"
+    },
+
+    "core_roles": {
+        "founder"   : "819489901224656906",
+        "admin"     : "819492241319657512",
+        "c_members" : "819494311062011954"
+    },
+
+    "activities": {
+        "crucible"      : "Crucible",
+        "trials"        : "Trials",
+        "gambit"        : "Gambit",
+        "raids"         : "Raids",
+        "dungeons"      : "Dungeons",
+        "strikes"       : "Strikes"
+    },
+
+    "d2_classes": {
+        "divider"       : "892118768686358538",
+        
+        "hunters"       : "819493199113748481",
+        "titans"        : "819493119971819551",
+        "warlocks"      : "819493034445897778"
+    },
+
+    "solo_classes": {
+        "divider"       : "892118768686358538",
+
+        "berserker"     : "931102400905879602",
+        "spearmaster"   : "931102673112023080",
+        "reaper"        : "931102811414994964",
+        "summoner"      : "931102981485654036",
+        "spellsword"    : "931103083432382536",
+        "bard"          : "931103194812129361"
+    },
+
+    "bungie_links": {
+        "short"         : "bung.ie",
+        "long"          : "bungie.net"
+    },
+
+    "platforms_message_id"      : "822519666076680202",
+    "activities_message_id"     : "822519703855431690",
+    "classes_message_id"        : "822519742396235816",
+    "coreroles_message_id"      : "822519787048665119",
+
+    "owner"     : "263690724963254273",
+    "bot_imihr"       : "719084160920322058",
+    "bot"  : "574657817370296330",
+    "guild"     : "518047172311121921",
+
+    "partners_channel_id"       : "819830082234875934",
+    "socials_channel_id"        : "819830082234875934",
+    "hotw_channel_id"           : "819830082234875934",
+    "twab_channel_id"           : "819830082234875934",
+    "weeklyreset_channel_id"    : "819830082234875934",
+    "roles_channel_id"          : "819500265840967691",
+
+    "urls": {
+        "twitch"        : "https://twitch.tv/roguesentinels",
+        "twitter"       : "https://twitter.com/roguesentinels",
+        "instagram"     : "https://instagram.com/roguesentinels",
+        "tiktok"        : "https://tiktok.com/@roguesentinels"
+    }
+}

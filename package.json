@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@discordjs/builders": "^0.11.0",
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "@discordjs/voice": "^0.7.5",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.5.1"
+  },
+  "name": "imihr",
+  "version": "3.0.0",
+  "description": "Enochian Gods personal butler",
+  "main": "imihr.js",
+  "scripts": {
+    "test": "ping"
+  },
+  "keywords": [
+    "imihr",
+    "enochian",
+    "gods",
+    "butler"
+  ],
+  "author": "Sasha Ivanov",
+  "license": "ISC"
+}
