@@ -16,8 +16,7 @@ const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'
     for (const file of functions) {
         require(`./functions/${file}`)(client);
     }
-    client.handleEvents(eventFiles, '../events');
-    client.handleCommands(cmdFiles, '../commands');
+    await client.handleEvents(eventFiles, '../events');
+    await client.handleCommands(cmdFiles, '../commands');
+    await client.login(process.env.IMIHR_TOKEN);
 })();
-
-client.login(process.env.IMIHR_TOKEN);
