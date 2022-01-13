@@ -13,10 +13,11 @@ const cmdFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
 (async () => {
+    client.login(process.env.IMIHR_TOKEN);
+    
     for (const file of functions) {
         require(`./functions/${file}`)(client);
     }
     client.handleEvents(eventFiles, '../events');
     client.handleCommands(cmdFiles, '../commands');
-    client.login(process.env.IMIHR_TOKEN);
 })();
