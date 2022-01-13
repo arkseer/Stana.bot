@@ -14,7 +14,7 @@ module.exports = (client) => {
             client.cmdArray.push(cmd.data.toJSON());
         }
 
-        const rest = new REST({ version: '9' }).setToken(token);
+        const rest = new REST({ version: '9' }).setToken(process.env.IMIHR_TOKEN);
 
         (async () => {
             try {
