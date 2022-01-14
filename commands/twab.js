@@ -16,7 +16,7 @@ module.exports = {
         let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles['admin']);
 
         let getLink = interaction.options.getString('twab_link');
-        let twabChannel = client.channels.fetch(dev_channel_id);
+        let twabChannel = interaction.guild.channels.fetch(dev_channel_id);
 
         const wait = require('util').promisify(setTimeout);
 
