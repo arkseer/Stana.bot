@@ -8,15 +8,15 @@ module.exports = {
         .setDescription('Posts the weekly twab in the specific text channel')
         .setDefaultPermission(true)
         .addStringOption(option => option
-                .setName('twab_link')
-                .setDescription('Requires bung.ie/<link> or bungie.net/<link>')
-                .setRequired(true)),
+            .setName('twab_link')
+            .setDescription('Requires bung.ie/<link> or bungie.net/<link>')
+            .setRequired(true)),
     async execute(interaction, client) {
         let getFounder = interaction.member.roles.cache.some(role => role.id === core_roles['founder']);
         let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles['admin']);
 
         let getLink = interaction.options.getString('twab_link');
-        //let twabChannel = interaction.guild.channels.fetch(dev_channel_id);
+        let postLink;
 
         const wait = require('util').promisify(setTimeout);
 
@@ -36,28 +36,29 @@ module.exports = {
             if (getLink.includes(bungie_links['short']) || getLink.includes(bungie_links['long'])) {
                 // Check if link starts with https://www.
                 if (getLink.startsWith(http_www['http_www'])) {
-                    await interaction.reply({ content: `twab: ${getLink} [1]`, ephemeral: true, components: [] });
-                    await wait(1000);
-                    await interaction.channel.send({ content: `${getLink}`, ephemeral: false, components: [] });
+                    postLink = getLink;
                 }
                 // Check if link starts with https://
                 else if (getLink.startsWith(http_www['http'])) {
-                    await interaction.reply({ content: `twab: ${getLink} [2]`, ephemeral: true, components: [] });
+                    postLink = getLink;
                 }
                 // Check if link starts with www.
                 else if (getLink.startsWith(http_www['www'])) {
-                    await interaction.reply({ content: `twab: ${getLink} [3]`, ephemeral: true, components: [] });
+                    postLink = getLink.replace(http_www['www'], http_www['http_www']);
                 }
                 // Else run: if link does not start with either http_www, http or www
                 else {
-                    await interaction.reply({ content: `twab: ${getLink} [4]`, ephemeral: true, components: [] });
+                    postLink = http_www['http_www'].concat(getLink);
                 }
+                await interaction.reply({ content: `twab: ${getLink} [1]`, ephemeral: true, components: [] });
+                await wait(1000);
+                await interaction.channel.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] });
             }
             // Else run: if link does not include valid Bungie links
             else {
                 await interaction.reply({ content: `I'm terribly sorry${getGender}. But you need to provide me with a valid link to the twab.`, ephemeral: true, components: [] });
             }
-            
+
         }
         // Else run: if user does not have permissions to use the command
         else {
