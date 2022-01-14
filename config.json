@@ -93,6 +93,12 @@
         "long"          : "bungie.net"
     },
 
+    "http_www": {
+        "http_www"      : "https://www.",
+        "http"          : "https://",
+        "www"           : "www."
+    },
+
     "platforms_message_id"      : "822519666076680202",
     "activities_message_id"     : "822519703855431690",
     "classes_message_id"        : "822519742396235816",
