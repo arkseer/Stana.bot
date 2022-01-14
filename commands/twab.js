@@ -8,12 +8,14 @@ module.exports = {
         .setDescription('Posts the weekly twab in the specific text channel')
         .setDefaultPermission(true)
         .addStringOption(option => option
-                .setName('link')
+                .setName('twab_link')
                 .setDescription('Requires bung.ie/<link> or bungie.net/<link>')
                 .setRequired(true)),
     async execute(interaction, client) {
         let getFounder = interaction.member.roles.cache.some(role => role.id === core_roles['founder']);
         let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles['admin']);
+
+        let getLink = interaction.options.getString('twab_link');
 
         let getGender;
         if (interaction.member.roles.cache.some(role => role.id === genders['male'])) {
@@ -25,9 +27,9 @@ module.exports = {
         }
 
         if (getAdmin || getFounder) {
-            await interaction.reply({ content: `twab`, ephemeral: true, components: [] });
+            await interaction.reply({ content: `twab: ${getLink}`, ephemeral: true, components: [] });
         } else {
-            await interaction.reply({ content: `I'm sorry${getGender}! But you don't have permissions to use this command.`, ephemeral: true, components: [] });
+            await interaction.reply({ content: `I'm terribly sorry${getGender}! But you don't have permissions to use this command.`, ephemeral: true, components: [] });
         }
     }
 }
