@@ -37,8 +37,6 @@ module.exports = {
                 // Check if link starts with https://www.
                 if (getLink.startsWith(http_www['http_www'])) {
                     await interaction.reply({ content: `twab: ${getLink} [1]`, ephemeral: true, components: [] });
-                    await wait(2000);
-                    await interaction.deleteReply();
                     await wait(1000);
                     await interaction.channel.send({ content: `${getLink}`, ephemeral: false, components: [] });
                 }
