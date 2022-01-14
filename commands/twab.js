@@ -16,7 +16,7 @@ module.exports = {
         let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles['admin']);
 
         let getLink = interaction.options.getString('twab_link');
-        let twabChannel = interaction.guild.channels.fetch(dev_channel_id);
+        //let twabChannel = interaction.guild.channels.fetch(dev_channel_id);
 
         const wait = require('util').promisify(setTimeout);
 
@@ -38,7 +38,9 @@ module.exports = {
                 if (getLink.startsWith(http_www['http_www'])) {
                     await interaction.reply({ content: `twab: ${getLink} [1]`, ephemeral: true, components: [] });
                     await wait(2000);
-                    await twabChannel.channel.send({ content: `${getLink}`, ephemeral: false, components: [] });
+                    await interaction.deleteReply();
+                    await wait(1000);
+                    await interaction.channel.send({ content: `${getLink}`, ephemeral: false, components: [] });
                 }
                 // Check if link starts with https://
                 else if (getLink.startsWith(http_www['http'])) {
