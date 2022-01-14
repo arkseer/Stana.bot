@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
-const { guild, core_roles, genders, bungie_links, http_www } = require('../config.json');
+const { guild, core_roles, genders, bungie_links, http_www, twab_channel_id, dev_channel_id } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -16,6 +16,9 @@ module.exports = {
         let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles['admin']);
 
         let getLink = interaction.options.getString('twab_link');
+        let twabChannel = client.channels.cache.get(dev_channel_id);
+
+        const wait = require('util').promisify(setTimeout);
 
         let getGender;
         // Check for gender roles to address the user properly
@@ -34,6 +37,8 @@ module.exports = {
                 // Check if link starts with https://www.
                 if (getLink.startsWith(http_www['http_www'])) {
                     await interaction.reply({ content: `twab: ${getLink} [1]`, ephemeral: true, components: [] });
+                    await wait(2000);
+                    await twabChannel.send({ content: `${getLink}`, components: [] });
                 }
                 // Check if link starts with https://
                 else if (getLink.startsWith(http_www['http'])) {
