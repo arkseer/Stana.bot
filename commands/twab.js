@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
-const { guild, core_roles, genders, bungie_links } = require('../config.json');
+const { guild, core_roles, genders, bungie_links, http_www } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -18,6 +18,7 @@ module.exports = {
         let getLink = interaction.options.getString('twab_link');
 
         let getGender;
+        // Check for gender roles to address the user properly
         if (interaction.member.roles.cache.some(role => role.id === genders['male'])) {
             getGender = ", sir";
         } else if (interaction.member.roles.cache.some(role => role.id === genders['female'])) {
@@ -26,14 +27,35 @@ module.exports = {
             getGender = "";
         }
 
+        // Check for permissions to allow the user to run the command
         if (getAdmin || getFounder) {
+            // Check if link includes valid Bungie links
             if (getLink.includes(bungie_links['short']) || getLink.includes(bungie_links['long'])) {
-                await interaction.reply({ content: `twab: ${getLink}`, ephemeral: true, components: [] });
-            } else {
+                // Check if link starts with https://www.
+                if (getLink.startsWith(http_www['http_www'])) {
+                    await interaction.reply({ content: `twab: ${getLink} [1]`, ephemeral: true, components: [] });
+                }
+                // Check if link starts with https://
+                else if (getLink.startsWith(http_www['http'])) {
+                    await interaction.reply({ content: `twab: ${getLink} [2]`, ephemeral: true, components: [] });
+                }
+                // Check if link starts with www.
+                else if (getLink.startsWith(http_www['www'])) {
+                    await interaction.reply({ content: `twab: ${getLink} [3]`, ephemeral: true, components: [] });
+                }
+                // Else run: if link does not start with either http_www, http or www
+                else {
+                    await interaction.reply({ content: `twab: ${getLink} [4]`, ephemeral: true, components: [] });
+                }
+            }
+            // Else run: if link does not include valid Bungie links
+            else {
                 await interaction.reply({ content: `I'm terribly sorry${getGender}. But you need to provide me with a valid link to the twab.`, ephemeral: true, components: [] });
             }
             
-        } else {
+        }
+        // Else run: if user does not have permissions to use the command
+        else {
             await interaction.reply({ content: `I'm terribly sorry${getGender}! But you don't have permissions to use this command.`, ephemeral: true, components: [] });
         }
     }
