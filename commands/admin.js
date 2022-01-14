@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('roles')
         .setDescription('Send roles messages (Restricted to owner)')
-        .setDefaultPermission(true),
+        .setDefaultPermission(false),
 
     async execute(interaction, client) {
         const getStarted = new MessageActionRow()

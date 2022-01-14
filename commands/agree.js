@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('agreement')
         .setDescription('Send the user agreement message (Restricted to owner)')
-        .setDefaultPermission(true),
+        .setDefaultPermission(false),
 
     async execute(interaction, client) {
         const agreementBtn = new MessageActionRow()
