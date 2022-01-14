@@ -12,11 +12,11 @@ module.exports = {
                 .setDescription('Requires bung.ie/<link> or bungie.net/<link>')
                 .setRequired(true)),
     async execute(interaction, client) {
-        let userId = interaction.user.id;
-        let getGuild = await client.guilds.cache.get(guild);
-        let getMember = await getGuild.members.fetch(userId);
+        //let userId = interaction.user.id;
+        //let getGuild = await client.guilds.cache.get(guild);
+        //let getMember = await getGuild.members.fetch(userId);
 
-        let getAdmin = getMember.roles.cache.some(role => role.id === core_roles['founder']);
+        let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles['founder']);
 
         if (getAdmin) {
             await interaction.reply({ content: `twab`, ephemeral: true, components: [] });
