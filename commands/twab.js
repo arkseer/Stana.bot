@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
-const { guild, core_roles } = require('../config.json');
+const { guild, core_roles, genders } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,16 +12,22 @@ module.exports = {
                 .setDescription('Requires bung.ie/<link> or bungie.net/<link>')
                 .setRequired(true)),
     async execute(interaction, client) {
-        //let userId = interaction.user.id;
-        //let getGuild = await client.guilds.cache.get(guild);
-        //let getMember = await getGuild.members.fetch(userId);
+        let getFounder = interaction.member.roles.cache.some(role => role.id === core_roles['founder']);
+        let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles['admin']);
 
-        let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles['founder']);
+        let getGender;
+        if (interaction.member.roles.cache.some(role => role.id === genders['male'])) {
+            getGender = ", sir";
+        } else if (interaction.member.roles.cache.some(role => role.id === genders['female'])) {
+            getGender = ", ma'am";
+        } else {
+            getGender = "";
+        }
 
-        if (getAdmin) {
+        if (getAdmin || getFounder) {
             await interaction.reply({ content: `twab`, ephemeral: true, components: [] });
         } else {
-            await interaction.reply({ content: `don't have permissions`, ephemeral: true, components: [] });
+            await interaction.reply({ content: `I'm sorry${getGender}! But you don't have permissions to use this command.`, ephemeral: true, components: [] });
         }
     }
 }
