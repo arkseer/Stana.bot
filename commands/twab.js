@@ -50,7 +50,7 @@ module.exports = {
                 else {
                     postLink = http_www['http_www'].concat(getLink);
                 }
-                await interaction.reply({ content: `twab: ${getLink} [1]`, ephemeral: true, components: [] });
+                await interaction.reply({ content: `Twab posted.\nThank you${getGender}!\n\n*You can safely dismiss this message.*`, ephemeral: true, components: [] });
                 await wait(1000);
                 await interaction.channel.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] });
             }
