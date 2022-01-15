@@ -9,5 +9,8 @@ module.exports = {
 
     async execute(interaction) {
         await interaction.reply({ content: `Hello there!`, ephemeral: true, components: [] });
+
+        // Send DM to user
+        await interaction.user.send({ content: `Hello there!`, components: [] });
     }
 }
