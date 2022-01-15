@@ -13,7 +13,7 @@ module.exports = {
 
         const rollEmbed = new MessageEmbed()
             .setColor('#00cc96')
-            .setTitle(`${getUser} rolls **${rng}**`);
+            .setDescription(`${getUser} rolls **${rng}**`);
 
         await interaction.reply({ embeds: [rollEmbed], components: [] });
     }
