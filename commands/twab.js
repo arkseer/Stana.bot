@@ -5,7 +5,7 @@ const { guild, core_roles, genders, bungie_links, http_www, twab_channel_id, dev
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('twab')
-        .setDescription('Posts the weekly twab in the specific text channel')
+        .setDescription('Posts the weekly twab in the specific text channel (Restricted to admins)')
         .setDefaultPermission(true)
         .addStringOption(option => option
             .setName('twab_link')
