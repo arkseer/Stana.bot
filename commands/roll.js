@@ -1,13 +1,18 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
+const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('roll')
-        .setDescription('Rolls the dice and returns a random number from 1-100')
+        .setDescription('Roll the dice. Returns a random number from 1-100')
         .setDefaultPermission(true),
 
     async execute(interaction) {
-        await interaction.reply({ content: `roll the dice`, ephemeral: false, components: [] });
+        let rng = Math.floor(Math.random() * 100);
+        const rollEmbed = new MessageEmbed()
+            .setColor('#00cc96')
+            .setDescription(`Ark rolls **${rng}**`);
+
+        await interaction.reply({ content: `roll the dice`, ephemeral: false, embeds: [rollEmbed], components: [] });
     }
 }
