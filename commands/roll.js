@@ -9,10 +9,12 @@ module.exports = {
 
     async execute(interaction) {
         let rng = Math.floor(Math.random() * 100);
+        let getUser = interaction.user.username;
+
         const rollEmbed = new MessageEmbed()
             .setColor('#00cc96')
-            .setDescription(`Ark rolls **${rng}**`);
+            .setTitle(`${getUser} rolls **${rng}**`);
 
-        await interaction.reply({ content: `roll the dice`, ephemeral: false, embeds: [rollEmbed], components: [] });
+        await interaction.reply({ embeds: [rollEmbed], components: [] });
     }
 }
