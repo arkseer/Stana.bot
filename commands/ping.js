@@ -49,5 +49,6 @@ module.exports = {
                     ]),
             );
         await interaction.reply({ content: 'Pong', components: [row] });
+        console.log(interaction);
     },
 };
