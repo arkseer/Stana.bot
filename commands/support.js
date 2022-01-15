@@ -21,6 +21,6 @@ module.exports = {
         await interaction.reply({ content: `Hello there${getGender}! I've sent you a private message with further details on this.`, ephemeral: true, components: [] });
 
         // Send DM to user
-        await interaction.user.send({ content: `Hello there!`, components: [] });
+        await interaction.user.send({ content: `Hello${getGender}! At this moment the best way to support our community is through boosts.\nKeep an eye on future updates if you wish to show your support through different avenues.\n\nThank you!`, components: [] });
     }
 }
