@@ -104,21 +104,23 @@ module.exports = {
         timerD2 = makeTimer(timerD2);
 
         const getGame = interaction.options.getString('game');
-        let getTimer, getGameTitle;
+        let getTimer, getGameTitle, getColor;
         
         // Check game category
         if (getGame === 'weekly_reset_d2') {
             getTimer = timerD2;
             getGameTitle = "Destiny 2";
+            getColor = "83fae1";
         } else if (getGame === 'weekly_reset_solo') {
             getTimer = timerSOLO;
             getGameTitle = "Swords of Legends Online";
+            getColor = "4d4fe0";
         }
 
         const countdownEmbed = new MessageEmbed()
-            .setColor('593695')
+            .setColor(`${getColor}`)
             .setDescription(`Next weekly reset in **${getGameTitle}** is in:\n${getTimer}`);
 
-        await interaction.reply({ embeds: [countdownEmbed], ephemeral: true, components: [] });
+        await interaction.reply({ embeds: [countdownEmbed], ephemeral: false, components: [] });
     }
 }
