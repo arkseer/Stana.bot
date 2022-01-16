@@ -1,9 +1,9 @@
 {
     "status": [
-        "!imihr help",
-        "!imihr hotw",
-        "!imihr socials",
-        "!imihr partners"
+        "/help",
+        "/roll",
+        "/weekly reset",
+        "/support"
     ],
 
     "commands": [
