@@ -63,7 +63,7 @@ module.exports = {
         const resetDayD2_month = month[resetDayD2.getMonth()];
         const resetDayD2_year = resetDayD2.getFullYear();
 
-        let timerD2 = `${_day} ${_month} ${_year} 18:00:00 GMT+00:00`;
+        let timerD2 = `${resetDayD2_day} ${resetDayD2_month} ${resetDayD2_year} 18:00:00 GMT+00:00`;
         timerD2 = makeTimer(timerD2);
 
         const countdownD2 = new MessageEmbed()
