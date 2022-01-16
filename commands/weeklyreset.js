@@ -83,9 +83,19 @@ module.exports = {
             return today;
         }
 
+        // Get Swords of Legends Online reset countdown
+        // Get next Thursday
+        const resetSOLO = nextDate(4);
+        const resetSOLO_day = resetSOLO.getDate();
+        const resetSOLO_month = month[resetSOLO.getMonth()];
+        const resetSOLO_year = resetSOLO.getFullYear();
+
+        let timerSOLO = `${resetSOLO_day} ${resetSOLO_month} ${resetSOLO_year} 05:00:00 GMT+00:00`;
+        timerSOLO = makeTimer(timerSOLO);
+
+        // Get Destiny 2 reset countdown
         // Get next Tuesday
         const resetD2 = nextDate(2);
-
         const resetD2_day = resetD2.getDate();
         const resetD2_month = month[resetD2.getMonth()];
         const resetD2_year = resetD2.getFullYear();
@@ -93,10 +103,22 @@ module.exports = {
         let timerD2 = `${resetD2_day} ${resetD2_month} ${resetD2_year} 18:00:00 GMT+00:00`;
         timerD2 = makeTimer(timerD2);
 
-        const countdownD2 = new MessageEmbed()
-            .setColor('00cc96')
-            .setDescription(`Next weekly reset in **Destiny 2** is in:\n${timerD2}`);
+        const getGame = interaction.options.getString('game');
+        let getTimer, getGameTitle;
+        
+        // Check game category
+        if (getGame === 'weekly_reset_d2') {
+            getTimer = timerD2;
+            getGameTitle = "Destiny 2";
+        } else if (getGame === 'weekly_reset_solo') {
+            getTimer = timerSOLO;
+            getGameTitle = "Swords of Legends Online";
+        }
 
-        await interaction.reply({ embeds: [countdownD2], ephemeral: true, components: [] });
+        const countdownEmbed = new MessageEmbed()
+            .setColor('593695')
+            .setDescription(`Next weekly reset in **${getGameTitle}** is in:\n${getTimer}`);
+
+        await interaction.reply({ embeds: [countdownEmbed], ephemeral: true, components: [] });
     }
 }
