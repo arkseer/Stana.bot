@@ -57,13 +57,13 @@ module.exports = {
         }
 
         // Get next Tuesday
-        const resetDayD2 = nextDate(2);
+        const resetD2 = nextDate(2);
 
-        const resetDayD2_day = resetDayD2.getDate();
-        const resetDayD2_month = month[resetDayD2.getMonth()];
-        const resetDayD2_year = resetDayD2.getFullYear();
+        const resetD2_day = resetD2.getDate();
+        const resetD2_month = month[resetD2.getMonth()];
+        const resetD2_year = resetD2.getFullYear();
 
-        let timerD2 = `${resetDayD2_day} ${resetDayD2_month} ${resetDayD2_year} 18:00:00 GMT+00:00`;
+        let timerD2 = `${resetD2_day} ${resetD2_month} ${resetD2_year} 18:00:00 GMT+00:00`;
         timerD2 = makeTimer(timerD2);
 
         const countdownD2 = new MessageEmbed()
