@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed } = require('discord.js');
-const { genders } = require('../config.json');
+const { genders, month } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -48,8 +48,24 @@ module.exports = {
                 return `${days}d:${hours}h:${minutes}m:${seconds}s`;
             }
         }
-        
-        let timerD2 = makeTimer('22 January 2022 10:00:00 GMT-08:00')
+
+        function nextDate(dayIndex) {
+            var today = new Date();
+            today.setDate(today.getDate() + (dayIndex - 1 - today.getDay() + 7) % 7 + 1);
+
+            return today;
+        }
+
+        // Get next Tuesday
+        const resetDayD2 = nextDate(2);
+
+        const resetDayD2_day = resetDayD2.getDate();
+        const resetDayD2_month = month[resetDayD2.getMonth()];
+        const resetDayD2_year = resetDayD2.getFullYear();
+
+        let timerD2 = `${_day} ${_month} ${_year} 18:00:00 GMT+00:00`;
+        timerD2 = makeTimer(timerD2);
+
         const countdownD2 = new MessageEmbed()
             .setColor('00cc96')
             .setDescription(`Next weekly reset is in **3 days**, **15 hours**, **40 minutes**.\n${timerD2}`);

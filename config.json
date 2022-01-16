@@ -20,6 +20,21 @@
         "   — Sends a private message with details about Imihr\n"
     ],
 
+    "month": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ],
+
     "platforms": {
         "divider"   : "892119077181599796",
 
