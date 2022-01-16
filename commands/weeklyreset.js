@@ -70,7 +70,7 @@ module.exports = {
             }
 
             if (days < 1) {
-                return `${hours} ${_hours}, ${minutes} ${_minutes}, ${seconds} ${_seconds}`;
+                return `**${hours}** ${_hours}, **${minutes}** ${_minutes}, **${seconds}** ${_seconds}`;
             } else {
                 return `**${days}** ${_days}, **${hours}** ${_hours}, **${minutes}** ${_minutes}, **${seconds}** ${_seconds}`;
             }
@@ -95,7 +95,7 @@ module.exports = {
 
         const countdownD2 = new MessageEmbed()
             .setColor('00cc96')
-            .setDescription(`Next weekly reset is in **3 days**, **15 hours**, **40 minutes**.\n${timerD2}`);
+            .setDescription(`Next weekly reset in **Destiny 2** is in:\n${timerD2}`);
 
         await interaction.reply({ embeds: [countdownD2], ephemeral: true, components: [] });
     }
