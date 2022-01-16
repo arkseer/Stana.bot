@@ -18,6 +18,10 @@ module.exports = {
                 .addChoice('Swords of Legends Online', 'weekly_reset_solo'))),
 
     async execute(interaction) {
-        await interaction.reply({ content: `weekly reset`, embeds: [], ephemeral: true, components: [] });
+        const countdownD2 = new MessageEmbed()
+            .setColor('00cc96')
+            .setDescription('Next weekly reset is in 3 days, 15 hours, 40 minutes.');
+
+        await interaction.reply({ embeds: [countdownD2], ephemeral: true, components: [] });
     }
 }
