@@ -42,10 +42,37 @@ module.exports = {
                 seconds = "0" + seconds;
             }
 
-            if (days < 1) {
-                return `${hours}h:${minutes}m:${seconds}s`;
+            var _days, _hours, _minutes, _seconds;
+
+            // Pluralise day if more than 1
+            if (days > 1) {
+                _days = "days";
             } else {
-                return `${days}d:${hours}h:${minutes}m:${seconds}s`;
+                _days = "day";
+            }
+            // Pluralise hour if more than 1
+            if (hours > 1) {
+                _hours = "hours";
+            } else {
+                _hours = "hour";
+            }
+            // Pluralise minute if more than 1
+            if (minutes > 1) {
+                _minutes = "minutes";
+            } else {
+                _minutes = "minute";
+            }
+            // Pluralise second if more than 1
+            if (seconds > 1) {
+                _seconds = "seconds";
+            } else {
+                _seconds = "second";
+            }
+
+            if (days < 1) {
+                return `${hours} ${_hours}, ${minutes} ${_minutes}, ${seconds} ${_seconds}`;
+            } else {
+                return `**${days}** ${_days}, **${hours}** ${_hours}, **${minutes}** ${_minutes}, **${seconds}** ${_seconds}`;
             }
         }
 
