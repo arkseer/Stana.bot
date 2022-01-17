@@ -20,6 +20,12 @@
         "   — Sends a private message with details about Imihr\n"
     ],
 
+    "help": [
+        "**/weekly reset <game>** — Send a message with the countdown until next weekly reset;\n",
+        "**/roll** — Roll a dice and return a random number from 1 to 100\n",
+        "**/support** — Send a private message with ways to support the community\n"
+    ],
+
     "month": [
         "January",
         "February",
