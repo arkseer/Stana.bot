@@ -15,6 +15,6 @@ module.exports = {
         for (let x in commands) {
             helpEmbed.addField(`**${commands[x]}**`, `${commands_description[x]}`, false);
         }
-        await interaction.reply({ embeds: [helpEmbed], components: [] });
+        await interaction.reply({ embeds: [helpEmbed], ephemeral: true, components: [] });
     }
 }
