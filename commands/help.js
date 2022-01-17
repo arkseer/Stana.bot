@@ -15,7 +15,6 @@ module.exports = {
         for (let x in commands) {
             helpEmbed.addField(`**${commands[x]}**`, `${commands_description[x]}`, false);
         }
-        await interaction.reply({ content: `I'm sorry, but this feature is still under construction.`, ephemeral: true, components: [] });
-        await interaction.channel.send({ embeds: [helpEmbed] });
+        await interaction.reply({ embeds: [helpEmbed], components: [] });
     }
 }
