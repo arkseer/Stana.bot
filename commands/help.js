@@ -13,5 +13,6 @@ module.exports = {
             .setColor('78282f')
             .setDescription(`${help[0]} ${help[1]} ${help[2]}`);
         await interaction.reply({ content: `I'm sorry, but this feature is still under construction.`, ephemeral: true, components: [] });
+        await interaction.channel.send({ embeds: [helpEmbed] });
     }
 }
