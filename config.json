@@ -7,23 +7,17 @@
     ],
 
     "commands": [
-        "!imihr hotw",
-        "!imihr socials",
-        "!imihr partners",
-        "!imihr about"
+        "/weekly reset <game>",
+        "/roll",
+        "/twab <link>",
+        "/support"
     ],
 
     "commands_description": [
-        "   — Sends a private message with details about 'highlight of the week'\n",
-        "   — Sends a private message with all social media handles\n",
-        "   — Sends a private message with details about partners\n",
-        "   — Sends a private message with details about Imihr\n"
-    ],
-
-    "help": [
-        "**/weekly reset <game>** — Send a message with the countdown until next weekly reset;\n",
-        "**/roll** — Roll a dice and return a random number from 1 to 100\n",
-        "**/support** — Send a private message with ways to support the community\n"
+        "   — Send a message with the countdown until next weekly reset\n",
+        "   — Roll a dice and return a random number from 1 to 100\n",
+        "   — Send a message with the twab link\n",
+        "   — Send a private message with ways to support the community\n"
     ],
 
     "month": [
