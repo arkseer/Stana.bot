@@ -56,6 +56,8 @@ module.exports = {
                 await interaction.reply({ content: `Twab posted.\nThank you${getGender}!\n\n*You can safely dismiss this message.*`, ephemeral: true, components: [] });
                 await wait(1000);
                 await interaction.channel.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] });
+                await wait(1000);
+                await getDevCh.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] });
             }
             // Else run: if link does not include valid Bungie links
             else {
