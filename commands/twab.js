@@ -18,8 +18,7 @@ module.exports = {
         let getLink = interaction.options.getString('twab_link');
         let postLink;
 
-        let getDevCh = interaction.client.channels.cache.get(dev_channel_id);
-        console.log(getDevCh);
+        let getTwabCh = interaction.client.channels.cache.get(twab_channel_id);
 
         const wait = require('util').promisify(setTimeout);
 
@@ -55,9 +54,7 @@ module.exports = {
                 }
                 await interaction.reply({ content: `Twab posted.\nThank you${getGender}!\n\n*You can safely dismiss this message.*`, ephemeral: true, components: [] });
                 await wait(1000);
-                await interaction.channel.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] });
-                await wait(1000);
-                await getDevCh.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] });
+                await getTwabCh.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] });
             }
             // Else run: if link does not include valid Bungie links
             else {
