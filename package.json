@@ -9,19 +9,18 @@
   "engines": {
     "node": "v16.13.0"
   },
-  "name": "imihr",
+  "name": "stana",
   "version": "3.0.0",
-  "description": "Enochian Gods personal butler",
-  "main": "imihr.js",
+  "description": "DMLC personal butler",
+  "main": "stana.js",
   "scripts": {
     "test": "ping"
   },
   "keywords": [
-    "imihr",
-    "enochian",
-    "gods",
+    "stana",
+    "dmlc",
     "butler"
   ],
-  "author": "Sasha Ivanov",
+  "author": "Alexander Ivanov",
   "license": "ISC"
 }
