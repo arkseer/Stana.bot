@@ -5,7 +5,7 @@ module.exports = {
     name: 'guildMemberAdd',
     async execute(member) {
         try {
-            let role = member.guild.roles.cache.find(role => role.id === core_roles['c_members']);
+            let role = member.guild.roles.cache.find(role => role.id === core_roles['n_members']);
 
             const welcomeMessage = `Hello there!\nI am **Imihr**, **Enochian Gods**' personal butler and I will be your guide today.\n\nOn behalf of our humble community hub I would like to extend you a warm welcome.\nWe are honored to have someone of your status joining us, and I do hope you enjoy your time here.\n\nFirst I would like to address you properly in the future; please be kind to choose one of the following for me.`;
             const genderChoice = new MessageActionRow()
