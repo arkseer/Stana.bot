@@ -1,1 +1,1 @@
-worker: node imihr.js
+worker: node stana.js
