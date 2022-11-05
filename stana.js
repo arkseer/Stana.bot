@@ -18,5 +18,5 @@ const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'
     }
     await client.handleEvents(eventFiles, '../events');
     await client.handleCommands(cmdFiles, '../commands');
-    await client.login(process.env.IMIHR_TOKEN);
+    await client.login(process.env.STANA_TOKEN);
 })();
