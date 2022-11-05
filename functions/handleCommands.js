@@ -14,7 +14,7 @@ module.exports = (client) => {
             client.cmdArray.push(cmd.data.toJSON());
         }
 
-        const rest = new REST({ version: '9' }).setToken(process.env.IMIHR_TOKEN);
+        const rest = new REST({ version: '9' }).setToken(process.env.STANA_TOKEN);
 
         (async () => {
             try {
