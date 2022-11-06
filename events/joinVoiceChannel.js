@@ -12,6 +12,13 @@ module.exports = {
         const oldChannel = oldState.channel;
         const newChannel = newState.channel;
         const joinChannel = "1038644009381408788";
+        const guildID = "1038155332721066107";
+
+        if(guild.id == guildID) {
+            console.log(`same guild`);
+        } else {
+            console.log(`not in same guild`);
+        }
 
         if(oldChannel !== newChannel && newChannel && newChannel.id === joinChannel) {
             const voiceChannel = await guild.channels.create(member.user.tag, {
