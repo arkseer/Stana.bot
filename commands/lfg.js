@@ -16,7 +16,6 @@ module.exports = {
             type: 'GUILD_VOICE',
             parent: parentCategory
          })
-            .then(console.log)
             .catch(console.error);
 
         await wait(1000);
