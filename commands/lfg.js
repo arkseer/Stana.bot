@@ -8,11 +8,13 @@ module.exports = {
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
+        const parentCategory = "1038643441002889346";
 
         interaction.reply({ content: `Voice channel created.`, ephemeral: true, components: [] });
         await wait(1000);
         interaction.guild.channels.create(`new-voice-channel`, { 
-            type: 'GUILD_VOICE'
+            type: 'GUILD_VOICE',
+            parent: parentCategory
          })
             .then(console.log)
             .catch(console.error);
