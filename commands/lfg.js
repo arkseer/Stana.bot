@@ -19,7 +19,8 @@ module.exports = {
             .catch(console.error);
 
         await wait(1000);
-        console.log(newChannel);
+        console.log(newChannel.id);
+        console.log(newChannel.guild.id);
         interaction.editReply({ content: `Your voice channel: <#${newChannel.id}>`, ephemeral: true, components: [] });
         //interaction.editReply({ content: `` })
     }
