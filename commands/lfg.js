@@ -20,12 +20,7 @@ module.exports = {
 
         await wait(1000);
         console.log(newChannel);
-        count(newChannel)
-         .then((id) => {
-            interaction.editReply({ content: `Your voice channel: <#${id}>`, ephemeral: true, components: [] });
-         })
-         .catch(console.error);
-        //interaction.editReply({ content: `Your voice channel: ${newChannel} <#${newChannel}>`, ephemeral: true, components: [] });
+        interaction.editReply({ content: `Your voice channel: ${newChannel} <#${newChannel}>`, ephemeral: true, components: [] });
         //interaction.editReply({ content: `` })
     }
 }
