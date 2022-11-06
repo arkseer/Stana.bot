@@ -11,7 +11,7 @@ const functions = fs.readdirSync('./functions').filter(file => file.endsWith('.j
 const cmdFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
-const voiceGenerator = new Collection();
+client.voiceGenerator = new Collection();
 
 (async () => {    
     for (const file of functions) {
