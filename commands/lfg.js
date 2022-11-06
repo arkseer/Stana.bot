@@ -12,11 +12,14 @@ module.exports = {
 
         interaction.reply({ content: `Voice channel created.`, ephemeral: true, components: [] });
         await wait(1000);
-        interaction.guild.channels.create(`new-voice-channel`, { 
+        const newChannel = interaction.guild.channels.create(`new-voice-channel`, { 
             type: 'GUILD_VOICE',
             parent: parentCategory
          })
             .then(console.log)
             .catch(console.error);
+        
+        await wait(500);
+        interaction.member.voice.setChannel(newChannel);
     }
 }
