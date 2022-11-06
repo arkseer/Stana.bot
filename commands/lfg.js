@@ -12,10 +12,7 @@ module.exports = {
         interaction.reply({ content: `Voice channel created.`, ephemeral: true, components: [] });
         await wait(1000);
         interaction.guild.channels.create(`new-voice-channel`, { 
-            type: 'GUILD_VOICE',
-            permissionOverwrites: [
-                { id: interaction.member.id, allow: [Permissions.FLAGS.CONNECT]},
-            ]
+            type: 'GUILD_VOICE'
          })
             .then(console.log)
             .catch(console.error);
