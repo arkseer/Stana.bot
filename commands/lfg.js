@@ -7,7 +7,16 @@ module.exports = {
         .setDescription('Create an LFG post for Valorant'),
         
     async execute(interaction, client) {
-        interaction.guild.channels.create(`new-voice-channel`, { reason: `cool new channel` })
+        const wait = require('util').promisify(setTimeout);
+
+        interaction.reply({ content: `Voice channel created.`, ephemeral: true, components: [] });
+        await wait(1000);
+        interaction.guild.channels.create(`new-voice-channel`, { 
+            type: 'GUILD_VOICE',
+            permissionOverwrites: [
+                { id: interaction.member.id, allow: [Permissions.FLAGS.CONNECT]},
+            ]
+         })
             .then(console.log)
             .catch(console.error);
     }
