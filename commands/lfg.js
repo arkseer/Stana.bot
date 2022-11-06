@@ -21,6 +21,7 @@ module.exports = {
 
         await wait(1000);
         console.log(newChannel);
+        interaction.editReply({ content: `Your voice channel: <#${newChannel.id}>`, ephemeral: true, components: [] });
         //interaction.editReply({ content: `` })
     }
 }
