@@ -16,8 +16,11 @@ module.exports = {
             type: 'GUILD_VOICE',
             parent: parentCategory
          })
-            .then(console.log(newChannel))
+            .then(console.log)
             .catch(console.error);
+
+        await wait(1000);
+        console.log(newChannel);
         //interaction.editReply({ content: `` })
     }
 }
