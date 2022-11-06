@@ -17,15 +17,15 @@ module.exports = {
             const voiceChannel = await guild.channels.create(member.user.tag, {
                 type: "GUILD_VOICE",
                 parent: newChannel.parent,
-                permissionsOverwrites: [
+                permissionOverwrites: [
                     {id: member.id, allow: ["CONNECT"]},
                     {id: guild.id, deny: ["CONNECT"]}
                 ]
-            }).catch((error) => console.error(error));
+            });
 
             client.voiceGenerator.set(member.id, voiceChannel.id);
-            await newChannel.permissionsOverwrites.edit(member, {CONNECT: false});
-            setTimeout(() => newChannel.permissionsOverwrites.delete(member), 30 * 1000);
+            await newChannel.permissionOverwrites.edit(member, {CONNECT: false});
+            setTimeout(() => newChannel.permissionOverwrites.delete(member), 30 * 1000);
 
             return setTimeout(() => member.voice.setChannel(voiceChannel), 500);
         }
