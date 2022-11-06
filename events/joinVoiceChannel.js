@@ -29,11 +29,13 @@ module.exports = {
             return setTimeout(() => member.voice.setChannel(voiceChannel), 500);
         }
 
+        /*
         const ownedChannel = client.voiceGenerator.get(member.id);
 
         if(ownedChannel && oldChannel.id == ownedChannel && (!newChannel || newChannel.id !== ownedChannel)) {
             client.voiceGenerator.set(member.id, null);
             oldChannel.delete().catch(() => console.error());
         }
+        */
     }
 }
