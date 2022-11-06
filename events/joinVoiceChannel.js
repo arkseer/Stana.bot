@@ -21,7 +21,7 @@ module.exports = {
                     {id: member.id, allow: ["CONNECT"]},
                     {id: guild.id, deny: ["CONNECT"]}
                 ]
-            });
+            }).catch( (e) => console.error());
 
             client.voiceGenerator.set(member.id, voiceChannel.id);
             await newChannel.permissionsOverwrites.edit(member, {CONNECT: false});
