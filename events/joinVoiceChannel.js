@@ -23,21 +23,17 @@ module.exports = {
             });
 
             client.voiceGenerator.set(member.id, voiceChannel.id);
-            console.log(`voice channel id added to collection`);
-            //await newChannel.permissionsOverwrites.edit(member, {CONNECT: false});
-            //setTimeout(() => newChannel.permissionsOverwrites.delete(member), 30 * 1000);
+            await newChannel.permissionsOverwrites.edit(member, {CONNECT: false});
+            setTimeout(() => newChannel.permissionsOverwrites.delete(member), 30 * 1000);
 
-            console.log(`connecting member to new voice channel`);
             return setTimeout(() => member.voice.setChannel(voiceChannel), 500);
         }
 
-        /*
         const ownedChannel = client.voiceGenerator.get(member.id);
 
         if(ownedChannel && oldChannel.id == ownedChannel && (!newChannel || newChannel.id !== ownedChannel)) {
             client.voiceGenerator.set(member.id, null);
             oldChannel.delete().catch(() => console.error());
         }
-        */
     }
 }
