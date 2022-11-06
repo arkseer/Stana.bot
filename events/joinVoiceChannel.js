@@ -13,6 +13,8 @@ module.exports = {
         const newChannel = newState.channel;
         const joinChannel = "1038644009381408788";
 
+        console.log(`user updated voice channels`);
+
         if(oldChannel !== newChannel && newChannel && newChannel.id === joinChannel) {
             const voiceChannel = await guild.channels.create(`New channel #1`, {
                 type: "GUILD_VOICE",
