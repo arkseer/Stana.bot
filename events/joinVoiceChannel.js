@@ -23,9 +23,11 @@ module.exports = {
             });
 
             client.voiceGenerator.set(member.id, voiceChannel.id);
-            await newChannel.permissionsOverwrites.edit(member, {CONNECT: false});
-            setTimeout(() => newChannel.permissionsOverwrites.delete(member), 30 * 1000);
+            console.log(`voice channel id added to collection`);
+            //await newChannel.permissionsOverwrites.edit(member, {CONNECT: false});
+            //setTimeout(() => newChannel.permissionsOverwrites.delete(member), 30 * 1000);
 
+            console.log(`connecting member to new voice channel`);
             return setTimeout(() => member.voice.setChannel(voiceChannel), 500);
         }
 
