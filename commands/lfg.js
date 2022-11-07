@@ -10,10 +10,11 @@ module.exports = {
         const wait = require('util').promisify(setTimeout);
         const parentCategory = "1038643441002889346";
         let getChannel = interaction.client.channels.cache.get("1038644009381408788");
+        let getUser = interaction.member.displayName;
 
         interaction.reply({ content: `Voice channel created.`, ephemeral: true, components: [] });
         await wait(1000);
-        const newChannel = interaction.guild.channels.create(`new-voice-channel`, { 
+        const newChannel = interaction.guild.channels.create(`${getUser}'s squad`, { 
             type: 'GUILD_VOICE',
             parent: parentCategory,
             userLimit: 5
@@ -22,7 +23,7 @@ module.exports = {
             .catch(console.error);
 
         await wait(1000);
-        console.log(getChannel);
+        //console.log(getChannel);
         //console.log(newChannel);
         //interaction.editReply({ content: `Your voice channel: ${newChannel} <#${newChannel}>`, ephemeral: true, components: [] });
         //interaction.editReply({ content: `` })
