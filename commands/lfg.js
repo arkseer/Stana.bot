@@ -16,12 +16,12 @@ module.exports = {
             type: 'GUILD_VOICE',
             parent: parentCategory
          })
-            .then(id => console.log(`New voice channel ID: ${id}`))
+            .then(id => interaction.editReply({ content: `Your voice channel: ${id}`, ephemeral: true, components: [] }))
             .catch(console.error);
 
         await wait(1000);
         //console.log(newChannel);
-        interaction.editReply({ content: `Your voice channel: ${newChannel} <#${newChannel}>`, ephemeral: true, components: [] });
+        //interaction.editReply({ content: `Your voice channel: ${newChannel} <#${newChannel}>`, ephemeral: true, components: [] });
         //interaction.editReply({ content: `` })
     }
 }
