@@ -21,9 +21,7 @@ module.exports = {
          })
             .then(id => interaction.editReply({ content: `Your voice channel: ${id}`, ephemeral: true, components: [] }))
             .catch(console.error);
-
-        await wait(5000);
-        interaction.guild.channels.delete(getChannel);
+            
         //console.log(getChannel);
         //console.log(newChannel);
         //interaction.editReply({ content: `Your voice channel: ${newChannel} <#${newChannel}>`, ephemeral: true, components: [] });
