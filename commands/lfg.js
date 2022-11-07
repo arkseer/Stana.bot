@@ -15,7 +15,8 @@ module.exports = {
         await wait(1000);
         const newChannel = interaction.guild.channels.create(`new-voice-channel`, { 
             type: 'GUILD_VOICE',
-            parent: parentCategory
+            parent: parentCategory,
+            userLimit: 5
          })
             .then(id => interaction.editReply({ content: `Your voice channel: ${id}`, ephemeral: true, components: [] }))
             .catch(console.error);
