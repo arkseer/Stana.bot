@@ -17,6 +17,7 @@ module.exports = {
             parent: parentCategory
          })
             .then(id => interaction.editReply({ content: `Your voice channel: ${id}`, ephemeral: true, components: [] }))
+            .then(interaction.member.voice.setChannel(newChannel))
             .catch(console.error);
 
         await wait(1000);
