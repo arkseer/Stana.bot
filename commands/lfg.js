@@ -19,7 +19,10 @@ module.exports = {
             .catch(console.error);
 
         await wait(1000);
-        console.log(newChannel);
+        Promise.all(newChannel).then(function(results) {
+            console.log(results);
+        });
+        //console.log(newChannel);
         interaction.editReply({ content: `Your voice channel: ${newChannel} <#${newChannel}>`, ephemeral: true, components: [] });
         //interaction.editReply({ content: `` })
     }
