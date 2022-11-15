@@ -13,7 +13,7 @@ module.exports = {
         let getUser = interaction.member.displayName;
 
         const lfgPost = new MessageEmbed()
-            .setAuthor(interaction.user.username, interaction.user.displayAvatarURL(), "https://dmlc.store")
+            .setAuthor({ name: interaction.user.username, url: 'https://dmlc.store', iconURL: interaction.user.displayAvatarURL() })
             .setTitle("Title");
 
         interaction.reply({ content: `Voice channel created.`, ephemeral: true, components: [] });
