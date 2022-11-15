@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
+const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,6 +12,10 @@ module.exports = {
         let getChannel = interaction.client.channels.cache.get("1039259788640530473");
         let getUser = interaction.member.displayName;
 
+        const lfgPost = new MessageEmbed()
+            .setAuthor(interaction.user.username, interaction.user.displayAvatarURL(), "https://dmlc.store")
+            .setTitle("Title");
+
         interaction.reply({ content: `Voice channel created.`, ephemeral: true, components: [] });
         await wait(1000);
         const newChannel = interaction.guild.channels.create(`${getUser}'s squad`, { 
@@ -19,12 +23,9 @@ module.exports = {
             parent: parentCategory,
             userLimit: 5
          })
-            .then(id => interaction.editReply({ content: `Your voice channel: ${id}`, ephemeral: true, components: [] }))
+            .then(id => {
+                interaction.editReply({ content: `Your voice channel: ${id}`, ephemeral: true, components: [], embeds: [lfgPost] })
+            })
             .catch(console.error);
-            
-        //console.log(getChannel);
-        //console.log(newChannel);
-        //interaction.editReply({ content: `Your voice channel: ${newChannel} <#${newChannel}>`, ephemeral: true, components: [] });
-        //interaction.editReply({ content: `` })
     }
 }
