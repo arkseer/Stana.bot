@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed } = require('discord.js');
+const { guild } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -15,7 +16,8 @@ module.exports = {
         function lfgEmbed(voiceChannel) {
             const lfgPost = new MessageEmbed()
             .setAuthor({ name: interaction.user.username, url: 'https://dmlc.store', iconURL: interaction.user.displayAvatarURL() })
-            .setTitle(`Title: ${voiceChannel}`);
+            .setTitle(`Title: ${voiceChannel}`)
+            .setDescription(`[Voice channel](https://discordapp.com/channels/${guild}/${voiceChannel})`);
 
             return lfgPost;
         }
