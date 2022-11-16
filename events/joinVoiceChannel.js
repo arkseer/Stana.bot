@@ -17,7 +17,7 @@ module.exports = {
         //console.log(`user updated voice channels`);
 
         if(oldChannel !== newChannel && newChannel && newChannel.id === joinChannel) {
-            const voiceChannel = await guild.channels.create(`${member.user.displayName}'s squad`, {
+            const voiceChannel = await guild.channels.create(`${member.displayName}'s squad`, {
                 type: "GUILD_VOICE",
                 parent: newChannel.parent,
                 userLimit: 5
