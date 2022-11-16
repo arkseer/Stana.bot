@@ -12,6 +12,14 @@ module.exports = {
         let getChannel = interaction.client.channels.cache.get("1039259788640530473");
         let getUser = interaction.member.displayName;
 
+        function lfgEmbed(voiceChannel) {
+            const lfgPost = new MessageEmbed()
+            .setAuthor({ name: interaction.user.username, url: 'https://dmlc.store', iconURL: interaction.user.displayAvatarURL() })
+            .setTitle(`Title: ${voiceChannel}`);
+
+            return lfgPost;
+        }
+
         const lfgPost = new MessageEmbed()
             .setAuthor({ name: interaction.user.username, url: 'https://dmlc.store', iconURL: interaction.user.displayAvatarURL() })
             .setTitle("Title");
@@ -24,7 +32,7 @@ module.exports = {
             userLimit: 5
          })
             .then(id => {
-                interaction.editReply({ content: `Your voice channel: ${id}`, ephemeral: true, components: [], embeds: [lfgPost] })
+                interaction.editReply({ content: `Your voice channel: ${id}`, ephemeral: true, components: [], embeds: [lfgEmbed(id)] })
             })
             .catch(console.error);
     }
