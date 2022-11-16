@@ -14,6 +14,7 @@ module.exports = {
         let getUser = interaction.member.displayName;
 
         function lfgEmbed(voiceChannel) {
+            voiceChannel = voiceChannel.replace(/[^0-9]/g, "");
             const lfgPost = new MessageEmbed()
             .setAuthor({ name: interaction.user.username, url: 'https://dmlc.store', iconURL: interaction.user.displayAvatarURL() })
             .setTitle(`Title: ${voiceChannel}`)
