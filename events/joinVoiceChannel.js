@@ -8,6 +8,7 @@ module.exports = {
      * @param {VoiceState} newState
      */
     async execute(oldState, newState, client) {
+        const wait = require('util').promisify(setTimeout);
         const { member, guild } = newState;
         const oldChannel = oldState.channel;
         const newChannel = newState.channel;
@@ -18,7 +19,8 @@ module.exports = {
         if(oldChannel !== newChannel && newChannel && newChannel.id === joinChannel) {
             const voiceChannel = await guild.channels.create(`New channel #1`, {
                 type: "GUILD_VOICE",
-                parent: newChannel.parent
+                parent: newChannel.parent,
+                userLimit: 5
             });
 
             client.voiceGenerator.set(member.id, voiceChannel.id);
@@ -33,6 +35,7 @@ module.exports = {
 
         if(ownedChannel && oldChannel.id == ownedChannel && (!newChannel || newChannel.id !== ownedChannel)) {
             client.voiceGenerator.set(member.id, null);
+            await wait(5000);
             oldChannel.delete().catch(() => {});
         }
     }
