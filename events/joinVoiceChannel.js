@@ -28,6 +28,10 @@ module.exports = {
             console.log(`Member id: ${member.id}`);
             console.log(`Voice channel id: ${voiceChannel.id}`);
             
+            member.voice.channel.members.each( member => {
+                console.log(member.user.tag)
+            });
+            
             await newChannel.permissionOverwrites.edit(member, {CONNECT: false});
             setTimeout(() => newChannel.permissionOverwrites.delete(member), 30 * 1000);
 
