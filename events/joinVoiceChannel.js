@@ -24,6 +24,9 @@ module.exports = {
             });
 
             client.voiceGenerator.set(member.id, voiceChannel.id);
+
+            console.log(`Member id: ${member.id}`);
+            console.log(`Voice channel id: ${voiceChannel.id}`);
             
             await newChannel.permissionOverwrites.edit(member, {CONNECT: false});
             setTimeout(() => newChannel.permissionOverwrites.delete(member), 30 * 1000);
