@@ -6,9 +6,9 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('lfg')
         .setDescription('Create an LFG post for Valorant')
-        .addChannelTypes(['GUILD_VOICE'])
         .addChannelOption(option => option
             .setName('channel')
+            .addChannelTypes('GuildVoice')
             .setDescription('The channel you want to mention')),
         
     async execute(interaction, client) {
