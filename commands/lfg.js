@@ -6,9 +6,9 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('lfg')
         .setDescription('Create an LFG post for Valorant')
-        .addRoleOption(option => option
-            .setName('role')
-            .setDescription('The role on the min entry')),
+        .addChannelOption(option => option
+            .setName('channel')
+            .setDescription('The channel you want to mention')),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
