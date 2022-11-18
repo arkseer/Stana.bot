@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('Create an LFG post for Valorant')
         .addChannelOption(option => option
             .setName('channel')
-            .channelTypes(['GUILD_VOICE'])
+            .addChannelTypes(['GUILD_VOICE'])
             .setDescription('The channel you want to mention')),
         
     async execute(interaction, client) {
