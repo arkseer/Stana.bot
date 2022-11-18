@@ -5,7 +5,10 @@ const { guild } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('lfg')
-        .setDescription('Create an LFG post for Valorant'),
+        .setDescription('Create an LFG post for Valorant')
+        .addRoleOption(option => option
+            .setName('role')
+            .setDescription('The role on the min entry')),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
