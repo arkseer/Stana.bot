@@ -9,7 +9,7 @@ module.exports = {
         .addChannelOption(option => option
             .setName('channel')
             .setDescription('The channel you want to mention')
-            .addChannelTypes(ChannelType.GuildVoice)),
+            .addChannelTypes({ChannelType: ['GUILD_VOICE']})),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
