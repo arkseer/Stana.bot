@@ -125,21 +125,22 @@
     "bot_riddle"  : "574657817370296330",
     "guild"     : "1038155332721066107",
 
-    "partners_channel_id"       : "819830082234875934",
-    "socials_channel_id"        : "819830082234875934",
+    "partners_channel_id"       : "1038501196643717171",
+    "socials_channel_id"        : "1038501238356058152",
+    "roles_channel_id"          : "1038500649849081947",
     "hotw_channel_id"           : "819830082234875934",
     "twab_channel_id"           : "540133714798051328",
     "weeklyreset_channel_id"    : "819830082234875934",
-    "roles_channel_id"          : "819500265840967691",
 
     "join_channel_id"           : "1038644009381408788",
 
-    "dev_channel_id"            : "819830082234875934",
+    "dev_channel_id"            : "1038503333570293850",
 
     "urls": {
-        "twitch"        : "https://twitch.tv/roguesentinels",
-        "twitter"       : "https://twitter.com/roguesentinels",
-        "instagram"     : "https://instagram.com/roguesentinels",
-        "tiktok"        : "https://tiktok.com/@roguesentinels"
+        "twitch"        : "https://twitch.tv/dmlcgg",
+        "twitter"       : "https://twitter.com/dmlcgg",
+        "instagram"     : "https://instagram.com/dmlcgg",
+        "tiktok"        : "https://tiktok.com/@dmlcgg",
+        "merch"         : "https://dmlc.store"
     }
 }
