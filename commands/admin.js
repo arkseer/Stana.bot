@@ -3,7 +3,7 @@ const { MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('roles')
+        .setName('roles_old')
         .setDescription('Send roles messages (Restricted to owner)')
         .setDefaultPermission(false),
 

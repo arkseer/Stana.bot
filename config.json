@@ -136,6 +136,13 @@
 
     "dev_channel_id"            : "1038503333570293850",
 
+    "emojis": {
+        "ping_tournaments"      : "<:ping_tournaments:1043746859761541141>",
+        "ping_scrims"           : "<:ping_scrims:1043746856125083698>",
+        "ping_streamers"        : "<:ping_streamers:1043746858125754409>",
+        "ping_new_content"      : "<:ping_new_content:1043746854178922556>"
+    },
+
     "urlNames": {
         "youtube"       : "Youtube",
         "tiktok"        : "TikTok",
