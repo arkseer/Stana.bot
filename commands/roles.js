@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
-const { emojis, emojisAgents, agents } = require('../config.json');
+const { pings, classes, agents } = require('../config.json');
 const { execute } = require('./help');
 
 module.exports = {
@@ -12,69 +12,45 @@ module.exports = {
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
 
-        const pingsMenu = new MessageActionRow()
+        let pingsMenu = new MessageActionRow()
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId('get_roles_pings')
                     .setPlaceholder('Select what content you want to be pinged')
                     .setMinValues(1)
-                    .setMaxValues(4)
-                    .addOptions([
-                        {
-                            label: 'Tournaments',
-                            value: 'tournaments',
-                            emoji: emojis['ping_tournaments'],
-                        },
-                        {
-                            label: 'Scrims',
-                            value: 'scrims',
-                            emoji: emojis['ping_scrims'],
-                        },
-                        {
-                            label: 'Streamers',
-                            value: 'streamers',
-                            emoji: emojis['ping_streamers'],
-                        },
-                        {
-                            label: 'New content',
-                            value: 'new_content',
-                            emoji: emojis['ping_new_content'],
-                        },
-                    ]),
+                    .setMaxValues(4),
             );
+
+        for (let x in pings) {
+            pingsMenu.components[0].addOptions([
+                {
+                    label: pings[x]['label'],
+                    value: pings[x]['value'],
+                    emoji: pings[x]['emoji'],
+                },
+            ]);
+        }
         
-        const valorantClassesMenu = new MessageActionRow()
+        let vaClassesMenu = new MessageActionRow()
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId('get_roles_va_classes')
                     .setPlaceholder('VALORANT: Select your main class')
                     .setMinValues(1)
-                    .setMaxValues(1)
-                    .addOptions([
-                        {
-                            label: 'Duelist',
-                            value: 'duelist',
-                            emoji: emojis['duelist'],
-                        },
-                        {
-                            label: 'Initiator',
-                            value: 'initiator',
-                            emoji: emojis['initiator'],
-                        },
-                        {
-                            label: 'Sentinel',
-                            value: 'sentinel',
-                            emoji: emojis['sentinel'],
-                        },
-                        {
-                            label: 'Controller',
-                            value: 'controller',
-                            emoji: emojis['controller'],
-                        },
-                    ]),
+                    .setMaxValues(1),
             );
+
+        for (let x in classes) {
+            vaClassesMenu.components[0].addOptions([
+                {
+                    label: classes[x]['label'],
+                    value: classes[x]['value'],
+                    emoji: classes[x]['emoji']
+                },
+            ]);
+        }
         
-        let valorantAgentsMenu = new MessageActionRow()
+        let vaAgentsMenu = new MessageActionRow()
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId('get_roles_va_agents')
@@ -84,7 +60,7 @@ module.exports = {
             );
 
         for (let x in agents) {
-            valorantAgentsMenu.components[0].addOptions([
+            vaAgentsMenu.components[0].addOptions([
                 {
                     label: agents[x]['label'],
                     value: agents[x]['value'],
@@ -96,6 +72,6 @@ module.exports = {
             await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
             await wait(2000);
 
-            await interaction.channel.send({ content: `You can select one or multiple options to be granted different benefits in the community`, ephemeral: false, components: [pingsMenu, valorantClassesMenu, valorantAgentsMenu] });
+            await interaction.channel.send({ content: `You can select one or multiple options to be granted different benefits in the community`, ephemeral: false, components: [pingsMenu, vaClassesMenu, vaAgentsMenu] });
     }
 }
