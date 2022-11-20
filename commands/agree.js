@@ -8,6 +8,7 @@ module.exports = {
         .setDefaultPermission(false),
 
     async execute(interaction, client) {
+        const wait = require('util').promisify(setTimeout);
         const agreementBtn = new MessageActionRow()
             .addComponents(
                 new MessageButton()
@@ -16,8 +17,8 @@ module.exports = {
                     .setStyle('SUCCESS'),
             );
 
-        await interaction.reply({ content: `Command initiated`, components: [] });
-        await interaction.deleteReply();
+        await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
+        await wait(2000);
 
         await interaction.channel.send({ content: `@everyone To be granted access to the rest of the server, please read the above. \n> By clicking the 'I agree' button, you agree to follow the rules mentioned above and the common sense code of conduct.`, components: [agreementBtn] });
     }
