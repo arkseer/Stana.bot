@@ -6,6 +6,9 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('lfg')
         .setDescription('Create an LFG post for Valorant')
+        .addRoleOption(option => option
+            .setName('min_rank')
+            .setDescription('Minimum rank you want to recruit'))
         .addChannelOption(option => option
             .setName('channel')
             .setDescription('The channel you want to mention')),
