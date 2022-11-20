@@ -17,7 +17,7 @@ module.exports = {
                 new MessageSelectMenu()
                     .setCustomId('get_roles_pings')
                     .setPlaceholder('Select what content you want to be pinged')
-                    .setMinValues(1)
+                    .setMinValues(0)
                     .setMaxValues(4),
             );
 
