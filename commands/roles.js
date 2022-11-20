@@ -80,13 +80,7 @@ module.exports = {
                     .setCustomId('get_roles_va_agents')
                     .setPlaceholder('VALORANT: Select your main agent')
                     .setMinValues(1)
-                    .setMaxValues(1)
-                    .addOptions([
-                        {
-                            label: 'Test',
-                            value: 'test',
-                        },
-                    ]),
+                    .setMaxValues(1),
             );
 
         valorantAgentsMenu.components[0].addOptions([
