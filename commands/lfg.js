@@ -1,4 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+//const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('discord.js');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed, ChannelType } = require('discord.js');
 const { guild } = require('../config.json');
 
@@ -8,13 +9,18 @@ module.exports = {
         .setDescription('Create an LFG post for Valorant')
         .addChannelOption(option => option
             .setName('channel')
-            .setDescription('The channel you want to mention')),
+            .setDescription('The channel you want to mention')
+            .addChannelTypes(ChannelType.GuildVoice)),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
         const parentCategory = "1038643441002889346";
         let getChannel = interaction.client.channels.cache.get("1039259788640530473");
         let getUser = interaction.member.displayName;
+
+
+
+        /*
 
         function lfgEmbed(voiceChannel) {
             voiceChannel = voiceChannel.toString().replace(/[^0-9]/g, "");
@@ -41,5 +47,7 @@ module.exports = {
                 interaction.editReply({ content: `Your voice channel: ${id}`, ephemeral: true, components: [], embeds: [lfgEmbed(id)] })
             })
             .catch(console.error);
+
+        */
     }
 }
