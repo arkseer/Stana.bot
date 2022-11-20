@@ -148,6 +148,138 @@
         "controller"            : "<:controller:1043750518922682398>"
     },
 
+    "emojisAgents": {
+        "jett"                  : "<:jett:1043750437418962944>",
+        "phoenix"               : "<:phoenix:1043750451109179452>",
+        "raze"                  : "<:raze:1043750453873217546>",
+        "reyna"                 : "<:reyna:1043750456855380018>",
+        "neon"                  : "<:neon:1043750445971161158>",
+        "yoru"                  : "<:yoru:1043750470272950303>",
+
+        "sova"                  : "<:sova:1043750465365606401>",
+        "breach"                : "<:breach:1043750422051037284>",
+        "skye"                  : "<:skye:1043750463016808508>",
+        "kayo"                  : "<:kayo:1043750439994261536>",
+        "fade"                  : "<:fade:1043750432394182756>",
+
+        "sage"                  : "<:sage:1043750459510370334>",
+        "cypher"                : "<:cypher:1043750429898584185>",
+        "kj"                    : "<:kj:1043750442653458533>",
+        "chamber"               : "<:chamber:1043750427482673223>",
+
+        "brimstone"             : "<:brimstone:1043750425096097862>",
+        "omen"                  : "<:omen:1043750448710025226>",
+        "viper"                 : "<:viper:1043750467995439104>",
+        "astra"                 : "<:astra:1043750418691395614>",
+        "harbor"                : "<:harbor:1043750435061764167>"
+    },
+
+    "agents": {
+        "jett": {
+            "label"     : "Jett",
+            "value"     : "jett",
+            "emoji"     : "<:jett:1043750437418962944>"
+        },
+        "phoenix": {
+            "label"     : "Phoenix",
+            "value"     : "phoenix",
+            "emoji"     : "<:phoenix:1043750451109179452>"
+        },
+        "raze": {
+            "label"     : "Raze",
+            "value"     : "raze",
+            "emoji"     : "<:raze:1043750453873217546>"
+        },
+        "reyna": {
+            "label"     : "Reyna",
+            "value"     : "reyna",
+            "emoji"     : "<:reyna:1043750456855380018>"
+        },
+        "yoru": {
+            "label"     : "Yoru",
+            "value"     : "yoru",
+            "emoji"     : "<:yoru:1043750470272950303>"
+        },
+        "neon": {
+            "label"     : "Neon",
+            "value"     : "neon",
+            "emoji"     : "<:neon:1043750445971161158>"
+        },
+
+        "sova": {
+            "label"     : "Sova",
+            "value"     : "sova",
+            "emoji"     : "<:sova:1043750465365606401>"
+        },
+        "breach": {
+            "label"     : "Breach",
+            "value"     : "breach",
+            "emoji"     : "<:breach:1043750422051037284>"
+        },
+        "skye": {
+            "label"     : "Skye",
+            "value"     : "skye",
+            "emoji"     : "<:skye:1043750463016808508>"
+        },
+        "kayo": {
+            "label"     : "KAY/O",
+            "value"     : "kayo",
+            "emoji"     : "<:kayo:1043750439994261536>"
+        },
+        "fade": {
+            "label"     : "Fade",
+            "value"     : "fade",
+            "emoji"     : "<:fade:1043750432394182756>"
+        },
+        
+        "sage": {
+            "label"     : "Sage",
+            "value"     : "sage",
+            "emoji"     : "<:sage:1043750459510370334>"
+        },
+        "cypher": {
+            "label"     : "Cypher",
+            "value"     : "cypher",
+            "emoji"     : "<:cypher:1043750429898584185>"
+        },
+        "kj": {
+            "label"     : "Kill Joy",
+            "value"     : "kj",
+            "emoji"     : "<:kj:1043750442653458533>"
+        },
+        "chamber": {
+            "label"     : "Chamber",
+            "value"     : "chamber",
+            "emoji"     : "<:chamber:1043750427482673223>"
+        },
+        
+        "brimstone": {
+            "label"     : "Brimstone",
+            "value"     : "brimstone",
+            "emoji"     : "<:brimstone:1043750425096097862>"
+        },
+        "omen": {
+            "label"     : "Omen",
+            "value"     : "omen",
+            "emoji"     : "<:omen:1043750448710025226>"
+        },
+        "viper": {
+            "label"     : "Viper",
+            "value"     : "viper",
+            "emoji"     : "<:viper:1043750467995439104>"
+        },
+        "astra": {
+            "label"     : "Astra",
+            "value"     : "astra",
+            "emoji"     : "<:astra:1043750418691395614>"
+        },
+        "harbor": {
+            "label"     : "Harbor",
+            "value"     : "harbor",
+            "emoji"     : "<:harbor:1043750435061764167>"
+        }
+    },
+
     "urlNames": {
         "youtube"       : "Youtube",
         "tiktok"        : "TikTok",

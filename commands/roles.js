@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
-const { emojis } = require('../config.json');
+const { emojis, emojisAgents, agents } = require('../config.json');
 const { execute } = require('./help');
 
 module.exports = {
@@ -47,7 +47,7 @@ module.exports = {
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId('get_roles_va_classes')
-                    .setPlaceholder('Valorant: Select your main class')
+                    .setPlaceholder('VALORANT: Select your main class')
                     .setMinValues(1)
                     .setMaxValues(1)
                     .addOptions([
@@ -73,10 +73,19 @@ module.exports = {
                         },
                     ]),
             );
+        
+        const valorantAgentsMenu = new MessageActionRow()
+            .addComponents(
+                new MessageSelectMenu()
+                    .setCustomId('get_roles_va_agents')
+                    .setPlaceholder('VALORANT: Select your main agent')
+                    .setMinValues(1)
+                    .setMaxValues(1),
+            );
 
             await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
             await wait(2000);
 
-            await interaction.channel.send({ content: `You can select one or multiple options to be granted different benefits in the community`, ephemeral: false, components: [pingsMenu, valorantClassesMenu] });
+            await interaction.channel.send({ content: `You can select one or multiple options to be granted different benefits in the community`, ephemeral: false, components: [pingsMenu, valorantClassesMenu, valorantAgentsMenu] });
     }
 }
