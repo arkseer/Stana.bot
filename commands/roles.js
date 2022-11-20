@@ -83,6 +83,13 @@ module.exports = {
                     .setMaxValues(1),
             );
 
+            valorantAgentsMenu.addOptions([
+                {
+                    label: 'haha',
+                    value: 'hihi',
+                },
+            ]);
+
             await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
             await wait(2000);
 
