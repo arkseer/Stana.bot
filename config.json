@@ -136,11 +136,43 @@
 
     "dev_channel_id"            : "1038503333570293850",
 
+    "urlNames": {
+        "youtube"       : "Youtube",
+        "tiktok"        : "TikTok",
+        "instagram"     : "Instagram",
+        "twitter"       : "Twitter",
+        "twitch"        : "Twitch",
+        "reddit"        : "Reddit",
+        "merch"         : "Merch Store"
+    },
+
+    "urlHandles": {
+        "youtube"       : "@dmlcgg",
+        "tiktok"        : "@dmlcgg",
+        "instagram"     : "/dmlcgg",
+        "twitter"       : "/dmlcgg",
+        "twitch"        : "/dmlcgg",
+        "reddit"        : "/dmlc",
+        "merch"         : "/dmlc.store"
+    },
+
+    "urlEmojis": {
+        "youtube"       : "<:youtube:1043704204834918410>",
+        "tiktok"        : "<:tiktok:1043704200007262308>",
+        "instagram"     : "<:instagram:1043704197129965618>",
+        "twitter"       : "<:twitter:1043704203224289340>",
+        "twitch"        : "<:twitch:1043704201542369360>",
+        "reddit"        : "<:reddit:1043704198597988393>",
+        "merch"         : "<:merch:1043702078511517756>"
+    },
+
     "urls": {
-        "twitch"        : "https://twitch.tv/dmlcgg",
-        "twitter"       : "https://twitter.com/dmlcgg",
-        "instagram"     : "https://instagram.com/dmlcgg",
+        "youtube"       : "https://youtube.com/@dmlcgg",
         "tiktok"        : "https://tiktok.com/@dmlcgg",
+        "instagram"     : "https://instagram.com/dmlcgg",
+        "twitter"       : "https://twitter.com/dmlcgg",
+        "twitch"        : "https://twitch.tv/dmlcgg",
+        "reddit"        : "https://www.reddit.com/r/dmlc/",
         "merch"         : "https://dmlc.store"
     }
 }
