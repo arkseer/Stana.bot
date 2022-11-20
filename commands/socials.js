@@ -11,7 +11,8 @@ module.exports = {
 
     async execute(interaction) {
         const socialsEmbed = new MessageEmbed()
-            .setColor('fa6775');
+            .setColor('fa6775')
+            .setDescription(`Make sure you follow us on these platforms to stay in touch with our work.\n`);
 
         for (let x in urlNames) {
             //socialsEmbed.addField(`**${commands[x]}**`, `${commands_description[x]}`, false);
