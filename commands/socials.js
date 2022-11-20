@@ -6,7 +6,7 @@ const { execute } = require('./help');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('socials')
-        .setDescription('Sends an embed with all social platforms')
+        .setDescription('Sends an embed with all social platforms (Restricted to owner)')
         .setDefaultPermission(true),
 
     async execute(interaction) {
@@ -24,7 +24,6 @@ module.exports = {
 
         await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
         await wait(2000);
-        await interaction.deleteReply();
 
         await interaction.channel.send({ embeds: [socialsEmbed], ephemeral: false, components: [] });
     }
