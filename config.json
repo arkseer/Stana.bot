@@ -148,30 +148,50 @@
         "controller"            : "<:controller:1043750518922682398>"
     },
 
-    "emojisAgents": {
-        "jett"                  : "<:jett:1043750437418962944>",
-        "phoenix"               : "<:phoenix:1043750451109179452>",
-        "raze"                  : "<:raze:1043750453873217546>",
-        "reyna"                 : "<:reyna:1043750456855380018>",
-        "neon"                  : "<:neon:1043750445971161158>",
-        "yoru"                  : "<:yoru:1043750470272950303>",
+    "pings": {
+        "tournaments": {
+            "label"     : "Tournaments",
+            "value"     : "tournaments",
+            "emoji"     : "<:ping_tournaments:1043746859761541141>"
+        },
+        "scrims": {
+            "label"     : "Scrims",
+            "value"     : "scrims",
+            "emoji"     : "<:ping_scrims:1043746856125083698>"
+        },
+        "streamers": {
+            "label"     : "Streamers",
+            "value"     : "streamers",
+            "emoji"     : "<:ping_streamers:1043746858125754409>"
+        },
+        "new_content": {
+            "label"     : "New content",
+            "value"     : "new_content",
+            "emoji"     : "<:ping_new_content:1043746854178922556>"
+        }
+    },
 
-        "sova"                  : "<:sova:1043750465365606401>",
-        "breach"                : "<:breach:1043750422051037284>",
-        "skye"                  : "<:skye:1043750463016808508>",
-        "kayo"                  : "<:kayo:1043750439994261536>",
-        "fade"                  : "<:fade:1043750432394182756>",
-
-        "sage"                  : "<:sage:1043750459510370334>",
-        "cypher"                : "<:cypher:1043750429898584185>",
-        "kj"                    : "<:kj:1043750442653458533>",
-        "chamber"               : "<:chamber:1043750427482673223>",
-
-        "brimstone"             : "<:brimstone:1043750425096097862>",
-        "omen"                  : "<:omen:1043750448710025226>",
-        "viper"                 : "<:viper:1043750467995439104>",
-        "astra"                 : "<:astra:1043750418691395614>",
-        "harbor"                : "<:harbor:1043750435061764167>"
+    "classes": {
+        "duelist": {
+            "label"     : "Duelist",
+            "value"     : "duelist",
+            "emoji"     : "<:duelist:1043750520550072361>"
+        },
+        "initiator": {
+            "label"     : "Initiator",
+            "value"     : "initiator",
+            "emoji"     : "<:initiator:1043750522110365797>"
+        },
+        "sentinel": {
+            "label"     : "Sentinel",
+            "value"     : "sentinel",
+            "emoji"     : "<:sentinel:1043750523037290507>"
+        },
+        "controller": {
+            "label"     : "Controller",
+            "value"     : "controller",
+            "emoji"     : "<:controller:1043750518922682398>"
+        }
     },
 
     "agents": {
