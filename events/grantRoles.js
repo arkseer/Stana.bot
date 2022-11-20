@@ -51,8 +51,11 @@ module.exports = {
 
                     // Remove all agent roles to prep the user when they re-select
                     for (let x in roles.agents) {
-                        let getAllRoles = getGuild.roles.cache.find(role => role.id === roles.agents[x]['id']);
-                        await getMember.roles.remove(getAllRoles);
+                        let hasRole = getMember.roles.cache.some(role => role.id === roles.agents[x]['id']);
+                        if (hasRole) {
+                            let getAllRoles = getGuild.roles.cache.find(role => role.id === roles.agents[x]['id']);
+                            await getMember.roles.remove(getAllRoles);
+                        }                        
                     }
 
                     // Add selected roles to user
