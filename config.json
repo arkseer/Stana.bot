@@ -159,19 +159,122 @@
         "pings": {
             "tournaments": {
                 "id"                : "1043382201439498300",
-                "name"              : "Tournaments"
+                "label"             : "Tournaments"
             },
             "scrims": {
                 "id"                : "1043382284511891486",
-                "name"              : "Scrims"
+                "label"             : "Scrims"
             },
             "streamers": {
                 "id"                : "1043382753275695184",
-                "name"              : "Streamers"
+                "label"             : "Streamers"
             },
             "new_content": {
                 "id"                : "1043382590037569556",
-                "name"              : "New content"
+                "label"             : "New content"
+            }
+        },
+        "classes": {
+            "duelist": {
+                "id"                : "1043727052936851567",
+                "label"             : "Duelist"
+            },
+            "initiator": {
+                "id"                : "1043727120876183582",
+                "label"             : "Initiator"
+            },
+            "sentinel": {
+                "id"                : "1043727176828198933",
+                "label"             : "Sentinel"
+            },
+            "controller": {
+                "id"                : "1043727232226570240",
+                "label"             : "Controller"
+            }
+        },
+        "agents": {
+            "jett": {
+                "id"                : "1043724031809028187",
+                "label"             : "Jett"
+            },
+            "phoenix": {
+                "id"                : "1043723894894379031",
+                "label"             : "Phoenix"
+            },
+            "raze": {
+                "id"                : "1043724527517044796",
+                "label"             : "Raze"
+            },
+            "reyna": {
+                "id"                : "1043725619449569380",
+                "label"             : "Reyna"
+            },
+            "yoru": {
+                "id"                : "1043726192848674897",
+                "label"             : "Yoru"
+            },
+            "neon": {
+                "id"                : "1043725994789449829",
+                "label"             : "Neon"
+            },
+    
+            "sova": {
+                "id"                : "1043724269970018374",
+                "label"             : "Sova"
+            },
+            "breach": {
+                "id"                : "1043724385149792256",
+                "label"             : "Breach"
+            },
+            "skye": {
+                "id"                : "1043726239313170442",
+                "label"             : "Skye"
+            },
+            "kayo": {
+                "id"                : "1043726285890920568",
+                "label"             : "KAY/O"
+            },
+            "fade": {
+                "id"                : "1043726366601904128",
+                "label"             : "Fade"
+            },
+            
+            "sage": {
+                "id"                : "1043724091137478716",
+                "label"             : "Sage"
+            },
+            "cypher": {
+                "id"                : "1043724565517434900",
+                "label"             : "Cypher"
+            },
+            "kj": {
+                "id"                : "1043726558608760863",
+                "label"             : "Kill Joy"
+            },
+            "chamber": {
+                "id"                : "1043725965613858816",
+                "label"             : "Chamber"
+            },
+            
+            "brimstone": {
+                "id"                : "1043724164533588019",
+                "label"             : "Brimstone"
+            },
+            "omen": {
+                "id"                : "1043726137051848776",
+                "label"             : "Omen"
+            },
+            "viper": {
+                "id"                : "1043724706257326141",
+                "label"             : "Viper"
+            },
+            "astra": {
+                "id"                : "1043726626665541632",
+                "label"             : "Astra"
+            },
+            "harbor": {
+                "id"                : "1043726673885012028",
+                "label"             : "Harbor"
             }
         }
     },
