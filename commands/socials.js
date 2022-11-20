@@ -7,7 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('socials')
         .setDescription('Sends an embed with all social platforms (Restricted to owner)')
-        .setDefaultPermission(true),
+        .setDefaultPermission(false),
 
     async execute(interaction) {
         const wait = require('util').promisify(setTimeout);
