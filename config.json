@@ -155,6 +155,27 @@
         
     },
 
+    "roles": {
+        "pings": {
+            "tournaments": {
+                "id"                : "1043382201439498300",
+                "name"              : "Tournaments"
+            },
+            "scrims": {
+                "id"                : "1043382284511891486",
+                "name"              : "Scrims"
+            },
+            "streamers": {
+                "id"                : "1043382753275695184",
+                "name"              : "Streamers"
+            },
+            "new_content": {
+                "id"                : "1043382590037569556",
+                "name"              : "New content"
+            }
+        }
+    },
+
     "emojis": {
         "ping_tournaments"      : "<:ping_tournaments:1043746859761541141>",
         "ping_scrims"           : "<:ping_scrims:1043746856125083698>",
