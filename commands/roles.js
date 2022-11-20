@@ -83,12 +83,15 @@ module.exports = {
                     .setMaxValues(1),
             );
 
-        valorantAgentsMenu.components[0].addOptions([
-            {
-                label: 'option 2',
-                value: 'option 2',
-            },
-        ]);
+        for (let x in agents) {
+            valorantAgentsMenu.components[0].addOptions([
+                {
+                    label: agents[x]['label'],
+                    value: agents[x]['value'],
+                    emoji: agents[x]['emoji'],
+                },
+            ]);
+        }
 
             await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
             await wait(2000);
