@@ -1,5 +1,4 @@
-//const { SlashCommandBuilder } = require('@discordjs/builders');
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed, ChannelType } = require('discord.js');
 const { guild } = require('../config.json');
 
@@ -9,8 +8,7 @@ module.exports = {
         .setDescription('Create an LFG post for Valorant')
         .addChannelOption(option => option
             .setName('channel')
-            .setDescription('The channel you want to mention')
-            .addChannelTypes(ChannelType.GuildVoice)),
+            .setDescription('The channel you want to mention')),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
