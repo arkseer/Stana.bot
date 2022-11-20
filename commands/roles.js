@@ -80,17 +80,14 @@ module.exports = {
                     .setCustomId('get_roles_va_agents')
                     .setPlaceholder('VALORANT: Select your main agent')
                     .setMinValues(1)
-                    .setMaxValues(1),
+                    .setMaxValues(1)
+                    .addOptions([
+                        {
+                            label: 'Test',
+                            value: 'test',
+                        },
+                    ]),
             );
-
-        valorantAgentsMenu.setComponents(
-            MessageSelectMenu.addOptions([
-                {
-                    label: 'haha',
-                    value: 'hihi',
-                },
-            ]),
-        );
 
             await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
             await wait(2000);
