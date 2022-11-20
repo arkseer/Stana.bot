@@ -17,8 +17,11 @@ module.exports = {
 
                     // Remove all ping roles to prep the user when they re-select
                     for (let x in roles.pings) {
-                        let getAllRoles = getGuild.roles.cache.find(role => role.id === roles.pings[x]['id']);
-                        await getMember.roles.remove(getAllRoles);
+                        let hasRole = getMember.roles.cache.some(role => role.id === roles.pings[x]['id']);
+                        if (hasRole) {
+                            let getAllRoles = getGuild.roles.cache.find(role => role.id === roles.pings[x]['id']);
+                            await getMember.roles.remove(getAllRoles);
+                        }                        
                     }
 
                     // Add selected roles to user
@@ -34,8 +37,11 @@ module.exports = {
 
                     // Remove all class roles to prep the user when they re-select
                     for (let x in roles.classes) {
-                        let getAllRoles = getGuild.roles.cache.find(role => role.id === roles.classes[x]['id']);
-                        await getMember.roles.remove(getAllRoles);
+                        let hasRole = getMember.roles.cache.some(role => role.id === roles.classes[x]['id']);
+                        if (hasRole) {                            
+                            let getAllRoles = getGuild.roles.cache.find(role => role.id === roles.classes[x]['id']);
+                            await getMember.roles.remove(getAllRoles);
+                        }
                     }
 
                     // Add selected roles to user
