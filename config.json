@@ -140,7 +140,12 @@
         "ping_tournaments"      : "<:ping_tournaments:1043746859761541141>",
         "ping_scrims"           : "<:ping_scrims:1043746856125083698>",
         "ping_streamers"        : "<:ping_streamers:1043746858125754409>",
-        "ping_new_content"      : "<:ping_new_content:1043746854178922556>"
+        "ping_new_content"      : "<:ping_new_content:1043746854178922556>",
+
+        "duelist"               : "<:duelist:1043750520550072361>",
+        "initiator"             : "<:initiator:1043750522110365797>",
+        "sentinel"              : "<:sentinel:1043750523037290507>",
+        "controller"            : "<:controller:1043750518922682398>"
     },
 
     "urlNames": {

@@ -42,10 +42,41 @@ module.exports = {
                         },
                     ]),
             );
+        
+        const valorantClassesMenu = new MessageActionRow()
+            .addComponents(
+                new MessageSelectMenu()
+                    .setCustomId('get_roles_va_classes')
+                    .setPlaceholder('Valorant: Select your main class')
+                    .setMinValues(1)
+                    .setMaxValues(1)
+                    .addOptions([
+                        {
+                            label: 'Duelist',
+                            value: 'duelist',
+                            emoji: emojis['duelist'],
+                        },
+                        {
+                            label: 'Initiator',
+                            value: 'initiator',
+                            emoji: emojis['initiator'],
+                        },
+                        {
+                            label: 'Sentinel',
+                            value: 'sentinel',
+                            emoji: emojis['sentinel'],
+                        },
+                        {
+                            label: 'Controller',
+                            value: 'controller',
+                            emoji: emojis['controller'],
+                        },
+                    ]),
+            );
 
             await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
             await wait(2000);
 
-            await interaction.channel.send({ content: `You can select one or multiple options to be granted different benefits in the community`, ephemeral: false, components: [pingsMenu] });
+            await interaction.channel.send({ content: `You can select one or multiple options to be granted different benefits in the community`, ephemeral: false, components: [pingsMenu, valorantClassesMenu] });
     }
 }
