@@ -10,14 +10,22 @@ module.exports = {
         .setDefaultPermission(true),
 
     async execute(interaction) {
+        const wait = require('util').promisify(setTimeout);
+
         const socialsEmbed = new MessageEmbed()
             .setColor('fa6775')
-            .setDescription(`Make sure you follow us on these platforms to stay in touch with our work.\n`);
+            .setTitle(`**Social Media Platforms**`)
+            .setDescription(`Make sure you follow us on these platforms to stay in touch with our work\n`);
 
         for (let x in urlNames) {
             //socialsEmbed.addField(`**${commands[x]}**`, `${commands_description[x]}`, false);
             socialsEmbed.addField(`${urlEmojis[x]} **${urlNames[x]}**`, `   — [${urlHandles[x]}](${urls[x]})`, false);
         }
-        await interaction.reply({ embeds: [socialsEmbed], ephemeral: true, components: [] });
+
+        await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
+        await wait(2000);
+        await interaction.deleteReply();
+
+        await interaction.channel.send({ embeds: [socialsEmbed], ephemeral: false, components: [] });
     }
 }
