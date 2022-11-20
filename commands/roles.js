@@ -74,7 +74,7 @@ module.exports = {
                     ]),
             );
         
-        const valorantAgentsMenu = new MessageActionRow()
+        let valorantAgentsMenu = new MessageActionRow()
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId('get_roles_va_agents')
@@ -88,6 +88,13 @@ module.exports = {
                         },
                     ]),
             );
+
+        valorantAgentsMenu.components[0].addOptions([
+            {
+                label: 'option 2',
+                value: 'option 2',
+            },
+        ]);
 
             await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
             await wait(2000);
