@@ -33,7 +33,12 @@ module.exports = {
 
                     // Add default role to user
                     let getRole = getGuild.roles.cache.find(role => role.id === core_roles['c_members']);
+                    let getTraveler = getGuild.roles.cache.find(role => role.id === core_roles['n_members']);
+                    let getNewMember = getGuild.roles.cache.find(role => role.id === core_roles['new_members']);
+
                     await getMember.roles.add(getRole);
+                    await getMember.roles.add(getNewMember);
+                    await getMember.roles.remove(getTraveler);
                 } else if(getMember.roles.cache.some(role => role.id === core_roles['c_members'])) {
                     await interaction.reply({ content: `Sorry, but you already have accepted the terms.`, ephemeral: true, components: [] });
                 }
