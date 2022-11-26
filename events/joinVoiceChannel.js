@@ -14,9 +14,11 @@ module.exports = {
         const newChannel = newState.channel;
         const joinChannel = "1038644009381408788";
 
+        /*
         member.voice.channel.members.each( member => {
             console.log(member.user.tag)
         });
+        */
 
         //console.log(`user updated voice channels`);
 
