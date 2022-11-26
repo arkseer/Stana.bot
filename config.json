@@ -125,6 +125,7 @@
     "bot_riddle"  : "574657817370296330",
     "guild"     : "1038155332721066107",
 
+    "welcome_channel_id"        : "1038500590898118686",
     "partners_channel_id"       : "1038501196643717171",
     "socials_channel_id"        : "1038501238356058152",
     "roles_channel_id"          : "1038500649849081947",
