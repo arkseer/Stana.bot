@@ -11,9 +11,11 @@ module.exports = {
             .setDescription('Select the game you want to create the LFG post for')
             .setRequired(true)
             .addChoice('Valorant', 'lfg_game_valorant'))
-        .addStringOption(option => option
+        .addIntegerOption(option => option
             .setName('players')
             .setDescription('Select the number of people you are trying to recruit (# between 1-9)')
+            .setMinValue(1)
+            .setMaxValue(9)
             .setRequired(true))
         .addStringOption(option => option
             .setName('mode')
