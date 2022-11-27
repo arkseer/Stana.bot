@@ -21,6 +21,13 @@ module.exports = {
 
         if (interaction.member.voice.channel) {
             console.log(`[Debugging] ${getUser} is connected to ${interaction.member.voice.channel.name}`);
+            if (interaction.member.voice.channel.parentId === parentCategory) {
+                console.log(`[Debugging] User is connected to LFG voice channel`);
+            } else {
+                console.log(`[Debugging] User is not connected to LFG voice channel`);
+            }
+        } else {
+            console.log(`[Debugging] ${getUser} is not connected to any voice channels`);
         }
 
 
