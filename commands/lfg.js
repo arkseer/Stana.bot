@@ -19,6 +19,9 @@ module.exports = {
         let getChannel = interaction.client.channels.cache.get("1039259788640530473");
         let getUser = interaction.member.displayName;
 
+        if (interaction.member.voice.channel) {
+            console.log(`[Debugging] ${getUser} is connected to ${interaction.member.voice.channel.name}`);
+        }
 
 
         /*
