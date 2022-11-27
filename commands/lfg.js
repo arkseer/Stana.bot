@@ -35,6 +35,10 @@ module.exports = {
         let getUser = interaction.member.displayName;
         let getVoice = getMember.voice.channel;
 
+        let lfgGame = interaction.options.getString('game');
+        let lfgPlayers = interaction.options.getInteger('players');
+        let lfgMode = interaction.options.getString('mode');
+
         if (getVoice) {
             console.log(`[Debugging] ${getUser} is connected to ${getVoice.name}`);
             if (getVoice.parentId === parentCategory) {
@@ -42,6 +46,7 @@ module.exports = {
                 if (!getVoice.name.includes(getUser)) return
 
                 console.log(`[Debugging] Testing if above if statement works`);
+                interaction.reply({ content: `Game: ${lfgGame}\nPlayers: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
             } else {
                 console.log(`[Debugging] User is not connected to LFG voice channel`);
             }
