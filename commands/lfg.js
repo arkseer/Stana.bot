@@ -39,6 +39,9 @@ module.exports = {
             console.log(`[Debugging] ${getUser} is connected to ${getVoice.name}`);
             if (getVoice.parentId === parentCategory) {
                 console.log(`[Debugging] User is connected to LFG voice channel`);
+                if (!getVoice.name.includes(getUser)) return
+
+                console.log(`[Debugging] Testing if above if statement works`);
             } else {
                 console.log(`[Debugging] User is not connected to LFG voice channel`);
             }
