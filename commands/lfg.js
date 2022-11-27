@@ -6,22 +6,36 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('lfg')
         .setDescription('Create an LFG post for Valorant')
-        .addRoleOption(option => option
-            .setName('min_rank')
-            .setDescription('Minimum rank you want to recruit'))
-        .addChannelOption(option => option
-            .setName('channel')
-            .setDescription('The channel you want to mention')),
+        .addStringOption(option => option
+            .setName('game')
+            .setDescription('Select the game you want to create the LFG post for')
+            .setRequired(true)
+            .addChoice('Valorant', 'lfg_game_valorant'))
+        .addStringOption(option => option
+            .setName('players')
+            .setDescription('Select the number of people you are trying to recruit (# between 1-9)')
+            .setRequired(true))
+        .addStringOption(option => option
+            .setName('mode')
+            .setDescription('Select the game mode you will be playing')
+            .setRequired(true)
+            .addChoice('Ranked', 'lfg_va_ranked')
+            .addChoice('Unrated', 'lfg_va_unrated')
+            .addChoice('Custom', 'lfg_va_custom')
+            .addChoice('Faceit', 'lfg_va_faceit')
+            .addChoice('Other', 'lfg_va_other')),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
         const parentCategory = "1038643441002889346";
         let getChannel = interaction.client.channels.cache.get("1039259788640530473");
+        let getMember = interaction.member;
         let getUser = interaction.member.displayName;
+        let getVoice = getMember.voice.channel;
 
-        if (interaction.member.voice.channel) {
-            console.log(`[Debugging] ${getUser} is connected to ${interaction.member.voice.channel.name}`);
-            if (interaction.member.voice.channel.parentId === parentCategory) {
+        if (getVoice) {
+            console.log(`[Debugging] ${getUser} is connected to ${getVoice.name}`);
+            if (getVoice.parentId === parentCategory) {
                 console.log(`[Debugging] User is connected to LFG voice channel`);
             } else {
                 console.log(`[Debugging] User is not connected to LFG voice channel`);
