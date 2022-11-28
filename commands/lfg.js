@@ -58,7 +58,7 @@ module.exports = {
                 if (lfgPlayers < valorant.players.min || lfgPlayers > valorant.players.max) {
                     interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than 9.`, ephemeral: true, components: [] });
                 } else {
-                    interaction.reply({ content: ``, ephemeral: true, components: [], embeds: [lfgEmbed()] });
+                    interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed()] });
                 }
                 //interaction.reply({ content: `Players: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
             } else {
