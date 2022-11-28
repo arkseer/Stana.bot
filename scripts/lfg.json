@@ -1,0 +1,20 @@
+{
+    "lfg": {
+        "game": {
+            "valorant": {
+                "modes": [
+                    "lfg_va_ranked",
+                    "lfg_va_unrated",
+                    "lfg_va_custom",
+                    "lfg_va_faceit",
+                    "lfg_va_other"
+                ],
+                
+                "players": {
+                    "min"       : 1,
+                    "max"       : 9
+                }
+            }            
+        }
+    }
+}

@@ -5,27 +5,25 @@ const { guild } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('lfg')
-        .setDescription('Create an LFG post for Valorant')
-        .addStringOption(option => option
-            .setName('game')
-            .setDescription('Select the game you want to create the LFG post for')
-            .setRequired(true)
-            .addChoice('Valorant', 'lfg_game_valorant'))
-        .addIntegerOption(option => option
-            .setName('players')
-            .setDescription('Select the number of people you are trying to recruit (# between 1-9)')
-            .setMinValue(1)
-            .setMaxValue(9)
-            .setRequired(true))
-        .addStringOption(option => option
-            .setName('mode')
-            .setDescription('Select the game mode you will be playing')
-            .setRequired(true)
-            .addChoice('Ranked', 'lfg_va_ranked')
-            .addChoice('Unrated', 'lfg_va_unrated')
-            .addChoice('Custom', 'lfg_va_custom')
-            .addChoice('Faceit', 'lfg_va_faceit')
-            .addChoice('Other', 'lfg_va_other')),
+        .setDescription('Create an LFG post')
+        .addSubcommand(subcommand => subcommand
+            .setName('valorant')
+            .setDescription('Create an LFG post for Valorant')
+            .addIntegerOption(option => option
+                .setName('players')
+                .setDescription('Select the number of people you are trying to recruit (# between 1-9)')
+                .setMinValue(1)
+                .setMaxValue(9)
+                .setRequired(true))
+            .addStringOption(option => option
+                .setName('mode')
+                .setDescription('Select the game mode you will be playing')
+                .setRequired(true)
+                .addChoice('Ranked', 'lfg_va_ranked')
+                .addChoice('Unrated', 'lfg_va_unrated')
+                .addChoice('Custom', 'lfg_va_custom')
+                .addChoice('Faceit', 'lfg_va_faceit')
+                .addChoice('Other', 'lfg_va_other'))),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
@@ -47,7 +45,7 @@ module.exports = {
 
                 console.log(`[Debugging] Testing if above if statement works`);
                 if (lfgPlayers < 1 || lfgPlayers > 9) {
-                    interaction.reply({ content: `You have to recruit at least 1 player, but no more than 9.`, ephemeral: true, components: [] });
+                    interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than 9.`, ephemeral: true, components: [] });
                 }
                 //interaction.reply({ content: `Game: ${lfgGame}\nPlayers: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
             } else {
