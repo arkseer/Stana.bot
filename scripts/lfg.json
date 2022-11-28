@@ -2,13 +2,27 @@
     "lfg": {
         "game": {
             "valorant": {
-                "modes": [
-                    "lfg_va_ranked",
-                    "lfg_va_unrated",
-                    "lfg_va_custom",
-                    "lfg_va_faceit",
-                    "lfg_va_other"
-                ],
+                "modes": {
+                    "ranked": {
+                        "max_players"       : 4
+                    },
+                    
+                    "unrated": {
+                        "max_players"       : 4
+                    },
+
+                    "custom": {
+                        "max_players"       : 9
+                    },
+
+                    "faceit": {
+                        "max_players"       : 2
+                    },
+                    
+                    "other": {
+                        "max_players"       : 4
+                    }
+                },
                 
                 "players": {
                     "min"       : 1,
