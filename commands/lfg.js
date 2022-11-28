@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed, ChannelType } = require('discord.js');
 const { guild } = require('../config.json');
+const { lfg } = require('../scripts/lfg.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -36,6 +37,8 @@ module.exports = {
         let lfgGame = interaction.options.getString('game');
         let lfgPlayers = interaction.options.getInteger('players');
         let lfgMode = interaction.options.getString('mode');
+
+        console.log(`[Test] ${lfg.game.valorant.modes.label}`);
 
         if (getVoice) {
             console.log(`[Debugging] ${getUser} is connected to ${getVoice.name}`);
