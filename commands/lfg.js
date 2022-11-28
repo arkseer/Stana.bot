@@ -42,8 +42,17 @@ module.exports = {
         function lfgEmbed() {
             const lfgPost = new MessageEmbed()
                 .setAuthor({ name: getUser, url: '', iconURL: interaction.user.displayAvatarURL() })
+                .setColor('cf889f')
                 .setTitle(`Title here: xxxx`)
-                .setDescription(`Generic description goes here`);
+                .setDescription(`Generic description goes here`)
+                .addFields(
+                    { name: 'Inline field title', value: 'Some value here', inline: true },
+                    { name: 'Inline field title', value: 'Some value here', inline: true },
+                    { name: 'Inline field title', value: 'Some value here', inline: true },
+                    { name: 'Inline field title', value: 'Some value here', inline: true },
+                    { name: 'Inline field title', value: 'Some value here', inline: true },
+                    { name: 'Inline field title', value: 'Some value here', inline: true },
+                );
 
             return lfgPost;
         }
