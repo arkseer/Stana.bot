@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed, ChannelType } = require('discord.js');
 const { guild } = require('../config.json');
-const { lfg, [lfg.game.valorant]: valorant } = require('../scripts/lfg.json');
+const { lfg, lfg: { game: { valorant } } } = require('../scripts/lfg.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
