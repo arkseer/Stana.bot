@@ -46,7 +46,10 @@ module.exports = {
                 if (!getVoice.name.includes(getUser)) return
 
                 console.log(`[Debugging] Testing if above if statement works`);
-                interaction.reply({ content: `Game: ${lfgGame}\nPlayers: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
+                if (lfgPlayers < 1 || lfgPlayers > 9) {
+                    interaction.reply({ content: `You have to recruit at least 1 player, but no more than 9.`, ephemeral: true, components: [] });
+                }
+                //interaction.reply({ content: `Game: ${lfgGame}\nPlayers: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
             } else {
                 console.log(`[Debugging] User is not connected to LFG voice channel`);
             }
