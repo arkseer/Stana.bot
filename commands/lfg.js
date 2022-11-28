@@ -1,30 +1,30 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed, ChannelType } = require('discord.js');
 const { guild } = require('../config.json');
-const { lfg, lfg: { game: { valorant } } } = require('../scripts/lfg.json');
+const { lfg, lfg: { game: { valorant } }, lfg: { game: { valorant: { modes } } } } = require('../scripts/lfg.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('lfg')
         .setDescription('Create an LFG post')
         .addSubcommand(subcommand => subcommand
-            .setName(lfg.game.valorant.name)
-            .setDescription(`Create an LFG post for ${lfg.game.valorant.label}`)
+            .setName(valorant.name)
+            .setDescription(`Create an LFG post for ${valorant.label}`)
             .addIntegerOption(option => option
                 .setName('players')
-                .setDescription('Select the number of people you are trying to recruit (# between 1-9)')
-                .setMinValue(1)
-                .setMaxValue(9)
+                .setDescription(`Select the number of people you are trying to recruit (# between ${valorant.players.min} - ${valorant.players.max})`)
+                .setMinValue(valorant.players.min)
+                .setMaxValue(valorant.players.max)
                 .setRequired(true))
             .addStringOption(option => option
                 .setName('mode')
                 .setDescription('Select the game mode you will be playing')
                 .setRequired(true)
-                .addChoice('Ranked', 'lfg_va_ranked')
-                .addChoice('Unrated', 'lfg_va_unrated')
-                .addChoice('Custom', 'lfg_va_custom')
-                .addChoice('Faceit', 'lfg_va_faceit')
-                .addChoice('Other', 'lfg_va_other'))),
+                .addChoice(modes.ranked.label, modes.ranked.name)
+                .addChoice(modes.unrated.label, modes.unrated.name)
+                .addChoice(modes.custom.label, modes.custom.name)
+                .addChoice(modes.faceit.label, modes.faceit.name)
+                .addChoice(modes.other.label, modes.other.name))),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
@@ -34,7 +34,6 @@ module.exports = {
         let getUser = interaction.member.displayName;
         let getVoice = getMember.voice.channel;
 
-        let lfgGame = interaction.options.getString('game');
         let lfgPlayers = interaction.options.getInteger('players');
         let lfgMode = interaction.options.getString('mode');
 
@@ -47,10 +46,10 @@ module.exports = {
                 if (!getVoice.name.includes(getUser)) return
 
                 console.log(`[Debugging] Testing if above if statement works`);
-                if (lfgPlayers < 1 || lfgPlayers > 9) {
+                if (lfgPlayers < valorant.players.min || lfgPlayers > valorant.players.max) {
                     interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than 9.`, ephemeral: true, components: [] });
                 }
-                //interaction.reply({ content: `Game: ${lfgGame}\nPlayers: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
+                //interaction.reply({ content: `Players: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
             } else {
                 console.log(`[Debugging] User is not connected to LFG voice channel`);
             }
