@@ -1,15 +1,15 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed, ChannelType } = require('discord.js');
 const { guild } = require('../config.json');
-const { lfg } = require('../scripts/lfg.json');
+const { lfg, [lfg.game.valorant]: valorant } = require('../scripts/lfg.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('lfg')
         .setDescription('Create an LFG post')
         .addSubcommand(subcommand => subcommand
-            .setName('valorant')
-            .setDescription('Create an LFG post for Valorant')
+            .setName(lfg.game.valorant.name)
+            .setDescription(`Create an LFG post for ${lfg.game.valorant.label}`)
             .addIntegerOption(option => option
                 .setName('players')
                 .setDescription('Select the number of people you are trying to recruit (# between 1-9)')
@@ -38,7 +38,7 @@ module.exports = {
         let lfgPlayers = interaction.options.getInteger('players');
         let lfgMode = interaction.options.getString('mode');
 
-        console.log(`[Test] ${lfg.game.valorant.modes.label}`);
+        console.log(`[Test] ${lfg.game.valorant.modes.label}: ${valorant.label}`);
 
         if (getVoice) {
             console.log(`[Debugging] ${getUser} is connected to ${getVoice.name}`);
