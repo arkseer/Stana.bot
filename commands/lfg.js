@@ -39,6 +39,15 @@ module.exports = {
 
         console.log(`[Test] ${lfg.game.valorant.modes.label}: ${valorant.label}`);
 
+        function lfgEmbed() {
+            const lfgPost = new MessageEmbed()
+                .setAuthor({ name: getUser, url: '', iconURL: interaction.user.displayAvatarURL() })
+                .setTitle(`Title here: xxxx`)
+                .setDescription(`Generic description goes here`);
+
+            return lfgPost;
+        }
+
         if (getVoice) {
             console.log(`[Debugging] ${getUser} is connected to ${getVoice.name}`);
             if (getVoice.parentId === parentCategory) {
@@ -48,6 +57,8 @@ module.exports = {
                 console.log(`[Debugging] Testing if above if statement works`);
                 if (lfgPlayers < valorant.players.min || lfgPlayers > valorant.players.max) {
                     interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than 9.`, ephemeral: true, components: [] });
+                } else {
+                    interaction.reply({ content: ``, ephemeral: true, components: [], embeds: [lfgEmbed()] });
                 }
                 //interaction.reply({ content: `Players: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
             } else {
