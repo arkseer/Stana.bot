@@ -2,29 +2,48 @@
     "lfg": {
         "game": {
             "valorant": {
+                "label"     : "Valorant",
+                "name"      : "valorant",
+
                 "modes": {
+                    "label"     : "Game modes",
+                    "name"      : "modes",
+
                     "ranked": {
+                        "label"             : "Ranked",
+                        "name"              : "ranked",
                         "max_players"       : 4
                     },
                     
                     "unrated": {
+                        "label"             : "Unrated",
+                        "name"              : "unrated",
                         "max_players"       : 4
                     },
 
                     "custom": {
+                        "label"             : "Custom",
+                        "name"              : "custom",
                         "max_players"       : 9
                     },
 
                     "faceit": {
+                        "label"             : "Faceit",
+                        "name"              : "faceit",
                         "max_players"       : 2
                     },
                     
                     "other": {
+                        "label"             : "Other",
+                        "name"              : "other",
                         "max_players"       : 4
                     }
                 },
                 
                 "players": {
+                    "label"     : "Players",
+                    "name"      : "players",
+
                     "min"       : 1,
                     "max"       : 9
                 }
