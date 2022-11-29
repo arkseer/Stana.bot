@@ -41,6 +41,15 @@
                 },
                 
                 "ranks": {
+                    "min-rank": {
+                        "label"             : "Minimum rank",
+                        "name"              : "min-rank"
+                    },
+                    "max-rank": {
+                        "label"             : "Maximum rank",
+                        "name"              : "max-rank"
+                    },
+
                     "any": {
                         "label"             : "Any",
                         "name"              : "any"
