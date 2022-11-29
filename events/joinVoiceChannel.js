@@ -46,7 +46,6 @@ module.exports = {
             client.voiceGenerator.set(member.id, null);
             await wait(5000);
             oldChannel.delete().catch(() => {});
-            console.log(`Voice channel deleted`);
         }
     }
 }
