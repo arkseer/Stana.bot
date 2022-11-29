@@ -45,7 +45,7 @@ module.exports = {
                 .setColor('cf889f')
                 .setTitle(`Title here: xxxx`)
                 .setDescription(`Generic description goes here`)
-                .setImage('https://i.imgur.com/VZMM63I.png')
+                .setImage('https://i.imgur.com/VrdLQAT.png')
                 .addFields(
                     { name: 'Inline field title', value: 'Some value here', inline: true },
                     { name: 'Inline field title', value: 'Some value here', inline: true },
