@@ -40,6 +40,49 @@
                     }
                 },
                 
+                "ranks": {
+                    "any": {
+                        "label"             : "Any",
+                        "name"              : "any"
+                    },
+                    "iron": {
+                        "label"             : "Iron",
+                        "name"              : "iron"
+                    },
+                    "bronze": {
+                        "label"             : "Bronze",
+                        "name"              : "bronze"
+                    },
+                    "silver": {
+                        "label"             : "Silver",
+                        "name"              : "silver"
+                    },
+                    "gold": {
+                        "label"             : "Gold",
+                        "name"              : "gold"
+                    },
+                    "platinum": {
+                        "label"             : "Platinum",
+                        "name"              : "platinum"
+                    },
+                    "diamond": {
+                        "label"             : "Diamond",
+                        "name"              : "diamond"
+                    },
+                    "ascendant": {
+                        "label"             : "Ascendant",
+                        "name"              : "ascendant"
+                    },
+                    "immortal": {
+                        "label"             : "Immortal",
+                        "name"              : "immortal"
+                    },
+                    "radiant": {
+                        "label"             : "Radiant",
+                        "name"              : "radiant"
+                    }
+                },
+                
                 "players": {
                     "label"     : "Players",
                     "name"      : "players",
