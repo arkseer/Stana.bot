@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed, ChannelType } = require('discord.js');
 const { guild } = require('../config.json');
-const { lfg, lfg: { game: { valorant } }, lfg: { game: { valorant: { modes } } } } = require('../scripts/lfg.json');
+const { lfg, lfg: { game: { valorant } }, lfg: { game: { valorant: { modes } } }, lfg: { game: { valorant: { ranks } } } } = require('../scripts/lfg.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -19,6 +19,22 @@ module.exports = {
                 .addChoice(modes.custom.label, modes.custom.name)
                 .addChoice(modes.faceit.label, modes.faceit.name)
                 .addChoice(modes.other.label, modes.other.name))
+            .addStringOption(option => option
+                .setName('minimum rank')
+                .setDescription('Select the minimum rank you are trying to recruit')
+                .setRequired(true)
+                .addChoices(
+                    { name: ranks.any.label, value: ranks.any.name },
+                    { name: ranks.iron.label, value: ranks.iron.name },
+                    { name: ranks.bronze.label, value: ranks.bronze.name },
+                    { name: ranks.silver.label, value: ranks.silver.name },
+                    { name: ranks.gold.label, value: ranks.gold.name },
+                    { name: ranks.platinum.label, value: ranks.platinum.name },
+                    { name: ranks.diamond.label, value: ranks.diamond.name },
+                    { name: ranks.ascendant.label, value: ranks.ascendant.name },
+                    { name: ranks.immortal.label, value: ranks.immortal.name },
+                    { name: ranks.radiant.label, value: ranks.radiant.name },
+                ))
             .addIntegerOption(option => option
                 .setName('players')
                 .setDescription(`Select the number of people you are trying to recruit (# between ${valorant.players.min} - ${valorant.players.max})`)
