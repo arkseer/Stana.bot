@@ -41,10 +41,11 @@ module.exports = {
 
         function lfgEmbed() {
             const lfgPost = new MessageEmbed()
-                .setAuthor({ name: getUser, url: '', iconURL: interaction.user.displayAvatarURL() })
+                .setAuthor({ name: getUser, url: `https://dmlc.store`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('cf889f')
                 .setTitle(`Title here: xxxx`)
                 .setDescription(`Generic description goes here`)
+                .setImage('https://i.imgur.com/VZMM63I.png')
                 .addFields(
                     { name: 'Inline field title', value: 'Some value here', inline: true },
                     { name: 'Inline field title', value: 'Some value here', inline: true },
