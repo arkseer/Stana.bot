@@ -23,18 +23,16 @@ module.exports = {
                 .setName('min-rank')
                 .setDescription('Select the minimum rank you are trying to recruit')
                 .setRequired(true)
-                .addChoices(
-                    { name: `ranks.any.label`, value: `ranks.any.name` },
-                    { name: `ranks.iron.label`, value: `ranks.iron.name` },
-                    { name: `ranks.bronze.label`, value: `ranks.bronze.name` },
-                    { name: `ranks.silver.label`, value: `ranks.silver.name` },
-                    { name: `ranks.gold.label`, value: `ranks.gold.name` },
-                    { name: `ranks.platinum.label`, value: `ranks.platinum.name` },
-                    { name: `ranks.diamond.label`, value: `ranks.diamond.name` },
-                    { name: `ranks.ascendant.label`, value: `ranks.ascendant.name` },
-                    { name: `ranks.immortal.label`, value: `ranks.immortal.name` },
-                    { name: `ranks.radiant.label`, value: `ranks.radiant.name` },
-                ))
+                .addChoice(ranks.any.label, ranks.any.name)
+                .addChoice(ranks.iron.label, ranks.iron.name)
+                .addChoice(ranks.bronze.label, ranks.bronze.name)
+                .addChoice(ranks.silver.label, ranks.silver.name)
+                .addChoice(ranks.gold.label, ranks.gold.name)
+                .addChoice(ranks.platinum.label, ranks.platinum.name)
+                .addChoice(ranks.diamond.label, ranks.diamond.name)
+                .addChoice(ranks.ascendant.label, ranks.ascendant.name)
+                .addChoice(ranks.immortal.label, ranks.immortal.name)
+                .addChoice(ranks.radiant.label, ranks.radiant.name))
             .addIntegerOption(option => option
                 .setName('players')
                 .setDescription(`Select the number of people you are trying to recruit (# between ${valorant.players.min} - ${valorant.players.max})`)
