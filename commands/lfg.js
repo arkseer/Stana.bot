@@ -68,20 +68,30 @@ module.exports = {
 
         console.log(`[Test] ${lfg.game.valorant.modes.label}: ${valorant.label}`);
 
-        function lfgEmbed() {
+        function lfgEmbed(game, mode, voice, currPlayers, reqPlayers, min_rank, max_rank) {
+            
             const lfgPost = new MessageEmbed()
                 .setAuthor({ name: `${getUser}'s squad`, url: `https://dmlc.store`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('cf889f')
                 .setDescription(`** **`)
                 .setImage('https://i.imgur.com/VrdLQAT.png')
                 .addFields(
-                    { name: 'Game', value: '— Valorant', inline: true },
-                    { name: 'Game mode', value: '— Ranked', inline: true },
-                    { name: 'Voice channel', value: '— <#1047215348761505792>', inline: true },
-                    { name: 'Players required', value: '— 3/5', inline: true },
-                    { name: 'Minimum rank', value: '— Silver', inline: true },
-                    { name: 'Maximum rank', value: '— Gold', inline: true },
+                    { name: 'Game', value: `— ${game}`, inline: true },
+                    { name: 'Game mode', value: `— ${mode}`, inline: true },
+                    { name: 'Voice channel', value: `— <#${voice}>`, inline: true },
+                    { name: 'Players required', value: `— ${currPlayers}/${reqPlayers}`, inline: true },
                 );
+
+                if (min_rank === ranks.any.name && max_rank === ranks.any.name) {
+                    lfgPost.addFields(
+                        { name: 'Required rank', value: `— ${ranks.any.label}`, inline: true },
+                    );
+                } else {
+                    lfgPost.addFields(
+                        { name: 'Minimum rank', value: '— Silver', inline: true },
+                        { name: 'Maximum rank', value: '— Gold', inline: true },
+                    );
+                }
 
             return lfgPost;
         }
@@ -96,7 +106,7 @@ module.exports = {
                 if (lfgPlayers < valorant.players.min || lfgPlayers > valorant.players.max) {
                     interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than 9.`, ephemeral: true, components: [] });
                 } else {
-                    interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed()] });
+                    interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(1, 2, 3, 4, 5, "any", "any")] });
                 }
                 //interaction.reply({ content: `Players: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
             } else {
