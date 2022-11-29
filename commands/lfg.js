@@ -10,12 +10,6 @@ module.exports = {
         .addSubcommand(subcommand => subcommand
             .setName(valorant.name)
             .setDescription(`Create an LFG post for ${valorant.label}`)
-            .addIntegerOption(option => option
-                .setName('players')
-                .setDescription(`Select the number of people you are trying to recruit (# between ${valorant.players.min} - ${valorant.players.max})`)
-                .setMinValue(valorant.players.min)
-                .setMaxValue(valorant.players.max)
-                .setRequired(true))
             .addStringOption(option => option
                 .setName('mode')
                 .setDescription('Select the game mode you will be playing')
@@ -24,7 +18,14 @@ module.exports = {
                 .addChoice(modes.unrated.label, modes.unrated.name)
                 .addChoice(modes.custom.label, modes.custom.name)
                 .addChoice(modes.faceit.label, modes.faceit.name)
-                .addChoice(modes.other.label, modes.other.name))),
+                .addChoice(modes.other.label, modes.other.name))
+            .addIntegerOption(option => option
+                .setName('players')
+                .setDescription(`Select the number of people you are trying to recruit (# between ${valorant.players.min} - ${valorant.players.max})`)
+                .setMinValue(valorant.players.min)
+                .setMaxValue(valorant.players.max)
+                .setRequired(true))
+            ),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
@@ -41,7 +42,7 @@ module.exports = {
 
         function lfgEmbed() {
             const lfgPost = new MessageEmbed()
-                .setAuthor({ name: getUser, url: `https://dmlc.store`, iconURL: interaction.user.displayAvatarURL() })
+                .setAuthor({ name: `${getUser}'s squad`, url: `https://dmlc.store`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('cf889f')
                 .setTitle(`Title here: xxxx`)
                 .setDescription(`Generic description goes here`)
