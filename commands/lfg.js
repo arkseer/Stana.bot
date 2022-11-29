@@ -24,7 +24,7 @@ module.exports = {
                 .setDescription('Select the minimum rank you are trying to recruit')
                 .setRequired(true)
                 .addChoices(
-                    { name: ranks.any.label, value: ranks.any.name },
+                    [{ name: ranks.any.label, value: ranks.any.name },
                     { name: ranks.iron.label, value: ranks.iron.name },
                     { name: ranks.bronze.label, value: ranks.bronze.name },
                     { name: ranks.silver.label, value: ranks.silver.name },
@@ -33,7 +33,7 @@ module.exports = {
                     { name: ranks.diamond.label, value: ranks.diamond.name },
                     { name: ranks.ascendant.label, value: ranks.ascendant.name },
                     { name: ranks.immortal.label, value: ranks.immortal.name },
-                    { name: ranks.radiant.label, value: ranks.radiant.name },
+                    { name: ranks.radiant.label, value: ranks.radiant.name },]
                 ))
             .addIntegerOption(option => option
                 .setName('players')
