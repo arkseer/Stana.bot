@@ -80,18 +80,9 @@ module.exports = {
                     { name: 'Game mode', value: `— ${mode}`, inline: true },
                     { name: 'Voice channel', value: `— <#${voice}>`, inline: true },
                     { name: 'Players required', value: `— ${currPlayers}/${reqPlayers}`, inline: true },
+                    { name: 'Minimum rank', value: `— ${min_rank}`, inline: true },
+                    { name: 'Maximum rank', value: `— ${max_rank}`, inline: true },
                 );
-
-                if (min_rank === ranks.any.name && max_rank === ranks.any.name) {
-                    lfgPost.addFields(
-                        { name: 'Required rank', value: `— ${ranks.any.label}`, inline: true },
-                    );
-                } else {
-                    lfgPost.addFields(
-                        { name: 'Minimum rank', value: '— Silver', inline: true },
-                        { name: 'Maximum rank', value: '— Gold', inline: true },
-                    );
-                }
 
             return lfgPost;
         }
