@@ -20,7 +20,7 @@ module.exports = {
                 .addChoice(modes.faceit.label, modes.faceit.name)
                 .addChoice(modes.other.label, modes.other.name))
             .addStringOption(option => option
-                .setName('minimum rank')
+                .setName('min-rank')
                 .setDescription('Select the minimum rank you are trying to recruit')
                 .setRequired(true)
                 .addChoices(
