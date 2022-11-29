@@ -72,16 +72,15 @@ module.exports = {
             const lfgPost = new MessageEmbed()
                 .setAuthor({ name: `${getUser}'s squad`, url: `https://dmlc.store`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('cf889f')
-                .setTitle(`Title here: xxxx`)
-                .setDescription(`Generic description goes here`)
+                .setDescription(`\n`)
                 .setImage('https://i.imgur.com/VrdLQAT.png')
                 .addFields(
-                    { name: 'Inline field title', value: 'Some value here', inline: true },
-                    { name: 'Inline field title', value: 'Some value here', inline: true },
-                    { name: 'Inline field title', value: 'Some value here', inline: true },
-                    { name: 'Inline field title', value: 'Some value here', inline: true },
-                    { name: 'Inline field title', value: 'Some value here', inline: true },
-                    { name: 'Inline field title', value: 'Some value here', inline: true },
+                    { name: 'Game', value: 'Valorant', inline: true },
+                    { name: 'Game mode', value: 'Ranked', inline: true },
+                    { name: 'Voice channel', value: '<Voice>', inline: true },
+                    { name: 'Players required', value: '3/5', inline: true },
+                    { name: 'Minimum rank', value: 'Silver', inline: true },
+                    { name: 'Maximum rank', value: 'Gold', inline: true },
                 );
 
             return lfgPost;
