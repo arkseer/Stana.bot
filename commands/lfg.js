@@ -72,15 +72,15 @@ module.exports = {
             const lfgPost = new MessageEmbed()
                 .setAuthor({ name: `${getUser}'s squad`, url: `https://dmlc.store`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('cf889f')
-                .setDescription(`\n`)
+                .setDescription(`** **`)
                 .setImage('https://i.imgur.com/VrdLQAT.png')
                 .addFields(
-                    { name: 'Game', value: 'Valorant', inline: true },
-                    { name: 'Game mode', value: 'Ranked', inline: true },
-                    { name: 'Voice channel', value: '<Voice>', inline: true },
-                    { name: 'Players required', value: '3/5', inline: true },
-                    { name: 'Minimum rank', value: 'Silver', inline: true },
-                    { name: 'Maximum rank', value: 'Gold', inline: true },
+                    { name: 'Game', value: '— Valorant', inline: true },
+                    { name: 'Game mode', value: '— Ranked', inline: true },
+                    { name: 'Voice channel', value: '— <#1047215348761505792>', inline: true },
+                    { name: 'Players required', value: '— 3/5', inline: true },
+                    { name: 'Minimum rank', value: '— Silver', inline: true },
+                    { name: 'Maximum rank', value: '— Gold', inline: true },
                 );
 
             return lfgPost;
