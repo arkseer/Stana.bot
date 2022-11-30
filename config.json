@@ -178,6 +178,10 @@
             "new_content": {
                 "id"                : "1043382590037569556",
                 "label"             : "New content"
+            },
+            "valorant_lfg": {
+                "id"                : "1047544418342805577",
+                "label"             : "Valorant LFG"
             }
         },
         "classes": {
@@ -317,6 +321,11 @@
             "label"     : "New content",
             "value"     : "new_content",
             "emoji"     : "<:ping_new_content:1043746854178922556>"
+        },
+        "valorant_lfg": {
+            "label"     : "Valorant LFG",
+            "value"     : "valorant_lfg",
+            "emoji"     : "<:ping_valorant_lfg:1047545100034637845>"
         }
     },
 
