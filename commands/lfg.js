@@ -81,7 +81,7 @@ module.exports = {
                     { name: 'Game', value: `— ${game}`, inline: true },
                     { name: 'Game mode', value: `— ${mode}`, inline: true },
                     { name: 'Voice channel', value: `— <#${voice}>`, inline: true },
-                    { name: 'Players required', value: `— ${currPlayers}/${reqPlayers}`, inline: true },
+                    { name: 'Players required', value: `— ${currPlayers}/${reqPlayers} (+${reqPlayers-currPlayers})`, inline: true },
                     { name: 'Minimum rank', value: `— ${min_rank}`, inline: true },
                     { name: 'Maximum rank', value: `— ${max_rank}`, inline: true },
                 );
