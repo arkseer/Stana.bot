@@ -65,6 +65,8 @@ module.exports = {
 
         let lfgPlayers = interaction.options.getInteger('players');
         let lfgMode = interaction.options.getString('mode');
+        let lfgMinRank = interaction.options.getString('min-rank');
+        let lfgMaxRank = interaction.options.getString('max-rank');
 
         console.log(`[Test] ${lfg.game.valorant.modes.label}: ${valorant.label}`);
 
@@ -107,7 +109,7 @@ module.exports = {
                     if (lfgPlayers < valorant.players.min || lfgPlayers > maxPlayers) {
                         interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than ${maxPlayers}.`, ephemeral: true, components: [] });
                     } else {
-                        interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(1, 2, 3, 4, 5, "any", "any")] });
+                        interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(1, 2, 3, 4, 5, ranks[lfgMinRank]['label'], ranks[lfgMaxRank]['label'])] });
                     }
                 }
                 
