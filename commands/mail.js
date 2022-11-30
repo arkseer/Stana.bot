@@ -28,7 +28,7 @@ module.exports = {
             const mailPost = new MessageEmbed()
                 .setTitle('Something')
                 .setDescription('Something something')
-                .setImage('https://i.imgur.com/ZwcoWlJ.gif');
+                .setImage('https://i.imgur.com/P47v0CQ.png');
 
             return mailPost;
         }
