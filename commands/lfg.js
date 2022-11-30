@@ -112,7 +112,7 @@ module.exports = {
                     if (lfgPlayers < valorant.players.min || lfgPlayers > maxPlayers) {
                         interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than ${maxPlayers}.`, ephemeral: true, components: [] });
                     } else {
-                        interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(valorant.label, modes[lfgMode]['label'], getVoice.id, currentPlayers, maxPlayers, ranks[lfgMinRank]['label'], ranks[lfgMaxRank]['label'])] });
+                        interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(valorant.label, modes[lfgMode]['label'], getVoice.id, currentPlayers+1, maxPlayers+1, ranks[lfgMinRank]['label'], ranks[lfgMaxRank]['label'])] });
                     }
                 }
                 
