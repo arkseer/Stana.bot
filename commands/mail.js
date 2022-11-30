@@ -26,13 +26,13 @@ module.exports = {
 
         function mailEmbed() {
             const mailPost = new MessageEmbed()
-                .setAuthor({ name: `Ark...`, url: ``, iconURL: interaction.user.displayAvatarURL() })
+                .setAuthor({ name: `${interaction.member.tag}'s mail`, url: ``, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('cf889f')
-                .setTitle(`Ark's message: `)
-                .setDescription('*Something something*')
+                .setTitle(`${interaction.member.displayName} needs help with: `)
+                .setDescription(`*${interaction.options.getString('issue')}*`)
                 .setImage('https://i.imgur.com/P47v0CQ.png')
                 .addFields(
-                    { name: `Priority`, value: `Normal`, inline: true },
+                    { name: `Priority`, value: `${interaction.options.getString('priority')}`, inline: true },
                 );
 
             return mailPost;
