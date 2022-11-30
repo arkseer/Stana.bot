@@ -26,9 +26,14 @@ module.exports = {
 
         function mailEmbed() {
             const mailPost = new MessageEmbed()
-                .setTitle('Something')
-                .setDescription('Something something')
-                .setImage('https://i.imgur.com/P47v0CQ.png');
+                .setAuthor({ name: `Ark...`, url: ``, iconURL: interaction.user.displayAvatarURL() })
+                .setColor('cf889f')
+                .setTitle(`Ark's message: `)
+                .setDescription('*Something something*')
+                .setImage('https://i.imgur.com/P47v0CQ.png')
+                .addFields(
+                    { name: `Priority`, value: `Normal`, inline: true },
+                );
 
             return mailPost;
         }
