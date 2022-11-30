@@ -24,15 +24,20 @@ module.exports = {
 
     async execute(interaction, client) {
 
+        function capitalizeFirst(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
         function mailEmbed() {
             const mailPost = new MessageEmbed()
                 .setAuthor({ name: `${interaction.user.tag}'s mail`, url: ``, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('cf889f')
                 .setTitle(`${interaction.member.displayName} needs help with: `)
-                .setDescription(`*${interaction.options.getString('issue')}*`)
+                .setURL('https://dmlc.store')
+                .setDescription(`*${capitalizeFirst(interaction.options.getString('issue'))}*`)
                 .setImage('https://i.imgur.com/P47v0CQ.png')
                 .addFields(
-                    { name: `Priority`, value: `${interaction.options.getString('priority').toUpperCase()}`, inline: true },
+                    { name: `Priority`, value: `${capitalizeFirst(interaction.options.getString('priority'))}`, inline: true },
                 );
 
             return mailPost;
