@@ -94,11 +94,23 @@ module.exports = {
                 if (!getVoice.name.includes(getUser)) return
 
                 console.log(`[Debugging] Testing if above if statement works`);
-                if (lfgPlayers < valorant.players.min || lfgPlayers > valorant.players.max) {
-                    interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than 9.`, ephemeral: true, components: [] });
-                } else {
-                    interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(1, 2, 3, 4, 5, "any", "any")] });
+                if (interaction.options.getSubcommand() === valorant.name) {
+                    let maxPlayers;
+
+                    // Determining amount of max players based on game mode
+                    if (modes.ranked) maxPlayers = modes.ranked.max_players;
+                    if (modes.unrated) maxPlayers = modes.unrated.max_players;
+                    if (modes.custom) maxPlayers = modes.custom.max_players;
+                    if (modes.faceit) maxPlayers = modes.faceit.max_players;
+                    if (modes.other) maxPlayers = modes.other.max_players;
+
+                    if (lfgPlayers < valorant.players.min || lfgPlayers > maxPlayers) {
+                        interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than ${maxPlayers}.`, ephemeral: true, components: [] });
+                    } else {
+                        interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(1, 2, 3, 4, 5, "any", "any")] });
+                    }
                 }
+                
                 //interaction.reply({ content: `Players: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
             } else {
                 console.log(`[Debugging] User is not connected to LFG voice channel`);
