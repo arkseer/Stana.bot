@@ -97,7 +97,7 @@ module.exports = {
 
                 console.log(`[Debugging] Testing if above if statement works`);
                 if (interaction.options.getSubcommand() === valorant.name) {
-                    let maxPlayers, reqPlayers;
+                    let maxPlayers, currentPlayers;
 
                     // Determining amount of max players based on game mode
                     if (modes.ranked) maxPlayers = modes.ranked.max_players;
@@ -107,12 +107,12 @@ module.exports = {
                     if (modes.other) maxPlayers = modes.other.max_players;
 
                     // Determine amount of current players
-                    reqPlayers = maxPlayers-lfgPlayers;
+                    currentPlayers = maxPlayers-lfgPlayers;
 
                     if (lfgPlayers < valorant.players.min || lfgPlayers > maxPlayers) {
                         interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than ${maxPlayers}.`, ephemeral: true, components: [] });
                     } else {
-                        interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(valorant.label, modes[lfgMode]['label'], getVoice.id, reqPlayers, maxPlayers, ranks[lfgMinRank]['label'], ranks[lfgMaxRank]['label'])] });
+                        interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(valorant.label, modes[lfgMode]['label'], getVoice.id, currentPlayers, maxPlayers, ranks[lfgMinRank]['label'], ranks[lfgMaxRank]['label'])] });
                     }
                 }
                 
