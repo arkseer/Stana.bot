@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed, ChannelType } = require('discord.js');
-const { guild, va_lfg_channel_id } = require('../config.json');
+const { guild, va_lfg_channel_id, roles: { pings } } = require('../config.json');
 const { lfg, lfg: { game: { valorant } }, lfg: { game: { valorant: { modes } } }, lfg: { game: { valorant: { ranks } } } } = require('../scripts/lfg.json');
 
 module.exports = {
@@ -119,7 +119,7 @@ module.exports = {
                     } else {
                         await interaction.reply({ ephemeral: true, components: [], embeds: [valEmbed] });
                         await wait(1000);
-                        await getVALfgCH.send({ ephemeral: false, components: [], embeds: [valEmbed] });
+                        await getVALfgCH.send({ content: `<@&${pings['valorant_lfg']['id']}>`, ephemeral: false, components: [], embeds: [valEmbed] });
                     }
                 }
                 
