@@ -19,6 +19,12 @@ module.exports = {
                 .addChoice(modes.custom.label, modes.custom.name)
                 .addChoice(modes.faceit.label, modes.faceit.name)
                 .addChoice(modes.other.label, modes.other.name))
+            .addIntegerOption(option => option
+                .setName('players')
+                .setDescription(`Select the number of people you are trying to recruit (# between ${valorant.players.min} - ${valorant.players.max})`)
+                .setMinValue(valorant.players.min)
+                .setMaxValue(valorant.players.max)
+                .setRequired(true))
             .addStringOption(option => option
                 .setName('min-rank')
                 .setDescription('Select the minimum rank you are trying to recruit')
@@ -33,27 +39,21 @@ module.exports = {
                 .addChoice(ranks.ascendant.label, ranks.ascendant.name)
                 .addChoice(ranks.immortal.label, ranks.immortal.name)
                 .addChoice(ranks.radiant.label, ranks.radiant.name))
-                .addStringOption(option => option
-                    .setName('max-rank')
-                    .setDescription('Select the maximum rank you are trying to recruit')
-                    .setRequired(true)
-                    .addChoice(ranks.any.label, ranks.any.name)
-                    .addChoice(ranks.iron.label, ranks.iron.name)
-                    .addChoice(ranks.bronze.label, ranks.bronze.name)
-                    .addChoice(ranks.silver.label, ranks.silver.name)
-                    .addChoice(ranks.gold.label, ranks.gold.name)
-                    .addChoice(ranks.platinum.label, ranks.platinum.name)
-                    .addChoice(ranks.diamond.label, ranks.diamond.name)
-                    .addChoice(ranks.ascendant.label, ranks.ascendant.name)
-                    .addChoice(ranks.immortal.label, ranks.immortal.name)
-                    .addChoice(ranks.radiant.label, ranks.radiant.name))
-            .addIntegerOption(option => option
-                .setName('players')
-                .setDescription(`Select the number of people you are trying to recruit (# between ${valorant.players.min} - ${valorant.players.max})`)
-                .setMinValue(valorant.players.min)
-                .setMaxValue(valorant.players.max)
-                .setRequired(true))
-            ),
+            .addStringOption(option => option
+                .setName('max-rank')
+                .setDescription('Select the maximum rank you are trying to recruit')
+                .setRequired(true)
+                .addChoice(ranks.any.label, ranks.any.name)
+                .addChoice(ranks.iron.label, ranks.iron.name)
+                .addChoice(ranks.bronze.label, ranks.bronze.name)
+                .addChoice(ranks.silver.label, ranks.silver.name)
+                .addChoice(ranks.gold.label, ranks.gold.name)
+                .addChoice(ranks.platinum.label, ranks.platinum.name)
+                .addChoice(ranks.diamond.label, ranks.diamond.name)
+                .addChoice(ranks.ascendant.label, ranks.ascendant.name)
+                .addChoice(ranks.immortal.label, ranks.immortal.name)
+                .addChoice(ranks.radiant.label, ranks.radiant.name))
+        ),
         
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
