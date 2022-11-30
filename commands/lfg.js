@@ -95,10 +95,9 @@ module.exports = {
             console.log(`[Debugging] ${getUser} is connected to ${getVoice.name}`);
             if (getVoice.parentId === parentCategory) {
                 console.log(`[Debugging] User is connected to LFG voice channel`);
-                if (!getVoice.name.includes(getUser)) return
-
-                console.log(`[Debugging] Testing if above if statement works`);
-                if (interaction.options.getSubcommand() === valorant.name) {
+                if (!getVoice.name.includes(getUser)) {
+                    await interaction.reply({ content: `I'm sorry ${getUser}, but you need to create your own LFG voice channel to create an LFG post.`, ephemeral: true, components: [] });
+                } else if (interaction.options.getSubcommand() === valorant.name) {
                     let maxPlayers, currentPlayers;
 
                     // Determining amount of max players based on game mode
@@ -122,13 +121,13 @@ module.exports = {
                         await getVALfgCH.send({ content: `<@&${pings['valorant_lfg']['id']}>`, ephemeral: false, components: [], embeds: [valEmbed] });
                     }
                 }
-                
-                //interaction.reply({ content: `Players: ${lfgPlayers}\nGame mode: ${lfgMode}`, ephemeral: true, components: [] });
             } else {
                 console.log(`[Debugging] User is not connected to LFG voice channel`);
+                await interaction.reply({ content: `I'm sorry ${getUser}, but you must be connected to an LFG voice channel to create an LFG post.`, ephemeral: true, components: [] });
             }
         } else {
             console.log(`[Debugging] ${getUser} is not connected to any voice channels`);
+            await interaction.reply({ content: `I'm sorry ${getUser}, but you must be connected to an LFG voice channel to create an LFG post.`, ephemeral: true, components: [] });
         }
 
 
