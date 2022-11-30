@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed, ChannelType } = require('discord.js');
-const { guild } = require('../config.json');
+const { guild, va_lfg_channel_id } = require('../config.json');
 const { lfg, lfg: { game: { valorant } }, lfg: { game: { valorant: { modes } } }, lfg: { game: { valorant: { ranks } } } } = require('../scripts/lfg.json');
 
 module.exports = {
@@ -63,6 +63,8 @@ module.exports = {
         let getUser = interaction.member.displayName;
         let getVoice = getMember.voice.channel;
 
+        let getVALfgCH = interaction.client.channels.cache.get(va_lfg_channel_id);
+
         let lfgPlayers = interaction.options.getInteger('players');
         let lfgMode = interaction.options.getString('mode');
         let lfgMinRank = interaction.options.getString('min-rank');
@@ -109,10 +111,15 @@ module.exports = {
                     // Determine amount of current players
                     currentPlayers = maxPlayers-lfgPlayers;
 
+                    // Assign lfgEmbed to a variable to be reused without having to change multiple lines in the future
+                    let valEmbed = lfgEmbed(valorant.label, modes[lfgMode]['label'], getVoice.id, currentPlayers+1, maxPlayers+1, ranks[lfgMinRank]['label'], ranks[lfgMaxRank]['label']);
+
                     if (lfgPlayers < valorant.players.min || lfgPlayers > maxPlayers) {
                         interaction.reply({ content: `${getUser}, you have to recruit at least 1 player, but no more than ${maxPlayers}.`, ephemeral: true, components: [] });
                     } else {
-                        interaction.reply({ ephemeral: true, components: [], embeds: [lfgEmbed(valorant.label, modes[lfgMode]['label'], getVoice.id, currentPlayers+1, maxPlayers+1, ranks[lfgMinRank]['label'], ranks[lfgMaxRank]['label'])] });
+                        await interaction.reply({ ephemeral: true, components: [], embeds: [valEmbed] });
+                        await wait(1000);
+                        await getVALfgCH.send({ ephemeral: false, components: [], embeds: [valEmbed] });
                     }
                 }
                 
