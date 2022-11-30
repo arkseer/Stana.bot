@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageEmbed } = require('discord.js');
 const { guild } = require('../config.json');
 
 module.exports = {
@@ -22,6 +23,15 @@ module.exports = {
         ),
 
     async execute(interaction, client) {
-        interaction.reply({ content: `it works`, ephemeral: true, components: [] });
+
+        function mailEmbed() {
+            const mailPost = new MessageEmbed()
+                .setTitle('Something')
+                .setDescription('Something something')
+                .setImage('https://i.imgur.com/ZwcoWlJ.gif');
+
+            return mailPost;
+        }
+        interaction.reply({ content: `it works`, ephemeral: true, components: [], embeds: [mailEmbed()] });
     }
 }
