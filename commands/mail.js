@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const { guild } = require('../config.json');
+const { guild, mail_channel_id } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -23,6 +23,9 @@ module.exports = {
         ),
 
     async execute(interaction, client) {
+        const wait = require('util').promisify(setTimeout);
+
+        let getMailCH = interaction.client.channels.cache.get(mail_channel_id);
 
         function capitalizeFirst(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
@@ -42,6 +45,8 @@ module.exports = {
 
             return mailPost;
         }
-        interaction.reply({ content: `it works`, ephemeral: true, components: [], embeds: [mailEmbed()] });
+        interaction.reply({ content: `${interaction.member.displayName}, your message has been sent to our staff. They will reach out to you shortly.\n\nThank you!`, ephemeral: true, components: [] });
+        await wait(1000);
+        await getMailCH.send({ ephemeral: true, components: [], embeds: [mailEmbed()] });
     }
 }
