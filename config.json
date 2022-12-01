@@ -135,7 +135,8 @@
     "twab_channel_id"           : "540133714798051328",
     "weeklyreset_channel_id"    : "819830082234875934",
 
-    "va_lfg_channel_id"            : "1039272251498958989",
+    "va_lfg_channel_id"         : "1039272251498958989",
+    "mail_channel_id"           : "1047944791729655818",
 
     "join_channel_id"           : "1038644009381408788",
 
