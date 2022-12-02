@@ -8,7 +8,14 @@ module.exports = {
         .setDescription('Send a notification when you go live')
         .addSubcommand(subcommand => subcommand
             .setName('now')
-            .setDescription('Send a notification when you go live')),
+            .setDescription('Send a notification when you go live')
+            .addStringOption(option => option
+                .setName('platform')
+                .setDescription('Choose the platform you are live on')
+                .setRequired(true)
+                .addChoice('Twitch', 'twitch')
+                .addChoice('Youtube', 'youtube')
+                .addChoice('Facebook', 'facebook'))),
 
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
