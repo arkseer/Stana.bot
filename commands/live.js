@@ -20,6 +20,16 @@ module.exports = {
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
 
-        interaction.reply({ content: `it works`, ephemeral: true, components: [] });
+        function liveEmbed() {
+            const livePost = new MessageEmbed()
+                .setAuthor({ name: interaction.member.displayName, url: `https://dmlc.store`, iconURL: interaction.user.displayAvatarURL() })
+                .setColor('cf889f')
+                .setDescription('Description goes here')
+                .setImage('https://i.imgur.com/y0bAZc3.png');
+
+            return livePost;
+        }
+
+        interaction.reply({ content: `it works`, ephemeral: true, components: [], embeds: [liveEmbed()] });
     }
 }
