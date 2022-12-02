@@ -25,7 +25,7 @@ module.exports = {
                 .setAuthor({ name: interaction.member.displayName, url: `https://dmlc.store`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('cf889f')
                 .setDescription('Description goes here')
-                .setImage('https://i.imgur.com/y0bAZc3.png');
+                .setImage('https://i.imgur.com/9b10bBR.png');
 
             return livePost;
         }
