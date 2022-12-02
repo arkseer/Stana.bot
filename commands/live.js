@@ -7,7 +7,7 @@ module.exports = {
         .setName('live')
         .setDescription('Send a notification when you go live or apply to join our content creators programme')
         .addSubcommand(subcommand => subcommand
-            .setName('@me')
+            .setName('\@me')
             .setDescription('Send a notification when you go live'))
         .addSubcommand(subcommand => subcommand
             .setName('apply')
