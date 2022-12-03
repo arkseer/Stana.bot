@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 const { guild } = require('../config.json');
+const { contentCreators, contentCreators: { members } } = require('../scripts/contentCreators.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -19,16 +20,20 @@ module.exports = {
                 .setRequired(true)
                 .addChoice('Twitch', 'twitch')
                 .addChoice('Youtube', 'youtube')
-                .addChoice('Facebook', 'facebook'))),
+                .addChoice('Tiktok', 'tiktok'))),
 
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
+
+        let getCC = members[interaction.user.id];
+        let liveTitle = interaction.options.getString('title');
+        let livePlatform = interaction.options.getString('platform');
 
         function capitalizeFirst(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
-        function liveEmbed(stream, title, platform, socials) {
+        function liveEmbed(stream, title, platform) {
             const livePost = new MessageEmbed()
                 .setAuthor({ name: interaction.member.displayName, url: `${stream}`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('9b59b6')
@@ -43,14 +48,14 @@ module.exports = {
                 new MessageButton()
                     .setLabel('Watch stream')
                     .setStyle('LINK')
-                    .setURL('https://dmlc.store'),
+                    .setURL(getCC[livePlatform]),
                 new MessageButton()
                     .setLabel('Socials')
                     .setStyle('LINK')
-                    .setURL('https://linktr.ee/dmlc'),
+                    .setURL(getCC['linktree']),
             );
 
-        let _liveEmbed = liveEmbed('https://dmlc.store', 'Title goes here !blank !discord', 'twitch', 'socials');
+        let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform);
 
         interaction.reply({ content: `it works`, ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
     }
