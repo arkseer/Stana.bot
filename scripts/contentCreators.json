@@ -1,0 +1,20 @@
+{
+    "contentCreators": {
+        "label"     : "Content creators",
+        "name"      : "content_creators",
+
+        "members": {
+            "263690724963254273": {
+                "name"          : "Λrk",
+                "tag"           : "Λrk#0001",
+                "joinDate"      : "03/12/22 @ 2:30 AM",
+
+                "twitch"        : "https://twitch.tv/dmlcgg",
+                "youtube"       : "https://youtube.com/@dmlcgg",
+                "tiktok"        : "",
+
+                "linktree"      : "https://linktr.ee/dmlc"
+            }
+        }
+    }
+}
