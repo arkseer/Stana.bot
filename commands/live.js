@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 const { guild } = require('../config.json');
 
 module.exports = {
@@ -24,16 +24,30 @@ module.exports = {
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
 
-        function liveEmbed() {
+        function capitalizeFirst(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        function liveEmbed(stream, title, platform, socials) {
             const livePost = new MessageEmbed()
-                .setAuthor({ name: interaction.member.displayName, url: `https://dmlc.store`, iconURL: interaction.user.displayAvatarURL() })
+                .setAuthor({ name: interaction.member.displayName, url: `${stream}`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('9b59b6')
-                .setDescription(`"Title goes here !blank !discord" — LIVE on Twitch`)
+                .setDescription(`**"${capitalizeFirst(title)}"** — LIVE on ${capitalizeFirst(platform)}`)
                 .setImage('https://i.imgur.com/9b10bBR.png');
 
             return livePost;
         }
 
-        interaction.reply({ content: `it works`, ephemeral: true, components: [], embeds: [liveEmbed()] });
+        const liveBtn = new MessageActionRow()
+            .addComponents(
+                new MessageButton()
+                    .setLabel('Watch stream')
+                    .setStyle('LINK')
+                    .setURL('https://dmlc.store'),
+            );
+
+        let _liveEmbed = liveEmbed('https://dmlc.store', 'Title goes here !blank !discord', 'twitch', 'socials');
+
+        interaction.reply({ content: `it works`, ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
     }
 }
