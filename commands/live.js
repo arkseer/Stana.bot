@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { guild } = require('../config.json');
+const { guild, channels: { pings }, roles } = require('../config.json');
 const { contentCreators, contentCreators: { members } } = require('../scripts/contentCreators.json');
 
 module.exports = {
@@ -28,6 +28,8 @@ module.exports = {
         let getCC = members[interaction.user.id];
         let liveTitle = interaction.options.getString('title');
         let livePlatform = interaction.options.getString('platform');
+
+        let getStreamCH = interaction.client.channels.cache.get(pings.streamers.id);
 
         function capitalizeFirst(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
@@ -57,6 +59,8 @@ module.exports = {
 
         let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform);
 
-        interaction.reply({ content: `it works`, ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
+        await interaction.reply({ content: `it works`, ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
+        await wait(1000);
+        await getStreamCH.send({ content: `<@&${roles.pings['streamers']['id']}>`, ephemeral: false, components: [liveBtn], embeds: [_liveEmbed] });
     }
 }
