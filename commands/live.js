@@ -33,7 +33,10 @@ module.exports = {
                 .setAuthor({ name: interaction.member.displayName, url: `${stream}`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('9b59b6')
                 .setDescription(`**"${capitalizeFirst(title)}"** — LIVE on ${capitalizeFirst(platform)}`)
-                .setImage('https://i.imgur.com/9b10bBR.png');
+                .setImage('https://i.imgur.com/9b10bBR.png')
+                .addFields(
+                    { name: `Linktr.ee`, value: `[/dmlc](https://dmlc.store 'Socials')`, inline: false },
+                );
 
             return livePost;
         }
