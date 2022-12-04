@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 const { guild, channels: { pings }, roles, roles: { achievements } } = require('../config.json');
-const { contentCreators, contentCreators: { members } } = require('../scripts/contentCreators.json');
+const { contentCreators, contentCreators: { members }, contentCreators: { delays } } = require('../scripts/contentCreators.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -39,12 +39,13 @@ module.exports = {
                 .setName('delay')
                 .setDescription('Select the delay amount your stream will start at')
                 .setRequired(true)
-                .addChoice('+30 minutes', '30_minutes')
-                .addChoice('+1 hour', '1_hour')
-                .addChoice('+2 hours', '2_hours')
-                .addChoice('+3 hours', '3_hours')
-                .addChoice('+4 hours', '4_hours')
-                .addChoice('+5 hours', '5_hours'))),
+                .addChoice(delays['15_minutes'].label, delays['15_minutes'].name)
+                .addChoice(delays['30_minutes'].label, delays['30_minutes'].name)
+                .addChoice(delays['1_hour'].label, delays['1_hour'].name)
+                .addChoice(delays['2_hours'].label, delays['2_hours'].name)
+                .addChoice(delays['3_hours'].label, delays['3_hours'].name)
+                .addChoice(delays['4_hours'].label, delays['4_hours'].name)
+                .addChoice(delays['5_hours'].label, delays['5_hours'].name))),
 
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
@@ -53,6 +54,9 @@ module.exports = {
         let getCC = members[interaction.user.id];
         let liveTitle = interaction.options.getString('title');
         let livePlatform = interaction.options.getString('platform');
+        let liveDelay = interaction.options.getString('delay');
+
+        if (interaction.options.getSubcommand() === 'now') liveDelay = 'NOW' ?? liveDelay;
 
         let getStreamCH = interaction.client.channels.cache.get(pings.streamers.id);
 
@@ -98,7 +102,7 @@ module.exports = {
             );
 
         if (interaction.options.getSubcommand() === 'now') {
-            let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform, 'NOW');
+            let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform, liveDelay);
 
             if (!getRole) {
                 await interaction.reply({ content: `Sorry ${interaction.member.displayName}, you're not a content creator yet.\nIf you wish to stream under our banner, please use /apply to join our content creators programme.`, ephemeral: true, components: [] });
@@ -108,7 +112,7 @@ module.exports = {
                 await getStreamCH.send({ content: `<@&${roles.pings['streamers']['id']}>`, ephemeral: false, components: [liveBtn], embeds: [_liveEmbed] });
             }
         } else if (interaction.options.getSubcommand() === 'later') {
-            let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform, 'NOW');
+            let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform, delays[liveDelay].label_embed);
             if (!getRole) {
                 await interaction.reply({ content: `Sorry ${interaction.member.displayName}, you're not a content creator yet.\nIf you wish to stream under our banner, please use /apply to join our content creators programme.`, ephemeral: true, components: [] });
             } else {
