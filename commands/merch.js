@@ -16,7 +16,7 @@ module.exports = {
             const merchPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('cf889f')
-                .setDescription(`Description goes here`)
+                .setDescription(`Our merch store is filled with goodies and if you wish to support us while upgrading your drip, consider taking a visit over our store.`)
                 .setImage('https://i.imgur.com/y0bAZc3.png');
 
             return merchPost;
