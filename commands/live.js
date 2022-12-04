@@ -60,8 +60,19 @@ module.exports = {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
+        function sliceTitle(string) {
+            let textLimit = 60;
+            let newLimit = 3;
+            
+            if (string.length > textLimit) newLimit = string.length-textLimit ?? newLimit;
+
+            let result = string.slice(0, string.length-newLimit-5).concat("...");
+
+            return result;
+        }
+
         function liveEmbed(stream, title, platform, when) {
-            title = capitalizeFirst(title);
+            title = capitalizeFirst(sliceTitle(title));
             platform = capitalizeFirst(platform);
 
             const livePost = new MessageEmbed()
