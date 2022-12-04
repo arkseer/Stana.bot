@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { guild, url } = require('../config.json');
+const { guild, bot, url } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,10 +9,13 @@ module.exports = {
 
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
+        
+        let getGuild = await client.guilds.cache.get(guild);
+        let getBot = await getGuild.members.fetch(bot);
 
         function merchEmbed() {
             const merchPost = new MessageEmbed()
-                .setAuthor({ name: interaction.member.displayName, url: url.merch.link, iconURL: interaction.user.displayAvatarURL() })
+                .setAuthor({ name: getBot.displayName, url: url.merch.link, iconURL: getBot.displayAvatarURL() })
                 .setColor('cf889f')
                 .setDescription(`Description goes here`)
                 .setImage('https://i.imgur.com/y0bAZc3.png');
