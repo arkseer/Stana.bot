@@ -3,6 +3,48 @@
         "label"     : "Content creators",
         "name"      : "content_creators",
 
+        "delays": {
+            "now": {
+                "label"         : "NOW",
+                "name"          : "now"
+            },
+            "15_minutes": {
+                "label"         : "+15 minutes",
+                "label_embed"   : "in **15 minutes**",
+                "name"          : "15_minutes"
+            },
+            "30_minutes": {
+                "label"         : "+30 minutes",
+                "label_embed"   : "in **30 minutes**",
+                "name"          : "30_minutes"
+            },
+            "1_hour": {
+                "label"         : "+1 hour",
+                "label_embed"   : "in **1 hour**",
+                "name"          : "1_hour"
+            },
+            "2_hours": {
+                "label"         : "+2 hours",
+                "label_embed"   : "in **2 hours**",
+                "name"          : "2_hours"
+            },
+            "3_hours": {
+                "label"         : "+3 hours",
+                "label_embed"   : "in **3 hours**",
+                "name"          : "3_hours"
+            },
+            "4_hours": {
+                "label"         : "+4 hours",
+                "label_embed"   : "in **4 hours**",
+                "name"          : "4_hours"
+            },
+            "5_hours": {
+                "label"         : "+5 hours",
+                "label_embed"   : "in **5 hours**",
+                "name"          : "5_hours"
+            }
+        },
+
         "members": {
             "263690724963254273": {
                 "name"          : "Λrk",
