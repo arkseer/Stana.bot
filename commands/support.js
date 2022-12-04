@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu, MessageEmbed } = require('discord.js');
-const { bot, url,  } = require('../config.json');
+const { bot, url } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -15,7 +15,7 @@ module.exports = {
             const supportPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('cf889f')
-                .setDescription(`Description goes here`)
+                .setDescription(`Currently we have a couple ways for our members to support our cause.\nThrough the boosting of our server, becoming a patron or buying merch from our store.\n\u2800\nWhether you choose to support us or not, we are forever grateful for your presence in our community.`)
                 .setImage('https://i.imgur.com/m1p36YF.png');
 
             return supportPost;
@@ -24,13 +24,13 @@ module.exports = {
         const supportBtn = new MessageActionRow()
             .addComponents(
                 new MessageButton()
-                    .setLabel('Patreon')
+                    .setLabel(url.patreon.name)
                     .setStyle('LINK')
-                    .setURL('https://dmlc.store'),
+                    .setURL(url.patreon.link),
                 new MessageButton()
-                    .setLabel('Merch store')
+                    .setLabel(url.merch.name)
                     .setStyle('LINK')
-                    .setURL('https://dmlc.store'),
+                    .setURL(url.merch.link),
             );
 
         let _supportEmbed = supportEmbed();
