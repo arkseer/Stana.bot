@@ -112,7 +112,7 @@ module.exports = {
             let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform, liveDelay);
 
             if (!getRole) {
-                await interaction.reply({ content: `Sorry ${interaction.member.displayName}, you're not a content creator yet.\nIf you wish to stream under our banner, please use /apply to join our content creators programme.`, ephemeral: true, components: [] });
+                await interaction.reply({ content: `Sorry ${interaction.member.displayName}, but you're not a content creator yet.\nIf you wish to stream under our banner, please use /apply to join our content creators programme.`, ephemeral: true, components: [] });
             } else {
                 await interaction.reply({ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
                 await wait(1000);
@@ -121,9 +121,11 @@ module.exports = {
         } else if (interaction.options.getSubcommand() === 'later') {
             let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform, delays[liveDelay].label_embed);
             if (!getRole) {
-                await interaction.reply({ content: `Sorry ${interaction.member.displayName}, you're not a content creator yet.\nIf you wish to stream under our banner, please use /apply to join our content creators programme.`, ephemeral: true, components: [] });
+                await interaction.reply({ content: `Sorry ${interaction.member.displayName}, but you're not a content creator yet.\nIf you wish to stream under our banner, please use /apply to join our content creators programme.`, ephemeral: true, components: [] });
             } else {
-                await interaction.reply({ content: `it works`, ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
+                await interaction.reply({ ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
+                await wait(1000);
+                await getStreamCH.send({ content: `<@&${roles.pings['streamers']['id']}>`, ephemeral: false, components: [liveBtn], embeds: [_liveEmbed] });
             }            
         }
     }
