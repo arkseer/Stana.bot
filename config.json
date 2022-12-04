@@ -307,6 +307,28 @@
                 "id"                : "1043726673885012028",
                 "label"             : "Harbor"
             }
+        },
+        "achievements": {
+            "editor": {
+                "id"                : "1038242110354227282",
+                "label"             : "Editor"
+            },
+            "designer": {
+                "id"                : "1038242173675634749",
+                "label"             : "Designer"
+            },
+            "content_creator": {
+                "id"                : "1038242195565715497",
+                "label"             : "Content creator"
+            },
+            "egirls": {
+                "id"                : "1038247777228046336",
+                "label"             : "E-Girls"
+            },
+            "echads": {
+                "id"                : "1046173845612138646",
+                "label"             : "E-Chads"
+            }
         }
     },
 
