@@ -9,7 +9,7 @@ module.exports = {
 
     async execute(interaction) {
         const wait = require('util').promisify(setTimeout);
-        const getBot = interaction.guild.members.fetch(bot);
+        const getBot = await interaction.guild.members.fetch(bot);
 
         function applyEmbed() {
             const applyPost = new MessageEmbed()
