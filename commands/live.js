@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { guild, channels: { pings }, roles } = require('../config.json');
+const { guild, channels: { pings }, roles, roles: { achievements } } = require('../config.json');
 const { contentCreators, contentCreators: { members } } = require('../scripts/contentCreators.json');
 
 module.exports = {
@@ -24,6 +24,7 @@ module.exports = {
 
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
+        const getRole = interaction.member.roles.cache.some(role => role.id === achievements.content_creator.id);
 
         let getCC = members[interaction.user.id];
         let liveTitle = interaction.options.getString('title');
@@ -59,8 +60,14 @@ module.exports = {
 
         let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform);
 
-        await interaction.reply({ content: `it works`, ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
-        await wait(1000);
-        await getStreamCH.send({ content: `<@&${roles.pings['streamers']['id']}>`, ephemeral: false, components: [liveBtn], embeds: [_liveEmbed] });
+        if (!getRole) {
+            await interaction.reply({ content: `you're not a content creator`, ephemeral: true, components: [] });
+        } else {
+            await interaction.reply({ content: `it works`, ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
+            await wait(1000);
+            await getStreamCH.send({ content: `<@&${roles.pings['streamers']['id']}>`, ephemeral: false, components: [liveBtn], embeds: [_liveEmbed] });
+        }
+
+        
     }
 }
