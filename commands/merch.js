@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { guild, urls } = require('../config.json');
+const { guild, urls, urlNames } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,6 +10,26 @@ module.exports = {
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
 
-        await interaction.reply({ content: `it works`, ephemeral: true, components: [], embeds: [] });
+        function merchEmbed() {
+            const merchPost = new MessageEmbed()
+                .setAuthor({ name: interaction.member.displayName, url: urls['merch'], iconURL: interaction.user.displayAvatarURL() })
+                .setColor('cf889f')
+                .setDescription(`Description goes here`)
+                .setImage('https://i.imgur.com/y0bAZc3.png');
+
+            return merchPost;
+        }
+
+        const merchBtn = new MessageActionRow()
+            .addComponents(
+                new MessageButton()
+                    .setLabel(urlNames.merch)
+                    .setStyle('LINK')
+                    .setURL(urls.merch),
+            );
+
+        let _merchEmbed = merchEmbed();
+
+        await interaction.reply({ content: `it works`, ephemeral: true, components: [merchBtn], embeds: [_merchEmbed] });
     }
 }
