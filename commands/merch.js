@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { guild, urls, urlNames } = require('../config.json');
+const { guild, url } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,7 +12,7 @@ module.exports = {
 
         function merchEmbed() {
             const merchPost = new MessageEmbed()
-                .setAuthor({ name: interaction.member.displayName, url: urls['merch'], iconURL: interaction.user.displayAvatarURL() })
+                .setAuthor({ name: interaction.member.displayName, url: url.merch.link, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('cf889f')
                 .setDescription(`Description goes here`)
                 .setImage('https://i.imgur.com/y0bAZc3.png');
@@ -23,9 +23,9 @@ module.exports = {
         const merchBtn = new MessageActionRow()
             .addComponents(
                 new MessageButton()
-                    .setLabel(urlNames.merch)
+                    .setLabel(url.merch.name)
                     .setStyle('LINK')
-                    .setURL(urls.merch),
+                    .setURL(url.merch.link),
             );
 
         let _merchEmbed = merchEmbed();
