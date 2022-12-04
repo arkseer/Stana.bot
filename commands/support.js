@@ -17,6 +17,8 @@ module.exports = {
                 .setColor('cf889f')
                 .setDescription(`Description goes here`)
                 .setImage('https://i.imgur.com/m1p36YF.png');
+
+            return supportPost;
         }
 
         const supportBtn = new MessageActionRow()
