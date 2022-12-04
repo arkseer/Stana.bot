@@ -89,7 +89,6 @@ module.exports = {
             const livePost = new MessageEmbed()
                 .setAuthor({ name: interaction.member.displayName, url: `${stream}`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('9b59b6')
-                //.setDescription(`**"${capitalizeFirst(title)}"** — LIVE on ${capitalizeFirst(platform)}`)
                 .setDescription(`LIVE ${when} on ${platform}\n\u2800﹂**"${title}"**`)
                 .setImage('https://i.imgur.com/9b10bBR.png');
 
