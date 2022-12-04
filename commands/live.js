@@ -67,18 +67,16 @@ module.exports = {
         function sliceTitle(string) {
             let textLimit = 60;
             let newLimit, result;
-            
-            if (string.length > textLimit) newLimit = string.length-textLimit ?? newLimit;
 
             if (string.length > textLimit) {
                 newLimit = string.length - textLimit;
                 result = string.slice(0, string.length-newLimit-5).concat("...");
             } else if (string.length > textLimit - 2) {
                 newLimit = 0;
-                result = string;
-            } else {
-                newLimit = 3;
                 result = string.slice(0, string.length-newLimit-5).concat("...");
+            } else {
+                newLimit = 0;
+                result = string;
             }
 
             return result;
