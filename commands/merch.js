@@ -10,8 +10,7 @@ module.exports = {
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
         
-        let getGuild = await client.guilds.cache.get(guild);
-        let getBot = await getGuild.members.fetch(bot);
+        let getBot = await interaction.guild.members.fetch(bot);
 
         function merchEmbed() {
             const merchPost = new MessageEmbed()
