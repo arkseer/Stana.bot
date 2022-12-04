@@ -97,7 +97,12 @@ module.exports = {
                 await getStreamCH.send({ content: `<@&${roles.pings['streamers']['id']}>`, ephemeral: false, components: [liveBtn], embeds: [_liveEmbed] });
             }
         } else if (interaction.options.getSubcommand() === 'later') {
-            await interaction.reply({ content: `it works`, ephemeral: true, components: [liveBtn] });
+            let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform, 'NOW');
+            if (!getRole) {
+                await interaction.reply({ content: `Sorry ${interaction.member.displayName}, you're not a content creator yet.\nIf you wish to stream under our banner, please use /apply to join our content creators programme.`, ephemeral: true, components: [] });
+            } else {
+                await interaction.reply({ content: `it works`, ephemeral: true, components: [liveBtn], embeds: [_liveEmbed] });
+            }            
         }
     }
 }
