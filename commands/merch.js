@@ -14,7 +14,7 @@ module.exports = {
 
         function merchEmbed() {
             const merchPost = new MessageEmbed()
-                .setAuthor({ name: getBot.displayName, url: url.merch.link, iconURL: getBot.displayAvatarURL() })
+                .setAuthor({ name: ``, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('cf889f')
                 .setDescription(`Description goes here`)
                 .setImage('https://i.imgur.com/y0bAZc3.png');
