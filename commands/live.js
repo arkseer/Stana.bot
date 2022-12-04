@@ -68,7 +68,7 @@ module.exports = {
                 .setAuthor({ name: interaction.member.displayName, url: `${stream}`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('9b59b6')
                 //.setDescription(`**"${capitalizeFirst(title)}"** — LIVE on ${capitalizeFirst(platform)}`)
-                .setDescription(`LIVE ${when} on ${platform}\n**"${title}"**`)
+                .setDescription(`LIVE ${when} on ${platform}\n\u200b\u200b\u200b﹂**"${title}"**`)
                 .setImage('https://i.imgur.com/9b10bBR.png');
 
             return livePost;
