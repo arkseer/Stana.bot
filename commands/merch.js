@@ -31,7 +31,7 @@ module.exports = {
             );
 
         let _merchEmbed = merchEmbed();
-        
-        await interaction.user.send({ ephemeral: false, components: [merchBtn], embeds: [_merchEmbed] });
+
+        await interaction.reply({ ephemeral: true, components: [merchBtn], embeds: [_merchEmbed] });
     }
 }
