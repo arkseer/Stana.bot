@@ -60,11 +60,15 @@ module.exports = {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
-        function liveEmbed(stream, title, platform) {
+        function liveEmbed(stream, title, platform, when) {
+            title = capitalizeFirst(title);
+            platform = capitalizeFirst(platform);
+
             const livePost = new MessageEmbed()
                 .setAuthor({ name: interaction.member.displayName, url: `${stream}`, iconURL: interaction.user.displayAvatarURL() })
                 .setColor('9b59b6')
-                .setDescription(`**"${capitalizeFirst(title)}"** — LIVE on ${capitalizeFirst(platform)}`)
+                //.setDescription(`**"${capitalizeFirst(title)}"** — LIVE on ${capitalizeFirst(platform)}`)
+                .setDescription(`LIVE ${when} on ${platform}\n**"${title}"**`)
                 .setImage('https://i.imgur.com/9b10bBR.png');
 
             return livePost;
@@ -83,7 +87,7 @@ module.exports = {
             );
 
         if (interaction.options.getSubcommand() === 'now') {
-            let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform);
+            let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform, 'NOW');
 
             if (!getRole) {
                 await interaction.reply({ content: `Sorry ${interaction.member.displayName}, you're not a content creator yet.\nIf you wish to stream under our banner, please use /apply to join our content creators programme.`, ephemeral: true, components: [] });
