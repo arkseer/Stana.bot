@@ -12,7 +12,7 @@ module.exports = {
             .setDescription('Send a notification when you go live')
             .addStringOption(option => option
                 .setName('title')
-                .setDescription('Write the title of your stream')
+                .setDescription('Write the title of your stream (# of characters between 1 - 58)')
                 .setRequired(true))
             .addStringOption(option => option
                 .setName('platform')
@@ -26,7 +26,7 @@ module.exports = {
             .setDescription('Schedule a delayed live notification')
             .addStringOption(option => option
                 .setName('title')
-                .setDescription('Write the title of your stream')
+                .setDescription('Write the title of your stream (# of characters between 1 - 58)')
                 .setRequired(true))
             .addStringOption(option => option
                 .setName('platform')
