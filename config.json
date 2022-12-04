@@ -501,6 +501,57 @@
         }
     },
 
+    "url": {
+        "youtube": {
+            "name"      : "Youtube",
+            "handle"    : "@dmlcgg",
+            "emoji"     : "<:youtube:1043704204834918410>",
+            "link"      : "https://youtube.com/@dmlcgg"
+        },
+        "tiktok": {
+            "name"      : "Tiktok",
+            "handle"    : "@dmlcgg",
+            "emoji"     : "<:tiktok:1043704200007262308>",
+            "link"      : "https://tiktok.com/@dmlcgg"
+        },
+        "instagram": {
+            "name"      : "Instagram",
+            "handle"    : "@dmlcgg",
+            "emoji"     : "<:instagram:1043704197129965618>",
+            "link"      : "https://instagram.com/dmlcgg"
+        },
+        "twitter": {
+            "name"      : "Twitter",
+            "handle"    : "@dmlcgg",
+            "emoji"     : "<:twitter:1043704203224289340>",
+            "link"      : "https://twitter.com/dmlcgg"
+        },
+        "twitch": {
+            "name"      : "Twitch",
+            "handle"    : "/dmlcgg",
+            "emoji"     : "<:twitch:1043704201542369360>",
+            "link"      : "https://twitch.tv/dmlcgg"
+        },
+        "reddit": {
+            "name"      : "Reddit",
+            "handle"    : "/dmlc",
+            "emoji"     : "<:reddit:1043704198597988393>",
+            "link"      : "https://www.reddit.com/r/dmlc"
+        },
+        "merch": {
+            "name"      : "Merch store",
+            "handle"    : "/dmlc.store",
+            "emoji"     : "<:merch:1043702078511517756>",
+            "link"      : "https://dmlc.store"
+        },
+        "linktree": {
+            "name"      : "Linktree",
+            "handle"    : "/dmlc",
+            "emoji"     : "",
+            "link"      : "https://linktr.ee/dmlc"
+        }
+    },
+
     "urlNames": {
         "youtube"       : "Youtube",
         "tiktok"        : "TikTok",
