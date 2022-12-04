@@ -35,7 +35,7 @@ module.exports = {
 
         let _supportEmbed = supportEmbed();
 
-        await interaction.reply({ content: `it works`, ephemeral: true, components: [supportBtn], embeds: [_supportEmbed] });
+        await interaction.reply({ ephemeral: true, components: [supportBtn], embeds: [_supportEmbed] });
 
         // Send DM to user
         //await interaction.user.send({ content: `Hello${getGender}! At this moment the best way to support our community is through boosts.\nKeep an eye on future updates if you wish to show your support through different avenues.\n\nThank you!`, components: [] });
