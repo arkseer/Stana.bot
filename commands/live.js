@@ -20,7 +20,31 @@ module.exports = {
                 .setRequired(true)
                 .addChoice('Twitch', 'twitch')
                 .addChoice('Youtube', 'youtube')
-                .addChoice('Tiktok', 'tiktok'))),
+                .addChoice('Tiktok', 'tiktok')))
+        .addSubcommand(subcommand => subcommand
+            .setName('later')
+            .setDescription('Schedule a delayed live notification')
+            .addStringOption(option => option
+                .setName('title')
+                .setDescription('Write the title of your stream')
+                .setRequired(true))
+            .addStringOption(option => option
+                .setName('platform')
+                .setDescription('Choose the platform you will be live on')
+                .setRequired(true)
+                .addChoice('Twitch', 'twitch')
+                .addChoice('Youtube', 'youtube')
+                .addChoice('Tiktok', 'tiktok'))
+            .addStringOption(option => option
+                .setName('delay')
+                .setDescription('Select the delay amount your stream will start at')
+                .setRequired(true)
+                .addChoice('+30 minutes', '30_minutes')
+                .addChoice('+1 hour', '1_hour')
+                .addChoice('+2 hours', '2_hours')
+                .addChoice('+3 hours', '3_hours')
+                .addChoice('+4 hours', '4_hours')
+                .addChoice('+5 hours', '5_hours'))),
 
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
