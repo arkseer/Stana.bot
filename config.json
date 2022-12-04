@@ -526,6 +526,12 @@
             "emoji"     : "<:twitter:1043704203224289340>",
             "link"      : "https://twitter.com/dmlcgg"
         },
+        "patreon": {
+            "name"      : "Patreon",
+            "handle"    : "/dmlc",
+            "emoji"     : "",
+            "link"      : "https://www.patreon.com/dmlc"
+        },
         "twitch": {
             "name"      : "Twitch",
             "handle"    : "/dmlcgg",
