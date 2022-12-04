@@ -82,9 +82,9 @@ module.exports = {
                     .setURL(getCC['linktree']),
             );
 
-        let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform);
-
         if (interaction.options.getSubcommand() === 'now') {
+            let _liveEmbed = liveEmbed(getCC[livePlatform], liveTitle, livePlatform);
+            
             if (!getRole) {
                 await interaction.reply({ content: `Sorry ${interaction.member.displayName}, you're not a content creator yet.\nIf you wish to stream under our banner, please use /apply to join our content creators programme.`, ephemeral: true, components: [] });
             } else {
