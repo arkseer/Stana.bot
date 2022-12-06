@@ -7,7 +7,7 @@ module.exports = {
         .setName('apply')
         .setDescription('Apply to different programmes the community has to offer')
         .addSubcommand(subcommand => subcommand
-            .setName('content creators')
+            .setName('content-creators')
             .setDescription('Apply to join our content creators programme')),
 
     async execute(interaction) {
