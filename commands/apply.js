@@ -5,7 +5,10 @@ const { guild, bot } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('apply')
-        .setDescription('Apply to different programmes the community has to offer'),
+        .setDescription('Apply to different programmes the community has to offer')
+        .addSubcommand(subcommand => subcommand
+            .setName('content creators')
+            .setDescription('Apply to join our content creators programme')),
 
     async execute(interaction) {
         const wait = require('util').promisify(setTimeout);
