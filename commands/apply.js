@@ -26,15 +26,15 @@ module.exports = {
                 new MessageButton()
                     .setCustomId('apply_cc')
                     .setLabel('Content creator')
-                    .setStyle('SUCCESS'),
+                    .setStyle('SECONDARY'),
                 new MessageButton()
                     .setCustomId('apply_editor')
                     .setLabel('Editor')
-                    .setStyle('SUCCESS'),
+                    .setStyle('SECONDARY'),
                 new MessageButton()
                     .setCustomId('apply_designer')
                     .setLabel('Designer')
-                    .setStyle('SUCCESS'),
+                    .setStyle('SECONDARY'),
             );
 
         let _applyEmbed = applyEmbed();
