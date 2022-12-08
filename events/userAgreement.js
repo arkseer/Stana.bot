@@ -39,7 +39,7 @@ module.exports = {
                     await getMember.roles.add(getRole);
                     await getMember.roles.add(getNewMember);
                     await getMember.roles.remove(getTraveler);
-                } else if(getMember.roles.cache.some(role => role.id === core_roles['c_members'])) {
+                } else if(interaction.customId === 'user_agreement_btn' && (getMember.roles.cache.some(role => role.id === core_roles['c_members']))) {
                     await interaction.reply({ content: `Sorry, but you already have accepted the terms.`, ephemeral: true, components: [] });
                 }
             } catch (error) {
