@@ -12,10 +12,12 @@ module.exports = {
         const getBot = await interaction.guild.members.fetch(bot);
 
         function applyEmbed() {
+            const embedDescription = `Hello there ${interaction.member.displayName},\nCurrently we have 3 programmes available for our members to join, these are for content creators, editors and designers.\n\nIf any of these sparks your interest, please proceed by choosing one of the options below.`;
+
             const applyPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('cf889f')
-                .setDescription('Description goes here')
+                .setDescription(embedDescription)
                 .setImage('https://i.imgur.com/tGSh027.png');
 
             return applyPost;
