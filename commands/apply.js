@@ -24,9 +24,25 @@ module.exports = {
             return applyPost;
         }
 
+        const applyBtn = new MessageActionRow()
+            .addComponent(
+                new MessageButton()
+                    .setCustomId('apply_cc')
+                    .setLabel('Content creator')
+                    .setStyle('SUCCESS'),
+                new MessageButton()
+                    .setCustomId('apply_editor')
+                    .setLabel('Editor')
+                    .setStyle('SUCCESS'),
+                new MessageButton()
+                    .setCustomId('apply_designer')
+                    .setLabel('Designer')
+                    .setStyle('SUCCESS'),
+            );
+
         let _applyEmbed = applyEmbed();
 
-        await interaction.reply({ content: `it works`, ephemeral: true, components: [], embeds: [_applyEmbed] });
+        await interaction.reply({ content: `it works`, ephemeral: true, components: [applyBtn], embeds: [_applyEmbed] });
     }
 
 }
