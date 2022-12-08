@@ -5,10 +5,7 @@ const { guild, bot } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('apply')
-        .setDescription('Apply to different programmes the community has to offer')
-        .addSubcommand(subcommand => subcommand
-            .setName('content-creators')
-            .setDescription('Apply to join our content creators programme')),
+        .setDescription('Apply to different programmes the community has to offer'),
 
     async execute(interaction) {
         const wait = require('util').promisify(setTimeout);
@@ -25,7 +22,7 @@ module.exports = {
         }
 
         const applyBtn = new MessageActionRow()
-            .addComponent(
+            .addComponents(
                 new MessageButton()
                     .setCustomId('apply_cc')
                     .setLabel('Content creator')
