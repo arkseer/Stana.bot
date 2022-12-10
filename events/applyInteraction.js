@@ -33,6 +33,10 @@ module.exports = {
                         );
                     
                     await interaction.reply({ ephemeral: true, components: [applyBtn], embeds: [applyEmbed()] });
+                } else if (interaction.customId === 'apply_cc_agree') {
+                    await interaction.reply({ content: `i agree`, ephemeral: true, components: [], embeds: [] });
+                } else if (interaction.customId === 'apply_cc_disagree') {
+                    await interaction.reply({ content: `i disagree`, ephemeral: true, components: [], embeds: [] });
                 }
             } catch (error) {
                 console.error(error);
