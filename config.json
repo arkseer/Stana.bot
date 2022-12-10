@@ -178,8 +178,10 @@
         },
         "pings": {
             "id"                : "1043364055739551784"
-        }
-        
+        },
+        "applications": {
+            "id"                : "1050989098262855690"
+        }        
     },
 
     "roles": {
@@ -328,6 +330,20 @@
             "echads": {
                 "id"                : "1046173845612138646",
                 "label"             : "E-Chads"
+            }
+        },
+        "applications": {
+            "content_creator": {
+                "id"                : "1050989542213169163",
+                "label"             : "Applied for: Content creator"
+            },
+            "editor": {
+                "id"                : "1050990230867558420",
+                "label"             : "Applied for: Editor"
+            },
+            "designer": {
+                "id"                : "1050990366209363998",
+                "label"             : "Applied for: Designer"
             }
         }
     },
