@@ -41,7 +41,7 @@ module.exports = {
 
         let _applyEmbed = applyEmbed();
 
-        await interaction.reply({ content: `it works`, ephemeral: true, components: [applyBtn], embeds: [_applyEmbed] });
+        await interaction.reply({ ephemeral: true, components: [applyBtn], embeds: [_applyEmbed] });
     }
 
 }
