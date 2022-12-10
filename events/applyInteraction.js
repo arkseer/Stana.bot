@@ -19,8 +19,20 @@ module.exports = {
                         
                         return applyPost;
                     }
+
+                    const applyBtn = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setCustomId('apply_cc_agree')
+                                .setLabel('I agree')
+                                .setStyle('SUCCESS'),
+                            new MessageButton()
+                                .setCustomId('apply_cc_disagree')
+                                .setLabel('I disagree')
+                                .setStyle('DANGER'),
+                        );
                     
-                    await interaction.reply({ ephemeral: true, components: [], embeds: [applyEmbed()] });
+                    await interaction.reply({ ephemeral: true, components: [applyBtn], embeds: [applyEmbed()] });
                 }
             } catch (error) {
                 console.error(error);
