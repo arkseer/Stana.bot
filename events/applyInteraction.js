@@ -38,7 +38,7 @@ module.exports = {
                     
                     await interaction.reply({ ephemeral: true, components: [applyBtn], embeds: [applyEmbed()] });
                 } else if (interaction.customId === 'apply_cc_agree') {
-                    let applyRole = getGuild.roles.cache.find(role => role.id === applications['content_creator'][id]);
+                    let applyRole = getGuild.roles.cache.find(role => role.id === applications['content_creator']['id']);
                     
                     await getMember.roles.add(applyRole);
 
