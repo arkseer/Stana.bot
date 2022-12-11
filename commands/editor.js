@@ -45,7 +45,7 @@ module.exports = {
 
             const editorPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
-                .setColor('6d6085')
+                .setColor('41b7bd')
                 .setDescription(embedDescription)
                 .addField(`Applicant name`, `<@${interaction.user.id}>`, false)
                 .addField(`Youtube URL`, `${youtubeURL}`, false)
