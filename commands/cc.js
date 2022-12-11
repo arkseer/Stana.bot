@@ -26,6 +26,7 @@ module.exports = {
     async execute(interaction) {
         const wait = require('util').promisify(setTimeout);
         const getBot = await interaction.guild.members.fetch(bot);
+        const getUser = interaction.member.displayName;
 
         const getLinktree = interaction.options.getString('linktree');
         const getPlatform = interaction.options.getString('platform');
@@ -36,15 +37,15 @@ module.exports = {
         }
 
         function ccEmbed(platform, platformURL, linktreeURL) {
-            const getUser = interaction.member.displayName;
             platform = capitalizeFirst(platform);
 
-            const embedDescription = `**CONTENT CREATOR APPLICATION: ${getUser.toUpperCase()}**\n\nApplicant's details are as follows:\n\u2800`;
+            const embedDescription = `**CONTENT CREATOR APPLICATION:\n\u2800`;
 
             const ccPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('6d6085')
                 .setDescription(embedDescription)
+                .addField(`Applicant name`, `${getUser} (${interaction.user.tag})`, false)
                 .addField(`Main platform`, `${platform}`, false)
                 .addField(`Platform URL`, `${platformURL}`, false)
                 .addField(`Linktr.ee URL`, `${linktreeURL}`, false)
