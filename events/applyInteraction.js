@@ -42,7 +42,7 @@ module.exports = {
                     
                     await getMember.roles.add(applyRole);
 
-                    await interaction.reply({ content: `Moving onto next phase of this process, please use the **/cc command** and attach all details to support your application.\nThank you for understanding.`, ephemeral: true, components: [], embeds: [] });
+                    await interaction.reply({ content: `Moving onto next phase of this process, please use the **/cc** command and attach all details to support your application.\nThank you for understanding.`, ephemeral: true, components: [], embeds: [] });
                 } else if (interaction.customId === 'apply_cc_disagree') {
                     await interaction.reply({ content: `Thank you for showing interest in our Content creator programme, please feel free to follow this process at a later date if you reconsider your choice.`, ephemeral: true, components: [], embeds: [] });
                 }
