@@ -1,5 +1,5 @@
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { bot, dividers, roles: { applications } } = require('../config.json');
+const { bot, dividers, roles, roles: { applications } } = require('../config.json');
 
 module.exports = {
     name: 'interactionCreate',
@@ -129,6 +129,9 @@ module.exports = {
                     const getEmbed = await getMessage.embeds[0];
                     const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
 
+                    let appDesignerRole = getGuild.roles.cache.find(role => role.id === applications.applied.designer.id);
+                    let designerRole = getGuild.roles.cache.find(role => role.id === roles.achievements.designer.id);
+
                     function getRawUser(user) {
                         return user.toString().replace(/[^0-9]/g, "");
                     }
@@ -146,11 +149,13 @@ module.exports = {
                         );
 
                     await getMessage.edit({ components: [closedBtn] });
-
-                    await interaction.reply({ content: `Hello **${getUser.displayName}**,\nWe are reaching out to you bearing good news!\nYou have been accepted in our **Designer programme** and we couldn't wait to tell you sooner.\n\nOn behalf of our community I would like to extend a much deserving congratulations!`, ephemeral: true, components: [], embeds: [] });
                     
-                    //getMessage.components[0].MessageButton[1].setDisabled(true);
-                    //await getUser.send({ content: `${getApplicantId}`, ephemeral: true, components: [], embeds: [] });
+                    await interaction.reply({ content: `Approval message sent to applicant!`, ephemeral: true, components: [] });
+                    await getUser.send({ content: `Hello **${getUser.displayName}**,\nWe are reaching out to you bearing good news!\nYou have been accepted in our **Designer programme** and we couldn't wait to tell you sooner.\n\nOn behalf of our community I would like to extend a much deserving congratulations!`, ephemeral: true, components: [], embeds: [] });
+                    
+                    // Revoke applicant role + Add designer role
+                    await getMember.roles.remove(appDesignerRole);
+                    await getMember.roles.add(designerRole);
                 }
             } catch (error) {
                 console.error(error);
