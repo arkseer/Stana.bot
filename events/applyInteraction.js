@@ -127,14 +127,14 @@ module.exports = {
                 if (interaction.customId === 'designer_app_approve') {
                     const getMessage = await interaction.message.id;
                     const getEmbed = await getMessage.embeds;
-                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
+                    //const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
 
                     console.log(`Message:`);
                     console.log(getMessage);
                     console.log(`Embed:`);
                     console.log(getEmbed);
                     console.log(`Applicant:`);
-                    console.log(getApplicant);
+                    //console.log(getApplicant);
 
                     await interaction.reply({ content: `${getMessage}`, ephemeral: true, components: [], embeds: [] });
                 }
