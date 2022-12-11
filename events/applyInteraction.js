@@ -1,5 +1,5 @@
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { bot, dividers, roles: { applications }, dividers } = require('../config.json');
+const { bot, dividers, roles: { applications } } = require('../config.json');
 
 module.exports = {
     name: 'interactionCreate',
