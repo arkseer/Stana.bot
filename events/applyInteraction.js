@@ -123,6 +123,134 @@ module.exports = {
                     await interaction.reply({ content: `Thank you for showing interest in our Editor programme, please feel free to follow this process at a later date if you reconsider your choice.`, ephemeral: true, components: [], embeds: [] });
                 }
 
+                // Content creator backend: Approve / Deny
+                if (interaction.customId === 'cc_app_approve') {
+                    const getMessage = await interaction.message;
+                    const getEmbed = await getMessage.embeds[0];
+                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
+
+                    let appCCRole = getGuild.roles.cache.find(role => role.id === applications.applied.content_creator.id);
+                    let ccRole = getGuild.roles.cache.find(role => role.id === roles.achievements.content_creator.id);
+
+                    function getRawUser(user) {
+                        return user.toString().replace(/[^0-9]/g, "");
+                    }
+
+                    const getApplicantId = getRawUser(getApplicant.value);
+                    const getUser = await interaction.guild.members.fetch(getApplicantId);
+
+                    const closedBtn = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setCustomId('cc_app_closed')
+                                .setLabel('Closed')
+                                .setStyle('SECONDARY')
+                                .setDisabled(true),
+                        );
+
+                    await getMessage.edit({ components: [closedBtn] });
+                    
+                    await interaction.reply({ content: `Approval message sent to applicant!`, ephemeral: true, components: [] });
+                    await getUser.send({ content: `Hello **${getUser.displayName}**,\nWe are reaching out to you bearing good news!\nYou have been accepted in our **Content creator programme** and we couldn't wait to tell you sooner.\n\nOn behalf of our community I would like to extend a much deserving congratulations!`, ephemeral: true, components: [], embeds: [] });
+                    
+                    // Revoke applicant role + Add cc role
+                    await getMember.roles.remove(appCCRole);
+                    await getMember.roles.add(ccRole);
+                } else if (interaction.customId === 'cc_app_deny') {
+                    const getMessage = await interaction.message;
+                    const getEmbed = await getMessage.embeds[0];
+                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
+
+                    let appCCRole = getGuild.roles.cache.find(role => role.id === applications.applied.content_creator.id);
+
+                    function getRawUser(user) {
+                        return user.toString().replace(/[^0-9]/g, "");
+                    }
+
+                    const getApplicantId = getRawUser(getApplicant.value);
+                    const getUser = await interaction.guild.members.fetch(getApplicantId);
+
+                    const closedBtn = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setCustomId('cc_app_closed')
+                                .setLabel('Closed')
+                                .setStyle('SECONDARY')
+                                .setDisabled(true),
+                        );
+
+                    await getMessage.edit({ components: [closedBtn] });
+                    
+                    await interaction.reply({ content: `Denial message sent to applicant!`, ephemeral: true, components: [] });
+                    await getUser.send({ content: `Hello **${getUser.displayName}**,\nWe are reaching out to you bearing sad news!\n\nUnfortunately you did not qualify at this moment to join the Content creator programme.\nPlease continue working on your craft and apply again at a later date.`, ephemeral: true, components: [], embeds: [] });
+                    
+                    // Revoke applicant role + Add designer role
+                    await getMember.roles.remove(appCCRole);
+                }
+                // Editor backend: Approve / Deny
+                if (interaction.customId === 'editor_app_approve') {
+                    const getMessage = await interaction.message;
+                    const getEmbed = await getMessage.embeds[0];
+                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
+
+                    let appEditorRole = getGuild.roles.cache.find(role => role.id === applications.applied.editor.id);
+                    let editorRole = getGuild.roles.cache.find(role => role.id === roles.achievements.editor.id);
+
+                    function getRawUser(user) {
+                        return user.toString().replace(/[^0-9]/g, "");
+                    }
+
+                    const getApplicantId = getRawUser(getApplicant.value);
+                    const getUser = await interaction.guild.members.fetch(getApplicantId);
+
+                    const closedBtn = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setCustomId('editor_app_closed')
+                                .setLabel('Closed')
+                                .setStyle('SECONDARY')
+                                .setDisabled(true),
+                        );
+
+                    await getMessage.edit({ components: [closedBtn] });
+                    
+                    await interaction.reply({ content: `Approval message sent to applicant!`, ephemeral: true, components: [] });
+                    await getUser.send({ content: `Hello **${getUser.displayName}**,\nWe are reaching out to you bearing good news!\nYou have been accepted in our **Editor programme** and we couldn't wait to tell you sooner.\n\nOn behalf of our community I would like to extend a much deserving congratulations!`, ephemeral: true, components: [], embeds: [] });
+                    
+                    // Revoke applicant role + Add editor role
+                    await getMember.roles.remove(appEditorRole);
+                    await getMember.roles.add(editorRole);
+                } else if (interaction.customId === 'editor_app_deny') {
+                    const getMessage = await interaction.message;
+                    const getEmbed = await getMessage.embeds[0];
+                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
+
+                    let appEditorRole = getGuild.roles.cache.find(role => role.id === applications.applied.editor.id);
+
+                    function getRawUser(user) {
+                        return user.toString().replace(/[^0-9]/g, "");
+                    }
+
+                    const getApplicantId = getRawUser(getApplicant.value);
+                    const getUser = await interaction.guild.members.fetch(getApplicantId);
+
+                    const closedBtn = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setCustomId('editor_app_closed')
+                                .setLabel('Closed')
+                                .setStyle('SECONDARY')
+                                .setDisabled(true),
+                        );
+
+                    await getMessage.edit({ components: [closedBtn] });
+                    
+                    await interaction.reply({ content: `Denial message sent to applicant!`, ephemeral: true, components: [] });
+                    await getUser.send({ content: `Hello **${getUser.displayName}**,\nWe are reaching out to you bearing sad news!\n\nUnfortunately you did not qualify at this moment to join the Editor programme.\nPlease continue working on your craft and apply again at a later date.`, ephemeral: true, components: [], embeds: [] });
+                    
+                    // Revoke applicant role + Add editor role
+                    await getMember.roles.remove(appEditorRole);
+                }
                 // Designer backend: Approve / Deny
                 if (interaction.customId === 'designer_app_approve') {
                     const getMessage = await interaction.message;
