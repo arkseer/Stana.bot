@@ -125,18 +125,18 @@ module.exports = {
 
                 // Designer backend: Approve / Deny
                 if (interaction.customId === 'designer_app_approve') {
-                    const getMessage = await interaction.message.id;
-                    const getEmbed = await getMessage.embeds;
-                    //const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
+                    const getMessage = await interaction.message;
+                    const getEmbed = await getMessage.embeds[0];
+                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
 
                     console.log(`Message:`);
                     console.log(getMessage);
                     console.log(`Embed:`);
                     console.log(getEmbed);
                     console.log(`Applicant:`);
-                    //console.log(getApplicant);
+                    console.log(getApplicant);
 
-                    await interaction.reply({ content: `${getMessage}`, ephemeral: true, components: [], embeds: [] });
+                    await interaction.reply({ content: `${getMessage.id}`, ephemeral: true, components: [], embeds: [] });
                 }
             } catch (error) {
                 console.error(error);
