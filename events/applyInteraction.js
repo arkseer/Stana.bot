@@ -134,8 +134,10 @@ module.exports = {
                     }
 
                     const getApplicantId = getRawUser(getApplicant.value);
+                    const getUser = await interaction.guild.members.fetch(getApplicantId);
 
                     await interaction.reply({ content: `${getApplicantId}`, ephemeral: true, components: [], embeds: [] });
+                    await getUser.send({ content: `${getApplicantId}`, ephemeral: true, components: [], embeds: [] });
                 }
             } catch (error) {
                 console.error(error);
