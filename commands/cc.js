@@ -78,7 +78,11 @@ module.exports = {
         await getAppChannel.send({ ephemeral: false, components: [ccBtn], embeds: [_ccEmbed] });
         await wait(1000);
         
-        // Removing application roles
+        // Revoking / granting application roles
+        let pendingAppRole = getGuild.roles.cache.find(role => role.id === applications.pending.content_creator.id);
+        let appliedAppRole = getGuild.roles.cache.find(role => role.id === applications.applied.content_creator.id);
         
+        await getMember.roles.remove(pendingAppRole);
+        await getMember.roles.add(appliedAppRole);
     }
 }
