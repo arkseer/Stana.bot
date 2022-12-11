@@ -50,7 +50,7 @@ module.exports = {
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('6d6085')
                 .setDescription(embedDescription)
-                .addField(`Applicant name`, `${getDisplayName} (<@${interaction.user.id}>)`, false)
+                .addField(`Applicant name`, `<@${interaction.user.id}>`, false)
                 .addField(`Main platform`, `${platform}`, false)
                 .addField(`Platform URL`, `${platformURL}`, false)
                 .addField(`Linktr.ee URL`, `${linktreeURL}`, false)
