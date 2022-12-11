@@ -156,6 +156,36 @@ module.exports = {
                     // Revoke applicant role + Add designer role
                     await getMember.roles.remove(appDesignerRole);
                     await getMember.roles.add(designerRole);
+                } else if (interaction.customId === 'designer_app_deny') {
+                    const getMessage = await interaction.message;
+                    const getEmbed = await getMessage.embeds[0];
+                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
+
+                    let appDesignerRole = getGuild.roles.cache.find(role => role.id === applications.applied.designer.id);
+
+                    function getRawUser(user) {
+                        return user.toString().replace(/[^0-9]/g, "");
+                    }
+
+                    const getApplicantId = getRawUser(getApplicant.value);
+                    const getUser = await interaction.guild.members.fetch(getApplicantId);
+
+                    const closedBtn = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setCustomId('designer_app_closed')
+                                .setLabel('Closed')
+                                .setStyle('SECONDARY')
+                                .setDisabled(true),
+                        );
+
+                    await getMessage.edit({ components: [closedBtn] });
+                    
+                    await interaction.reply({ content: `Denial message sent to applicant!`, ephemeral: true, components: [] });
+                    await getUser.send({ content: `Hello **${getUser.displayName}**,\nWe are reaching out to you bearing sad news!\n\nUnfortunately you did not qualify at this moment to join the Designer programme.\nPlease continue working on your craft and apply again at a later date.`, ephemeral: true, components: [], embeds: [] });
+                    
+                    // Revoke applicant role + Add designer role
+                    await getMember.roles.remove(appDesignerRole);
                 }
             } catch (error) {
                 console.error(error);
