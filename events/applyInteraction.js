@@ -122,6 +122,11 @@ module.exports = {
                 } else if (interaction.customId === 'apply_designer_disagree') {
                     await interaction.reply({ content: `Thank you for showing interest in our Editor programme, please feel free to follow this process at a later date if you reconsider your choice.`, ephemeral: true, components: [], embeds: [] });
                 }
+
+                // Designer backend: Approve / Deny
+                if (interaction.customId === 'designer_app_approve') {
+                    await interaction.reply({ content: `${interaction.message.id}`, ephemeral: true, components: [], embeds: [] });
+                }
             } catch (error) {
                 console.error(error);
             }
