@@ -125,9 +125,9 @@ module.exports = {
 
                 // Designer backend: Approve / Deny
                 if (interaction.customId === 'designer_app_approve') {
-                    const getMessage = interaction.message.id;
-                    const getEmbed = getMessage.embeds[0];
-                    const getApplicant = getEmbed.fields.find(field => field.name === 'Applicant name');
+                    const getMessage = await interaction.message.id;
+                    const getEmbed = await getMessage.embeds[0];
+                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
 
                     console.log(`Message:`);
                     console.log(getMessage);
