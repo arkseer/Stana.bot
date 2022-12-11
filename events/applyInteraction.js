@@ -14,7 +14,7 @@ module.exports = {
                 // code goes here
                 if (interaction.customId === 'apply_cc') {
                     function applyEmbed() {
-                        const embedDescription = `Before we continue there are a few things we need to go over to assure we form a great partnership benefiting both of us.\nWith you operating under our banner, we would like to keep things on a professional level and maintain a healthy level of interest.\n\nYou agreeing to partner with us, you represent the community indirectly and therefore adhere to our rules to ensure we develop a healthy environment for our audience.`;
+                        const embedDescription = `Before we continue, there are a few things we need to go over\n to assure we form a great partnership benefiting both of us.\nWith you operating under our banner, we would like to keep things on a professional level and maintain a healthy level of interest.\n\nYou agreeing to partner with us, you represent the **community** indirectly and therefore adhere to our rules to ensure\n we develop a healthy environment for our audience.`;
                         const applyPost = new MessageEmbed()
                             .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                             .setColor('cf889f')
