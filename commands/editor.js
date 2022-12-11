@@ -39,6 +39,8 @@ module.exports = {
         }
 
         function editorEmbed(linktreeURL, youtubeURL, otherURL) {
+            if (otherURL === null) otherURL = "N/A" ?? otherURL;
+
             const embedDescription = `**EDITOR APPLICATION:**\n\u2800`;
 
             const editorPost = new MessageEmbed()
