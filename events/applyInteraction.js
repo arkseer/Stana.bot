@@ -136,7 +136,7 @@ module.exports = {
                     console.log(`Applicant:`);
                     console.log(getApplicant);
 
-                    await interaction.reply({ content: `${getMessage.id}`, ephemeral: true, components: [], embeds: [] });
+                    await interaction.reply({ content: `${getApplicant.value}`, ephemeral: true, components: [], embeds: [] });
                 }
             } catch (error) {
                 console.error(error);
