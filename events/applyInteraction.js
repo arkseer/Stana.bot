@@ -1,5 +1,5 @@
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { bot, dividers, roles: { applications } } = require('../config.json');
+const { bot, dividers, roles: { applications }, dividers } = require('../config.json');
 
 module.exports = {
     name: 'interactionCreate',
@@ -38,8 +38,10 @@ module.exports = {
                     
                     await interaction.reply({ ephemeral: true, components: [applyBtn], embeds: [applyEmbed()] });
                 } else if (interaction.customId === 'apply_cc_agree') {
-                    let applyRole = getGuild.roles.cache.find(role => role.id === applications['content_creator']['id']);
+                    let applyDivider = getGuild.roles.cache.find(role => role.id === dividers.applications.id);
+                    let applyRole = getGuild.roles.cache.find(role => role.id === applications.pending.content_creator.id);
                     
+                    await getMember.roles.add(applyDivider);
                     await getMember.roles.add(applyRole);
 
                     await interaction.reply({ content: `Moving onto next phase of this process, please use the **/cc** command and attach all details to support your application.\nThank you for understanding.`, ephemeral: true, components: [], embeds: [] });
