@@ -10,7 +10,7 @@ module.exports = {
         .addStringOption(option => option
             .setName('linktree')
             .setDescription('Enter your linktr.ee link (for social media platforms)')
-            .setRequired(true)
+            .setRequired(true))
         .addStringOption(option => option
             .setName('platform')
             .setDescription('Choose the main platform you publish your content on')
@@ -21,7 +21,7 @@ module.exports = {
         .addStringOption(option => option
             .setName('link')
             .setDescription('Enter the link to your main platform')
-            .setRequired(true))),
+            .setRequired(true)),
 
     async execute(interaction) {
         const wait = require('util').promisify(setTimeout);
