@@ -45,7 +45,7 @@ module.exports = {
 
             const designerPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
-                .setColor('41b7bd')
+                .setColor('fa6775')
                 .setDescription(embedDescription)
                 .addField(`Applicant name`, `<@${interaction.user.id}>`, false)
                 .addField(`Portfolio URL`, `${portfolioURL}`, false)
