@@ -338,17 +338,33 @@
             }
         },
         "applications": {
-            "content_creator": {
-                "id"                : "1050989542213169163",
-                "label"             : "Applied for: Content creator"
+            "applied": {
+                "content_creator": {
+                    "id"                : "1051416924745113611",
+                    "label"             : "Applied for: Content creator"
+                },
+                "editor": {
+                    "id"                : "1051416935050510336",
+                    "label"             : "Applied for: Editor"
+                },
+                "designer": {
+                    "id"                : "1051416938246574140",
+                    "label"             : "Applied for: Designer"
+                }
             },
-            "editor": {
-                "id"                : "1050990230867558420",
-                "label"             : "Applied for: Editor"
-            },
-            "designer": {
-                "id"                : "1050990366209363998",
-                "label"             : "Applied for: Designer"
+            "pending": {
+                "content_creator": {
+                    "id"                : "1050989542213169163",
+                    "label"             : "Pending application: Content creator"
+                },
+                "editor": {
+                    "id"                : "1050990230867558420",
+                    "label"             : "Pending application: Editor"
+                },
+                "designer": {
+                    "id"                : "1050990366209363998",
+                    "label"             : "Pending application: Designer"
+                }
             }
         }
     },
