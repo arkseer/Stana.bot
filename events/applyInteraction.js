@@ -129,14 +129,13 @@ module.exports = {
                     const getEmbed = await getMessage.embeds[0];
                     const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
 
-                    console.log(`Message:`);
-                    console.log(getMessage);
-                    console.log(`Embed:`);
-                    console.log(getEmbed);
-                    console.log(`Applicant:`);
-                    console.log(getApplicant);
+                    function getRawUser(user) {
+                        return user.toString().replace(/[^0-9]/g, "");
+                    }
 
-                    await interaction.reply({ content: `${getApplicant.value}`, ephemeral: true, components: [], embeds: [] });
+                    const getApplicantId = getRawUser(getApplicant.value);
+
+                    await interaction.reply({ content: `${getApplicantId}`, ephemeral: true, components: [], embeds: [] });
                 }
             } catch (error) {
                 console.error(error);
