@@ -139,6 +139,7 @@ module.exports = {
                     const closedBtn = new MessageActionRow()
                         .addComponents(
                             new MessageButton()
+                                .setCustomId('designer_app_closed')
                                 .setLabel('Closed')
                                 .setStyle('SECONDARY')
                                 .setDisabled(true),
