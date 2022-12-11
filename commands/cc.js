@@ -27,16 +27,27 @@ module.exports = {
         const wait = require('util').promisify(setTimeout);
         const getBot = await interaction.guild.members.fetch(bot);
 
-        function ccEmbed() {
-            const embedDescription = `**CONTENT CREATOR APPLICATION: ${interaction.member.displayName}**\n\nApplicant's details are as follows:\n`;
+        const getLinktree = interaction.options.getString('linktree');
+        const getPlatform = interaction.options.getString('platform');
+        const getPlatformUrl = interaction.options.getString('link');
+
+        function capitalizeFirst(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        function ccEmbed(platform, platformURL, linktreeURL) {
+            const getUser = interaction.member.displayName;
+            platform = capitalizeFirst(platform);
+
+            const embedDescription = `**CONTENT CREATOR APPLICATION: ${getUser.toUpperCase()}**\n\nApplicant's details are as follows:\n\u2800`;
 
             const ccPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('6d6085')
                 .setDescription(embedDescription)
-                .addField(`Main platform`, `platform here`, false)
-                .addField(`Main platform url`, `link here`, false)
-                .addField(`Linktr.ee url`, `url here`, false)
+                .addField(`Main platform`, `${platform}`, false)
+                .addField(`Platform URL`, `${platformURL}`, false)
+                .addField(`Linktr.ee URL`, `${linktreeURL}`, false)
                 .setImage('https://i.imgur.com/tGSh027.png');
 
             return ccPost;
@@ -54,7 +65,7 @@ module.exports = {
                     .setStyle('DANGER'),
             );
 
-        let _ccEmbed = ccEmbed();
+        let _ccEmbed = ccEmbed(getPlatform, getPlatformUrl, getLinktree);
 
         await interaction.reply({ content: `it works`, ephemeral: true, components: [ccBtn], embeds: [_ccEmbed] });
     }
