@@ -39,8 +39,6 @@ module.exports = {
         }
 
         function editorEmbed(linktreeURL, youtubeURL, otherURL) {
-            platform = capitalizeFirst(platform);
-
             const embedDescription = `**EDITOR APPLICATION:**\n\u2800`;
 
             const editorPost = new MessageEmbed()
