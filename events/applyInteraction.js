@@ -144,11 +144,11 @@ module.exports = {
                                 .setDisabled(true),
                         );
 
-                    await getMessage.update({ components: [closedBtn] });
+                    await getMessage.edit({ components: [closedBtn] });
 
                     await interaction.reply({ content: `Hello **${getUser.displayName}**,\nWe are reaching out to you bearing good news!\nYou have been accepted in our **Designer programme** and we couldn't wait to tell you sooner.\n\nOn behalf of our community I would like to extend a much deserving congratulations!`, ephemeral: true, components: [], embeds: [] });
                     
-                    getMessage.components[0].MessageButton[1].setDisabled(true);
+                    //getMessage.components[0].MessageButton[1].setDisabled(true);
                     //await getUser.send({ content: `${getApplicantId}`, ephemeral: true, components: [], embeds: [] });
                 }
             } catch (error) {
