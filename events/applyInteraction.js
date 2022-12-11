@@ -129,7 +129,14 @@ module.exports = {
                     const getEmbed = getMessage.embeds[0];
                     const getApplicant = getEmbed.fields.find(field => field.name === 'Applicant name');
 
-                    await interaction.reply({ content: `${getApplicant}`, ephemeral: true, components: [], embeds: [] });
+                    console.log(`Message:`);
+                    console.log(getMessage);
+                    console.log(`Embed:`);
+                    console.log(getEmbed);
+                    console.log(`Applicant:`);
+                    console.log(getApplicant);
+
+                    await interaction.reply({ content: `${getMessage}`, ephemeral: true, components: [], embeds: [] });
                 }
             } catch (error) {
                 console.error(error);
