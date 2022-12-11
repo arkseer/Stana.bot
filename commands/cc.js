@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { bot, channels: { management } } = require('../config.json');
+const { bot, channels: { management }, roles: { applications }, dividers } = require('../config.json');
 
 module.exports = {
     // Command format: /cc <linktree> <platform> <link>
@@ -25,8 +25,11 @@ module.exports = {
 
     async execute(interaction) {
         const wait = require('util').promisify(setTimeout);
+        const getUser = interaction.user.id;
+        const getDisplayName = interaction.member.displayName;
+        const getGuild = await interaction.guild;
         const getBot = await interaction.guild.members.fetch(bot);
-        const getUser = interaction.member.displayName;
+        const getMember = await interaction.guild.members.fetch(getUser);
 
         const getLinktree = interaction.options.getString('linktree');
         const getPlatform = interaction.options.getString('platform');
@@ -47,7 +50,7 @@ module.exports = {
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('6d6085')
                 .setDescription(embedDescription)
-                .addField(`Applicant name`, `${getUser} (<@${interaction.user.id}>)`, false)
+                .addField(`Applicant name`, `${getDisplayName} (<@${interaction.user.id}>)`, false)
                 .addField(`Main platform`, `${platform}`, false)
                 .addField(`Platform URL`, `${platformURL}`, false)
                 .addField(`Linktr.ee URL`, `${linktreeURL}`, false)
@@ -70,8 +73,12 @@ module.exports = {
 
         let _ccEmbed = ccEmbed(getPlatform, getPlatformUrl, getLinktree);
 
-        await interaction.reply({ content: `Nicely done ${getUser}, your application has been submitted and entered the last phase of the process.\nOur staff members will review your application and reach out to you with an expedient answer.\n\nThank you for your patience!`, ephemeral: true, components: [], embeds: [] });
+        await interaction.reply({ content: `Nicely done ${getDisplayName}, your application has been submitted and entered the last phase of the process.\nOur staff members will review your application and reach out to you with an expedient answer.\n\nThank you for your patience!`, ephemeral: true, components: [], embeds: [] });
         await wait(1000);
         await getAppChannel.send({ ephemeral: false, components: [ccBtn], embeds: [_ccEmbed] });
+        await wait(1000);
+        
+        // Removing application roles
+        
     }
 }
