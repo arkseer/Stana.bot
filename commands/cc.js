@@ -32,6 +32,8 @@ module.exports = {
         const getPlatform = interaction.options.getString('platform');
         const getPlatformUrl = interaction.options.getString('link');
 
+        const getAppChannel = interaction.client.channels.cache.get(management.applications.id);
+
         function capitalizeFirst(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
@@ -39,7 +41,7 @@ module.exports = {
         function ccEmbed(platform, platformURL, linktreeURL) {
             platform = capitalizeFirst(platform);
 
-            const embedDescription = `**CONTENT CREATOR APPLICATION:\n\u2800`;
+            const embedDescription = `**CONTENT CREATOR APPLICATION:**\n\u2800`;
 
             const ccPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
@@ -68,6 +70,8 @@ module.exports = {
 
         let _ccEmbed = ccEmbed(getPlatform, getPlatformUrl, getLinktree);
 
-        await interaction.reply({ content: `it works`, ephemeral: true, components: [ccBtn], embeds: [_ccEmbed] });
+        await interaction.reply({ content: `Nicely done ${getUser}, your application has been submitted and entered the last phase of the process.\nOur staff members will review your application and reach out to you with an expedient answer.\n\nThank you for your patience!`, ephemeral: true, components: [], embeds: [] });
+        await wait(1000);
+        await getAppChannel.send({ ephemeral: false, components: [ccBtn], embeds: [_ccEmbed] });
     }
 }
