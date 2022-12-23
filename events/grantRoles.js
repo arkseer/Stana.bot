@@ -34,9 +34,6 @@ module.exports = {
                 // Handle game roles
                 else if (interaction.customId === 'get_roles_games') {
                     await interaction.reply({ content: `You have been granted the selected roles.`, ephemeral: true, components: [] });
-                    await getMember.roles.remove('1055735786722558014');
-                    await getMember.roles.remove('1055735880050036737');
-                    console.log(`-- roles removed`);
                     /*
 
                     // Remove all game roles to prep the user when they re-select
