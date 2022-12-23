@@ -31,6 +31,26 @@ module.exports = {
                     }
                 }
 
+                // Handle game roles
+                if (interaction.customId === 'get_roles_games') {
+                    await interaction.reply({ content: `You have been granted the selected roles.`, ephemeral: true, components: [] });
+
+                    // Remove all game roles to prep the user when they re-select
+                    for (let x in roles.games) {
+                        let hasRole = getMember.roles.cache.some(role => role.id === roles.games[x]['id']);
+                        if (hasRole) {
+                            let getAllRoles = getGuild.roles.cache.find(role => role.id === roles.games[x]['id']);
+                            await getMember.roles.remove(getAllRoles);
+                        }
+                    }
+
+                    // Add selected roles to user
+                    for (let y of interaction.values) {
+                        let getRoles = getGuild.roles.cache.find(role => role.id === roles.games[y]['id']);
+                        await getMember.roles.add(getRoles);
+                    }
+                }
+
                 // Handle class roles
                 else if (interaction.customId === 'get_roles_va_classes') {
                     await interaction.reply({ content: `You have been granted the selected role.`, ephemeral: true, components: [] });
