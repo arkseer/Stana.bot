@@ -12,13 +12,17 @@ module.exports = {
     async execute(interaction, client) {
         const wait = require('util').promisify(setTimeout);
 
+        function objLength(obj) {
+            return Object.keys(obj).length;
+        }
+
         let pingsMenu = new MessageActionRow()
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId('get_roles_pings')
                     .setPlaceholder('Select what content you want to be pinged')
                     .setMinValues(0)
-                    .setMaxValues(Object.keys(pings).length),
+                    .setMaxValues(objLength(pings)),
             );
 
         for (let x in pings) {
@@ -37,7 +41,7 @@ module.exports = {
                     .setCustomId('get_roles_games')
                     .setPlaceholder('GAMES: Select what games you play')
                     .setMinValues(0)
-                    .setMaxValues(2),
+                    .setMaxValues(objLength(games)),
             );
 
         for (let x in games) {
