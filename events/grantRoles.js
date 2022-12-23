@@ -34,7 +34,6 @@ module.exports = {
                 // Handle game roles
                 else if (interaction.customId === 'get_roles_games') {
                     await interaction.reply({ content: `You have been granted the selected roles.`, ephemeral: true, components: [] });
-                    /*
 
                     // Remove all game roles to prep the user when they re-select
                     for (let x in roles.games) {
@@ -50,7 +49,6 @@ module.exports = {
                         let getRoles = getGuild.roles.cache.find(role => role.id === roles.games[y]['id']);
                         await getMember.roles.add(getRoles);
                     }
-                    */
                 }
 
                 // Handle class roles
