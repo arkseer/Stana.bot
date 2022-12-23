@@ -219,16 +219,6 @@
                 "label"             : "Destiny 2 LFG"
             }
         },
-        "games": {
-            "valorant": {
-                "id"                : "1055735786722558014",
-                "label"             : "Valorant"
-            },
-            "destiny": {
-                "id"                : "1055735880050036737",
-                "label"             : "Destiny 2"
-            }
-        },
         "classes": {
             "duelist": {
                 "id"                : "1043727052936851567",
@@ -382,6 +372,16 @@
                     "id"                : "1050990366209363998",
                     "label"             : "Pending application: Designer"
                 }
+            }
+        },        
+        "games": {
+            "valorant": {
+                "id"                : "1055735786722558014",
+                "label"             : "Valorant"
+            },
+            "destiny": {
+                "id"                : "1055735880050036737",
+                "label"             : "Destiny 2"
             }
         }
     },
