@@ -213,6 +213,10 @@
             "valorant_lfg": {
                 "id"                : "1047544418342805577",
                 "label"             : "Valorant LFG"
+            },
+            "destiny_lfg": {
+                "id"                : "1055779511632936960",
+                "label"             : "Destiny 2 LFG"
             }
         },
         "games": {
@@ -419,6 +423,11 @@
             "label"     : "Valorant LFG",
             "value"     : "valorant_lfg",
             "emoji"     : "<:ping_valorant_lfg:1047545100034637845>"
+        },
+        "destiny_lfg": {
+            "label"     : "Destiny 2 LFG",
+            "value"     : "destiny_lfg",
+            "emoji"     : "<:ping_destiny2_lfg:1055779975631999006>"
         }
     },
 
