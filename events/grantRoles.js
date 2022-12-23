@@ -32,7 +32,7 @@ module.exports = {
                 }
 
                 // Handle game roles
-                if (interaction.customId === 'get_roles_games') {
+                else if (interaction.customId === 'get_roles_games') {
                     await interaction.reply({ content: `You have been granted the selected roles.`, ephemeral: true, components: [] });
 
                     // Remove all game roles to prep the user when they re-select
