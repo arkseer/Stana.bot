@@ -36,6 +36,8 @@ module.exports = {
                     await interaction.reply({ content: `You have been granted the selected roles.`, ephemeral: true, components: [] });
                     await getMember.roles.remove('1055735786722558014');
                     await getMember.roles.remove('1055735880050036737');
+                    console.log(`-- roles removed`);
+                    /*
 
                     // Remove all game roles to prep the user when they re-select
                     for (let x in roles.games) {
@@ -51,6 +53,7 @@ module.exports = {
                         let getRoles = getGuild.roles.cache.find(role => role.id === roles.games[y]['id']);
                         await getMember.roles.add(getRoles);
                     }
+                    */
                 }
 
                 // Handle class roles
