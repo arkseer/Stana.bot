@@ -35,7 +35,9 @@ module.exports = {
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId('get_roles_games')
-                    .setPlaceholder('GAMES: Select what games you play'),
+                    .setPlaceholder('GAMES: Select what games you play')
+                    .setMinValues(0)
+                    .setMaxValues(2),
             );
 
         for (let x in games) {
