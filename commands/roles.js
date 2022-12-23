@@ -18,7 +18,7 @@ module.exports = {
                     .setCustomId('get_roles_pings')
                     .setPlaceholder('Select what content you want to be pinged')
                     .setMinValues(0)
-                    .setMaxValues(pings.length),
+                    .setMaxValues(Object.keys(pings).length),
             );
 
         for (let x in pings) {
