@@ -45,7 +45,7 @@
         "xbox"      : "819493982986960917"
     },
 
-    "games": {
+    "gamesRoles": {
         "divider"   : "892113569389375528",
 
         "d2"        : "891861359288021062",
@@ -429,6 +429,19 @@
             "label"     : "Controller",
             "value"     : "controller",
             "emoji"     : "<:controller:1043750518922682398>"
+        }
+    },
+
+    "games": {
+        "valorant": {
+            "label"     : "Valorant",
+            "value"     : "valorant",
+            "emoji"     : "<:valorant:1055773199767457803>"
+        },
+        "destiny": {
+            "label"     : "Destiny 2",
+            "value"     : "destiny2",
+            "emoji"     : "<:destiny2:1055773197326352396>"
         }
     },
 

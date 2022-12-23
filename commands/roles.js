@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
-const { pings, classes, agents } = require('../config.json');
+const { pings, classes, agents, games } = require('../config.json');
 const { execute } = require('./help');
 
 module.exports = {
@@ -27,6 +27,23 @@ module.exports = {
                     label: pings[x]['label'],
                     value: pings[x]['value'],
                     emoji: pings[x]['emoji'],
+                },
+            ]);
+        }
+
+        let gamesMenu = new MessageActionRow()
+            .addComponents(
+                new MessageSelectMenu()
+                    .setCustomId('get_roles_games')
+                    .setPlaceholder('GAMES: Select what games you play'),
+            );
+
+        for (let x in games) {
+            gamesMenu.components[0].addOptions([
+                {
+                    label: games[x]['label'],
+                    value: games[x]['value'],
+                    emoji: games[x]['emoji']
                 },
             ]);
         }
@@ -72,6 +89,6 @@ module.exports = {
             await interaction.reply({ content: `Command initiated`, ephemeral: true, components: [] });
             await wait(2000);
 
-            await interaction.channel.send({ content: `You can select one or multiple options to be granted different benefits in the community`, ephemeral: false, components: [pingsMenu, vaClassesMenu, vaAgentsMenu] });
+            await interaction.channel.send({ content: `You can select one or multiple options to be granted different benefits in the community`, ephemeral: false, components: [pingsMenu, gamesMenu, vaClassesMenu, vaAgentsMenu] });
     }
 }
