@@ -36,27 +36,19 @@ module.exports = {
                     await interaction.reply({ content: `You have been granted the selected roles.`, ephemeral: true, components: [] });
 
                     // Remove all game roles to prep the user when they re-select
-                    /*
                     for (let x in roles.games) {
                         let hasRole = getMember.roles.cache.some(role => role.id === roles.games[x]['id']);
                         if (hasRole) {
                             let getAllRoles = getGuild.roles.cache.find(role => role.id === roles.games[x]['id']);
                             await getMember.roles.remove(getAllRoles);
-                            console.log(`-- removed role ${x}`);
-                        }
+                        }                        
                     }
-                    console.log(`-- removed roles`);
-                    */
 
-                    
                     // Add selected roles to user
                     for (let y of interaction.values) {
                         let getRoles = getGuild.roles.cache.find(role => role.id === roles.games[y]['id']);
                         await getMember.roles.add(getRoles);
                     }
-                    console.log(`++ added role`);
-                    
-
                 }
 
                 // Handle class roles
