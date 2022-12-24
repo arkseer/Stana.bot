@@ -27,8 +27,20 @@ module.exports = {
             return faceitPost;
         }
 
+        const faceitBtn = new MessageActionRow()
+            .addComponents(
+                new MessageButton()
+                    .setCustomId('faceit_approve')
+                    .setLabel('Approve')
+                    .setStyle('SUCCESS'),
+                new MessageButton()
+                    .setCustomId('faceit_deny')
+                    .setLabel('Deny')
+                    .setStyle('DANGER'),
+            );
+
         let _faceitEmbed = faceitEmbed();
 
-        await interaction.reply({ content: `It works`, ephemeral: true, components: [], embeds: [_faceitEmbed] });
+        await interaction.reply({ ephemeral: true, components: [faceitBtn], embeds: [_faceitEmbed] });
     }
 }
