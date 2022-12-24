@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { bot, roles } = require('../config.json');
+const { bot, roles, faceit } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -16,7 +16,7 @@ module.exports = {
         let getBot = await interaction.guild.members.fetch(bot);
         let getMember = await interaction.member;
 
-        let getFaceitCH = interaction.client.channels.cache.get('1056127232277495818');
+        let getFaceitCH = interaction.client.channels.cache.get(faceit.channel);
 
         function faceitEmbed() {
             const faceitPost = new MessageEmbed()
@@ -43,6 +43,7 @@ module.exports = {
 
         let _faceitEmbed = faceitEmbed();
 
-        await interaction.reply({ ephemeral: true, components: [faceitBtn], embeds: [_faceitEmbed] });
+        await interaction.reply({ content: `Your application was sent to our admins, please be patient while they get back to you.`, ephemeral: true, components: [], embeds: [] });
+        await getFaceitCH.send({ ephemeral: false, components: [faceitBtn], embeds: [_faceitEmbed] });
     }
 }
