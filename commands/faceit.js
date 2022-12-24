@@ -14,6 +14,7 @@ module.exports = {
     async execute(interaction) {
         const wait = require('util').promisify(setTimeout);
         let getBot = await interaction.guild.members.fetch(bot);
+        let getMember = await interaction.member;
 
         let getFaceitCH = interaction.client.channels.cache.get('1056127232277495818');
 
@@ -21,7 +22,8 @@ module.exports = {
             const faceitPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('cf889f')
-                .setDescription(`some description here`)
+                .setDescription(`**${getMember.displayName}** has applied to join the Faceit Hub.`)
+                .addField(`Applicant name`, `<@${interaction.user.tag}>`, false)
                 .setImage('https://i.imgur.com/y0bAZc3.png');
 
             return faceitPost;
