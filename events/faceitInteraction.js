@@ -1,5 +1,5 @@
 const { MessageActionRow, MessageEmbed, MessageButton } = require('discord.js');
-const { bot, roles: { activity } } = require('../config.json');
+const { bot, roles: { activity }, faceit } = require('../config.json');
 
 module.exports = {
     name: 'interactionCreate',
@@ -35,10 +35,18 @@ module.exports = {
                                 .setDisabled(true),
                         );
 
+                    const faceitInvite = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setLabel('Faceit Hub')
+                                .setStyle('URL')
+                                .setURL(faceit.invite),
+                        );
+
                     await getMessage.edit({ components: [closedBtn] });
 
-                    await interaction.reply({ content: ``, ephemeral: true, components: [] });
-                    await getUser.send({ content: ``, ephemeral: false, components: [] });
+                    await interaction.reply({ content: `Approval message sent to applicant`, ephemeral: true, components: [] });
+                    await getUser.send({ content: `Congrats, you have been invited to join our Faceit hub, please find the invite URL by clicking on the button attached to this message.`, ephemeral: false, components: [faceitInvite] });
 
                     // Add Faceit role
                     await getMember.roles.add(faceitRole);
@@ -69,7 +77,7 @@ module.exports = {
                     await getMessage.edit({ components: [closedBtn] });
 
                     await interaction.reply({ content: `Denial message sent to applicant.`, ephemeral: true, components: [] });
-                    await getUser.send({ content: ``, ephemeral: false, components: [] })
+                    await getUser.send({ content: `I am terribly sorry, but we decided to not honor your application at this time. Please try again at a later date.\nThank you!`, ephemeral: false, components: [] })
                 }
             } catch (error) {
                 console.error(error);
