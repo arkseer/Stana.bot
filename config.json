@@ -344,6 +344,12 @@
                 "label"             : "E-Chads"
             }
         },
+        "activity": {
+            "faceit": {
+                "id"                : "1038247450328186920",
+                "label"             : "Faceit"
+            }
+        },
         "applications": {
             "applied": {
                 "content_creator": {
@@ -373,7 +379,7 @@
                     "label"             : "Pending application: Designer"
                 }
             }
-        },        
+        },    
         "games": {
             "valorant": {
                 "id"                : "1055735786722558014",
@@ -571,6 +577,11 @@
             "value"     : "harbor",
             "emoji"     : "<:harbor:1043750435061764167>"
         }
+    },
+
+    "faceit": {
+        "invite"        : "https://www.faceit.com/en/inv/u6S6mDL",
+        "channel"       : "1056127232277495818"
     },
 
     "url": {
