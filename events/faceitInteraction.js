@@ -1,0 +1,79 @@
+const { MessageActionRow, MessageEmbed, MessageButton } = require('discord.js');
+const { bot, roles: { activity } } = require('../config.json');
+
+module.exports = {
+    name: 'interactionCreate',
+    async execute(interaction) {
+        if (interaction.isButton()) {
+            try {
+                let userId = interaction.user.id;
+                let getGuild = await interaction.guild;
+                let getMember = await interaction.guild.members.fetch(userId);
+                const getBot = await interaction.guild.members.fetch(bot);
+
+                if (interaction.customId === 'faceit_approve') {
+                    const getMessage = await interaction.message;
+                    const getEmbed = await getMessage.embeds[0];
+                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
+
+
+                    let faceitRole = getGuild.roles.cache.find(role => role.id === activity.faceit.id);
+
+                    function getRawUser(user) {
+                        return user.toString().replace(/[^0-9]/g, "");
+                    }
+
+                    const getApplicantId = getRawUser(getApplicant.value);
+                    const getUser = await interaction.guild.members.fetch(getApplicantId);
+
+                    const closedBtn = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setCustomId('faceit_closed')
+                                .setLabel('Closed')
+                                .setStyle('SECONDARY')
+                                .setDisabled(true),
+                        );
+
+                    await getMessage.edit({ components: [closedBtn] });
+
+                    await interaction.reply({ content: ``, ephemeral: true, components: [] });
+                    await getUser.send({ content: ``, ephemeral: false, components: [] });
+
+                    // Add Faceit role
+                    await getMember.roles.add(faceitRole);
+                } else if (interaction.customId === 'faceit_deny') {
+                    const getMessage = await interaction.message;
+                    const getEmbed = await getMessage.embeds[0];
+                    const getApplicant = await getEmbed.fields.find(field => field.name === 'Applicant name');
+
+
+                    //let faceitRole = getGuild.roles.cache.find(role => role.id === activity.faceit.id);
+
+                    function getRawUser(user) {
+                        return user.toString().replace(/[^0-9]/g, "");
+                    }
+
+                    const getApplicantId = getRawUser(getApplicant.value);
+                    const getUser = await interaction.guild.members.fetch(getApplicantId);
+
+                    const closedBtn = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setCustomId('faceit_closed')
+                                .setLabel('Closed')
+                                .setStyle('SECONDARY')
+                                .setDisabled(true),
+                        );
+
+                    await getMessage.edit({ components: [closedBtn] });
+
+                    await interaction.reply({ content: `Denial message sent to applicant.`, ephemeral: true, components: [] });
+                    await getUser.send({ content: ``, ephemeral: false, components: [] })
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    }
+}

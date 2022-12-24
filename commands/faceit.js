@@ -15,15 +15,18 @@ module.exports = {
         const wait = require('util').promisify(setTimeout);
         let getBot = await interaction.guild.members.fetch(bot);
         let getMember = await interaction.member;
+        let getGuild = await interaction.guild;
 
         let getFaceitCH = interaction.client.channels.cache.get(faceit.channel);
+
+        let hasRole = getMember.roles.cache.some(role => role.id === roles.activity.faceit.id);
 
         function faceitEmbed() {
             const faceitPost = new MessageEmbed()
                 .setAuthor({ name: `\u2800`, url: ``, iconURL: getBot.displayAvatarURL() })
                 .setColor('cf889f')
                 .setDescription(`**${getMember.displayName}** has applied to join the Faceit Hub.`)
-                .addField(`Applicant name`, `<@${interaction.user.tag}>`, false)
+                .addField(`Applicant name`, `<@${interaction.user.id}>`, false)
                 .setImage('https://i.imgur.com/y0bAZc3.png');
 
             return faceitPost;
