@@ -39,7 +39,7 @@ module.exports = {
                         .addComponents(
                             new MessageButton()
                                 .setLabel('Faceit Hub')
-                                .setStyle('URL')
+                                .setStyle('LINK')
                                 .setURL(faceit.invite),
                         );
 
