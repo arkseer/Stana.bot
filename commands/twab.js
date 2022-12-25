@@ -58,30 +58,20 @@ module.exports = {
                 await getTwabCh.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] })
                     .then(function (message) {
                         message.startThread({
-                            name: 'Test discussion',
+                            name: 'Discuss TWAB',
                             autoArchiveDuration: 60,
                             reason: 'Discuss the twab here',
                             type: 'GUILD_PUBLIC_THREAD',
                         })
                         .then(messageThread => {
                             messageThread.send({
-                                content: `Test message inside thread`,
+                                content: `New TWAB dropped, please have your discussion on the topic here.`,
                                 threadId: messageThread.id
                             });
                         })
                         .catch(console.error);
                     })
                     .catch(console.error);
-                /*
-                await getTwabCh.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] });
-                await getTwabCh.threads.create({
-                    name: 'Test thread',
-                    autoArchiveDuration: 60,
-                    reason: 'Need to test this',
-                })
-                .then(threadChannel => console.log(threadChannel))
-                .catch(console.error);
-                */
             }
             // Else run: if link does not include valid Bungie links
             else {
