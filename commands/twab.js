@@ -63,7 +63,12 @@ module.exports = {
                             reason: 'Discuss the twab here',
                             type: 'GUILD_PUBLIC_THREAD',
                         })
-                        .then(messageThread => console.log(messageThread))
+                        .then(messageThread => {
+                            messageThread.send({
+                                content: `Test message inside thread`,
+                                threadId: messageThread.id
+                            });
+                        })
                         .catch(console.error);
                     })
                     .catch(console.error);
