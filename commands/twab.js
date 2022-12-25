@@ -12,8 +12,9 @@ module.exports = {
             .setDescription('Requires bung.ie/<link> or bungie.net/<link>')
             .setRequired(true)),
     async execute(interaction, client) {
-        let getFounder = interaction.member.roles.cache.some(role => role.id === core_roles['founder']);
-        let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles['admin']);
+        let getFounder = interaction.member.roles.cache.some(role => role.id === core_roles.founder);
+        let getManager = interaction.member.roles.cache.some(role => role.id === core_roles.manager);
+        let getAdmin = interaction.member.roles.cache.some(role => role.id === core_roles.admin);
 
         let getLink = interaction.options.getString('twab_link');
         let postLink;
