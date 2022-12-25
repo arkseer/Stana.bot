@@ -57,10 +57,11 @@ module.exports = {
                 await wait(1000);
                 await getTwabCh.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] })
                     .then(function (message) {
-                        message.threads.create({
+                        message.startThread({
                             name: 'Test discussion',
                             autoArchiveDuration: 60,
                             reason: 'Discuss the twab here',
+                            type: 'GUILD_PUBLIC_THREAD',
                         })
                         .then(messageThread => console.log(messageThread))
                         .catch(console.error);
