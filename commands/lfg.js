@@ -118,7 +118,23 @@ module.exports = {
                     } else {
                         await interaction.reply({ ephemeral: true, components: [], embeds: [valEmbed] });
                         await wait(1000);
-                        await getVALfgCH.send({ content: `<@&${pings['valorant_lfg']['id']}>`, ephemeral: false, components: [], embeds: [valEmbed] });
+                        await getVALfgCH.send({ content: `<@&${pings['valorant_lfg']['id']}>`, ephemeral: false, components: [], embeds: [valEmbed] })
+                            .then(function (message) {
+                                message.startThread({
+                                    name: `${getUser}'s LFG Post`,
+                                    autoArchiveDuration: 60,
+                                    reason: 'Discuss the LFG post here',
+                                    type: 'GUILD_PUBLIC_THREAD',
+                                })
+                                .then(messageThread => {
+                                    messageThread.send({
+                                        content: `${getUser} created a new LFG post, all other details are to be discussed here.`,
+                                        threadId: messageThread.id
+                                    });
+                                })
+                                .catch(console.error);
+                            })
+                            .catch(console.error);
                     }
                 }
             } else {
