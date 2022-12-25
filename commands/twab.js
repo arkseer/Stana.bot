@@ -55,6 +55,17 @@ module.exports = {
                 }
                 await interaction.reply({ content: `Twab posted.\nThank you${getGender}!\n\n*You can safely dismiss this message.*`, ephemeral: true, components: [] });
                 await wait(1000);
+                await getTwabCh.send({ content: `@everyonee ${postLink}`, ephemeral: false, components: [] })
+                    .then(message => message.threads.create({
+                        name: 'Test discussion',
+                        autoArchiveDuration: 60,
+                        reason: 'Discuss the twab here',
+                    })
+                    .then(messageThread => console.log(messageThread))
+                    .catch(console.error)
+                )
+                .catch(console.error);
+                /*
                 await getTwabCh.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] });
                 await getTwabCh.threads.create({
                     name: 'Test thread',
@@ -63,6 +74,7 @@ module.exports = {
                 })
                 .then(threadChannel => console.log(threadChannel))
                 .catch(console.error);
+                */
             }
             // Else run: if link does not include valid Bungie links
             else {
