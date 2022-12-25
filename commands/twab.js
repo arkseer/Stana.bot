@@ -18,7 +18,8 @@ module.exports = {
         let getLink = interaction.options.getString('twab_link');
         let postLink;
 
-        let getTwabCh = interaction.client.channels.cache.get(twab_channel_id);
+        //let getTwabCh = interaction.client.channels.cache.get(twab_channel_id);
+        let getTwabCh = interaction.client.channels.cache.get(dev_channel_id);
 
         const wait = require('util').promisify(setTimeout);
 
