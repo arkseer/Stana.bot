@@ -57,7 +57,7 @@ module.exports = {
                 await wait(1000);
                 await getTwabCh.send({ content: `@everyone ${postLink}`, ephemeral: false, components: [] })
                     .then(message => {
-                        getTwabCh.createThread({
+                        getTwabCh.threads.create({
                             name: 'Test discussion',
                             autoArchiveDuration: 60,
                             reason: 'Discuss the twab here',
