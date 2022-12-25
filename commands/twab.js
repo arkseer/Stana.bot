@@ -18,8 +18,7 @@ module.exports = {
         let getLink = interaction.options.getString('twab_link');
         let postLink;
 
-        //let getTwabCh = interaction.client.channels.cache.get(twab_channel_id);
-        let getTwabCh = interaction.client.channels.cache.get(dev_channel_id);
+        let getTwabCh = interaction.client.channels.cache.get(twab_channel_id);
 
         const wait = require('util').promisify(setTimeout);
 
@@ -34,7 +33,7 @@ module.exports = {
         }
 
         // Check for permissions to allow the user to run the command
-        if (getAdmin || getFounder) {
+        if (getAdmin || getManager || getFounder) {
             // Check if link includes valid Bungie links
             if (getLink.includes(bungie_links['short']) || getLink.includes(bungie_links['long'])) {
                 // Check if link starts with https://www.
